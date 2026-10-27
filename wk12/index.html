@@ -2,45 +2,67 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ladpet · Week 12 Brainstorm</title>
 <style>
-body{margin:0;font-family:system-ui,-apple-system,'Segoe UI',Roboto,Sarabun,'Leelawadee UI',Thonburi,sans-serif;background:#f5f6fc;color:#1e1b4b}
-header{background:#4f46e5;color:#fff;padding:20px 24px}
-header .k{opacity:.85;font-size:14px;letter-spacing:.06em;text-transform:uppercase;font-weight:700}
-header h1{margin:4px 0 6px;font-size:26px}header p{margin:0;opacity:.9}
-main{padding:20px 16px;max-width:1100px;margin:0 auto;display:grid;gap:20px}
-section.card{display:block;background:#fff;border:1px solid #e3e5f1;border-radius:14px;padding:16px 18px;text-decoration:none;color:inherit}
-section.card h2{margin:0 0 4px;font-size:22px}section.card h2 a{color:#4f46e5;text-decoration:none}
-section.card .n{font-size:13px;color:#64748b;font-weight:700;margin-bottom:8px}
-.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
-a.co{display:flex;flex-direction:column;border:1px solid #e3e5f1;border-radius:10px;overflow:hidden;text-decoration:none;color:inherit;background:#fff}
-a.co:hover{border-color:#4f46e5}
-a.co .ph{display:block;position:relative;aspect-ratio:1/1;background:#eef0f8}
-a.co img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
-a.co .nm{padding:6px 8px;font-size:14px;font-weight:600;line-height:1.3}
-footer{padding:0 24px 24px;color:#64748b;font-size:13px;text-align:center}
+html,body{height:100%}
+body{margin:0;font-family:system-ui,-apple-system,'Segoe UI',Roboto,Sarabun,'Leelawadee UI',Thonburi,sans-serif;background:#f5f6fc;color:#1e1b4b;display:flex;flex-direction:column;height:100dvh;overflow:hidden}
+header{background:#4f46e5;color:#fff;padding:10px 16px;flex:none}
+header .k{opacity:.85;font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:700}
+header h1{margin:2px 0 0;font-size:20px;line-height:1.25}header p{margin:2px 0 0;opacity:.9;font-size:13px}
+main{flex:1;min-height:0;padding:12px 16px;display:grid;gap:12px;grid-auto-rows:1fr;width:100%;max-width:1400px;margin:0 auto;box-sizing:border-box}
+@media (orientation:landscape) and (min-width:700px){main{grid-auto-flow:column;grid-auto-columns:1fr;grid-auto-rows:auto}}
+a.card{display:flex;flex-direction:column;min-height:0;min-width:0;background:#fff;border:1px solid #e3e5f1;border-radius:14px;padding:10px 12px;text-decoration:none;color:inherit;transition:border-color .15s,box-shadow .15s}
+a.card:hover,a.card:focus-visible{border-color:#4f46e5;box-shadow:0 0 0 3px #c7d2fe;outline:none}
+.hd{display:flex;align-items:baseline;gap:10px;flex:none;margin-bottom:8px}
+.sec{font-size:22px;font-weight:800;color:#4f46e5}
+.n{font-size:13px;color:#64748b;font-weight:700;white-space:nowrap}
+.go{margin-left:auto;font-size:14px;font-weight:700;color:#4f46e5;white-space:nowrap}
+.grid{flex:1;min-height:0;display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));overflow:hidden}
+.co{display:flex;flex-direction:column;min-height:0;min-width:0;border:1px solid #e3e5f1;border-radius:8px;overflow:hidden}
+.ph{flex:1;min-height:0;position:relative;background:#eef0f8}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+.nm{flex:none;margin:4px 5px;overflow-wrap:break-word;font-size:var(--fs,12px);font-weight:600;line-height:1.25;text-align:center;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;height:2.5em}
+footer{flex:none;padding:0 16px 8px;color:#64748b;font-size:12px;text-align:center}
 </style></head><body>
 <header><div class="k">GE5072 · Ladpet</div><h1>Week 12 Brainstorm: Your Company</h1>
-<p>Final Project company profiles from the class brainstorming session, 26 October 2026.</p></header>
+<p>Final Project company profiles from the class brainstorming session, 26 October 2026. Tap a section to open its board.</p></header>
 <main>
-<section class="card"><h2><a href="ca48.html">CA48 →</a></h2><div class="n">9 companies · tap a photo to open its profile</div><div class="grid">
-<a class="co" href="ca48.html#p1"><span class="ph"><img src="thumbs/ca48-1.jpg" alt="Chawaddee (Thai Tea House)" loading="lazy"></span><span class="nm">Chawaddee (Thai Tea House)</span></a>
-<a class="co" href="ca48.html#p2"><span class="ph"><img src="thumbs/ca48-2.jpg" alt="Siam Delicious" loading="lazy"></span><span class="nm">Siam Delicious</span></a>
-<a class="co" href="ca48.html#p3"><span class="ph"><img src="thumbs/ca48-3.jpg" alt="Bright Lab Skincare" loading="lazy"></span><span class="nm">Bright Lab Skincare</span></a>
-<a class="co" href="ca48.html#p4"><span class="ph"><img src="thumbs/ca48-4.jpg" alt="Six Seven Cloth" loading="lazy"></span><span class="nm">Six Seven Cloth</span></a>
-<a class="co" href="ca48.html#p5"><span class="ph"><img src="thumbs/ca48-5.jpg" alt="Bucha Thai Tea" loading="lazy"></span><span class="nm">Bucha Thai Tea</span></a>
-<a class="co" href="ca48.html#p6"><span class="ph"><img src="thumbs/ca48-6.jpg" alt="WHY2" loading="lazy"></span><span class="nm">WHY2</span></a>
-<a class="co" href="ca48.html#p7"><span class="ph"><img src="thumbs/ca48-7.jpg" alt="Burger Queen" loading="lazy"></span><span class="nm">Burger Queen</span></a>
-<a class="co" href="ca48.html#p8"><span class="ph"><img src="thumbs/ca48-8.jpg" alt="Topping Company" loading="lazy"></span><span class="nm">Topping Company</span></a>
-<a class="co" href="ca48.html#p9"><span class="ph"><img src="thumbs/ca48-9.jpg" alt="Fun Luang Entertainment" loading="lazy"></span><span class="nm">Fun Luang Entertainment</span></a>
-</div></section>
-<section class="card"><h2><a href="ec30.html">EC30 →</a></h2><div class="n">7 companies · tap a photo to open its profile</div><div class="grid">
-<a class="co" href="ec30.html#p1"><span class="ph"><img src="thumbs/ec30-1.jpg" alt="nisityakpenbung (นิสิตอยากเป็นบัง)" loading="lazy"></span><span class="nm">nisityakpenbung (นิสิตอยากเป็นบัง)</span></a>
-<a class="co" href="ec30.html#p2"><span class="ph"><img src="thumbs/ec30-2.jpg" alt="Sage &amp; Stone" loading="lazy"></span><span class="nm">Sage &amp; Stone</span></a>
-<a class="co" href="ec30.html#p3"><span class="ph"><img src="thumbs/ec30-3.jpg" alt="Oat Beer" loading="lazy"></span><span class="nm">Oat Beer</span></a>
-<a class="co" href="ec30.html#p4"><span class="ph"><img src="thumbs/ec30-4.jpg" alt="Queen Man" loading="lazy"></span><span class="nm">Queen Man</span></a>
-<a class="co" href="ec30.html#p5"><span class="ph"><img src="thumbs/ec30-5.jpg" alt="Crispy Joy" loading="lazy"></span><span class="nm">Crispy Joy</span></a>
-<a class="co" href="ec30.html#p6"><span class="ph"><img src="thumbs/ec30-6.jpg" alt="Mori Mood" loading="lazy"></span><span class="nm">Mori Mood</span></a>
-<a class="co" href="ec30.html#p7"><span class="ph"><img src="thumbs/ec30-7.jpg" alt="Block 90&#x27;" loading="lazy"></span><span class="nm">Block 90&#x27;</span></a>
-</div></section>
+<a class="card" href="ca48.html"><span class="hd"><span class="sec">CA48</span><span class="n">9 companies</span><span class="go">Open board →</span></span><span class="grid">
+<span class="co"><span class="ph"><img src="thumbs/ca48-1.jpg" alt=""></span><span class="nm">Chawaddee (Thai Tea House)</span></span>
+<span class="co"><span class="ph"><img src="thumbs/ca48-2.jpg" alt=""></span><span class="nm">Siam Delicious</span></span>
+<span class="co"><span class="ph"><img src="thumbs/ca48-3.jpg" alt=""></span><span class="nm">Bright Lab Skincare</span></span>
+<span class="co"><span class="ph"><img src="thumbs/ca48-4.jpg" alt=""></span><span class="nm">Six Seven Cloth</span></span>
+<span class="co"><span class="ph"><img src="thumbs/ca48-5.jpg" alt=""></span><span class="nm">Bucha Thai Tea</span></span>
+<span class="co"><span class="ph"><img src="thumbs/ca48-6.jpg" alt=""></span><span class="nm">WHY2</span></span>
+<span class="co"><span class="ph"><img src="thumbs/ca48-7.jpg" alt=""></span><span class="nm">Burger Queen</span></span>
+<span class="co"><span class="ph"><img src="thumbs/ca48-8.jpg" alt=""></span><span class="nm">Topping Company</span></span>
+<span class="co"><span class="ph"><img src="thumbs/ca48-9.jpg" alt=""></span><span class="nm">Fun Luang Entertainment</span></span>
+</span></a>
+<a class="card" href="ec30.html"><span class="hd"><span class="sec">EC30</span><span class="n">7 companies</span><span class="go">Open board →</span></span><span class="grid">
+<span class="co"><span class="ph"><img src="thumbs/ec30-1.jpg" alt=""></span><span class="nm">nisityakpenbung (นิสิตอยากเป็นบัง)</span></span>
+<span class="co"><span class="ph"><img src="thumbs/ec30-2.jpg" alt=""></span><span class="nm">Sage &amp; Stone</span></span>
+<span class="co"><span class="ph"><img src="thumbs/ec30-3.jpg" alt=""></span><span class="nm">Oat Beer</span></span>
+<span class="co"><span class="ph"><img src="thumbs/ec30-4.jpg" alt=""></span><span class="nm">Queen Man</span></span>
+<span class="co"><span class="ph"><img src="thumbs/ec30-5.jpg" alt=""></span><span class="nm">Crispy Joy</span></span>
+<span class="co"><span class="ph"><img src="thumbs/ec30-6.jpg" alt=""></span><span class="nm">Mori Mood</span></span>
+<span class="co"><span class="ph"><img src="thumbs/ec30-7.jpg" alt=""></span><span class="nm">Block 90&#x27;</span></span>
+</span></a>
 </main>
 <footer>Saved from Ladpet (GE5072) · names are the nicknames students chose.</footer>
+<script>
+// Pick the column count that gives each company the biggest photo inside its section tile
+function fit(){
+  document.querySelectorAll('.grid').forEach(function(g){
+    var n=g.children.length,gap=8,W=g.clientWidth,H=g.clientHeight,best=null;
+    for(var c=1;c<=n;c++){
+      var r=Math.ceil(n/c),w=(W-(c-1)*gap)/c,h=(H-(r-1)*gap)/r;
+      var fs=Math.max(10,Math.min(15,w*0.085)),side=Math.min(w-2,h-2.5*fs-8);
+      var score=w<70?side*0.75:side; // narrow cells cut the names
+      if(!best||score>best.score)best={c:c,r:r,score:score,fs:fs};
+    }
+    g.style.gridTemplateColumns='repeat('+best.c+',minmax(0,1fr))';
+    g.style.gridTemplateRows='repeat('+best.r+',minmax(0,1fr))';
+    g.style.setProperty('--fs',best.fs.toFixed(1)+'px');
+  });
+}
+fit();addEventListener('resize',fit);
+</script>
 </body></html>
