@@ -13,4 +13,4 @@ The live Ladpet app is a separate repo (`ge5072-class-wall`).
 3. Fill in each post's `"company"` in the data file.
 4. `python3 tools/build.py <week>` — rebuilds the index and every section page (safe to re-run).
 
-Every page fits one screen. The index shows every section in `<week>/sections.json` (sections without data show as small "coming soon" tiles). A section page shows each company as a tile with its photo and the start of its profile; tapping one opens the full board at that company (`#p<n>`).
+Every page fits one screen. The index shows every section in `<week>/sections.json` (sections without data show as small "coming soon" tiles). A section page shows each company as a tile with its photo and the start of its profile; tapping one opens that company's presentation slide (`#p<n>`): photo on the left, the whole profile on the right, sized to fit. ◀ ▶, the arrow keys or a presentation clicker (Page Up/Down) move between companies; Esc or "← All companies" goes back to the tiles.

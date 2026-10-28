@@ -8,8 +8,9 @@ Reads <week>/sections.json (sections + class times) and <week>/data/<code>.json
 index as "coming soon". Photos: <week>/img/<code>-<n>.jpg, thumbnails in thumbs/.
 
 Every page fits one screen. A section page opens as a grid of company tiles
-(photo + the start of the profile); tapping one shows the full board at that
-company (#p<n>).
+(photo + the start of the profile); tapping one presents that company (#p<n>):
+photo on the left, the whole profile on the right, ◀ ▶ / arrow keys / a
+clicker to move between companies.
 """
 import html
 import json
@@ -162,6 +163,7 @@ def excerpt_html(tagline, secs):
 def full_html(tagline, secs):
     out = [f'<p class="tg">{esc(tagline)}</p>'] if tagline else []
     for s in secs:
+        out.append('<div class="sec">')
         if s["h"]:
             out.append(f'<h3><span class="ic">{icon(s["h"]) or "•"}</span>{esc(s["h"])}</h3>')
         ul = []
@@ -175,27 +177,16 @@ def full_html(tagline, secs):
             out.append(f"<p><b>{esc(i[1])}:</b> {esc(i[2])}</p>" if i[0] == "kv" else f"<p>{esc(i[1])}</p>")
         if ul:
             out.append("<ul>" + "".join(ul) + "</ul>")
+        out.append("</div>")
     return "".join(out)
 
 
 # ---------- section page ----------
 
-def jpeg_size(path):
-    b = path.read_bytes()
-    i = 2
-    while i < len(b):
-        marker, size = b[i + 1], int.from_bytes(b[i + 2:i + 4], "big")
-        if 0xC0 <= marker <= 0xCF and marker not in (0xC4, 0xC8, 0xCC):
-            return int.from_bytes(b[i + 7:i + 9], "big"), int.from_bytes(b[i + 5:i + 7], "big")
-        i += 2 + size
-    raise ValueError(f"no SOF in {path}")
-
-
 SECTION_CSS = """
-html.tiles,html.tiles body{height:100%;overflow:hidden}
-html.tiles body{display:flex;flex-direction:column;height:100dvh}
-html.tiles #board,html.tiles footer,html.tiles .float{display:none}
-html.full #tiles{display:none}
+html,body{height:100%;overflow:hidden}
+body{display:flex;flex-direction:column;height:100dvh}
+html.full header.top,html.tiles .bar,html.tiles #slides,html.full #tiles{display:none}
 #tiles{flex:1;min-height:0;display:flex;flex-direction:column;gap:10px;padding:14px 18px 16px;width:100%;max-width:1840px;margin:0 auto}
 .hint{flex:none;font-weight:800;font-size:13px;color:var(--muted)}
 .hint b{color:var(--acc)}
@@ -213,37 +204,54 @@ html.full #tiles{display:none}
 .co .nm{flex:none;font-family:'Fredoka','Mitr','Noto Sans Thai',sans-serif;font-weight:600;font-size:1.32em;line-height:1.15;
   display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .co .by{flex:none;margin:3px 0 4px;font-size:.88em;font-weight:800;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.co .by span,.post .by span{background:var(--tint);border:1.5px solid var(--ink);border-radius:999px;padding:0 7px;color:var(--ink)}
+.co .by span,.slide .by span{background:var(--tint);border:1.5px solid var(--ink);border-radius:999px;padding:0 .5em;color:var(--ink)}
 .co .det{flex:1;min-height:0;overflow:hidden;line-height:1.38;-webkit-mask-image:linear-gradient(#000 62%,transparent);mask-image:linear-gradient(#000 62%,transparent)}
 .co .det p{margin:0 0 3px}
 .co .det b{color:var(--acc);font-weight:800}
-.co .det .tg,.post .tg{font-style:italic;font-weight:700}
+.co .det .tg,.slide .tg{font-style:italic;font-weight:700}
 .co .more{flex:none;align-self:flex-end;font-weight:800;font-size:.92em;color:var(--acc)}
 .grid.tight .co .more,.grid.tight .co .det b{display:none}
 .grid.tight .co .by{margin:2px 0 3px}
-@media (max-width:560px){#tiles{padding:10px 12px 12px;gap:8px}.grid{gap:10px}}
 .co.pic .det{flex:none;color:var(--muted);font-weight:700;-webkit-mask-image:none;mask-image:none}
-#board{padding:16px 18px 10px;max-width:1840px;margin:0 auto}
-.covers{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:0 0 16px;font-weight:800;font-size:13px}
-.covers span{background:#fff;border:2px solid var(--ink);border-radius:999px;padding:2px 10px;font-weight:700}
-.posts{columns:3 320px;column-gap:20px}
-.post{break-inside:avoid;margin:0 0 20px;overflow:hidden;scroll-margin-top:14px}
-.post .ph{background:var(--tint);padding:10px;border-bottom:2px solid var(--ink)}
-.post .ph img{display:block;width:100%;height:auto;border-radius:10px}
-.post .bd{padding:12px 16px 14px;line-height:1.5;font-size:15px}
-.post h2{margin:0;font-size:22px;font-weight:600;line-height:1.2}
-.post .by{margin:4px 0 8px;font-weight:800;font-size:13px;color:var(--muted)}
-.post h3{margin:12px 0 2px;font-size:15px;font-weight:800;color:var(--acc);display:flex;gap:6px;align-items:baseline}
-.post p{margin:2px 0}.post ul{margin:2px 0;padding-left:20px}
-.post:target{box-shadow:0 0 0 5px var(--acc),6px 6px 0 5px var(--ink);animation:pop .5s ease-out}
-@keyframes pop{0%{transform:scale(.97)}60%{transform:scale(1.015)}100%{transform:none}}
-.float{position:fixed;right:16px;bottom:16px;z-index:5;background:var(--ink);color:#fff;text-decoration:none;font-weight:800;font-size:14px;
-  padding:10px 16px;border-radius:999px;border:2px solid #fff;box-shadow:3px 3px 0 var(--acc)}
-.float:hover{background:var(--acc)}
-@media (prefers-reduced-motion:reduce){.post:target{animation:none}a.co,a.card{transition:none}}
+@media (max-width:560px){#tiles{padding:10px 12px 12px;gap:8px}.grid{gap:10px}}
+
+.bar{flex:none;display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--acc);color:#fff;border-bottom:3px solid var(--ink)}
+.bar .ttl{font-weight:600;font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.bar .ttl .sticker{font-size:15px;margin-right:6px}
+.bar .sp{flex:1}
+.bar button,.bar a.pill{font:inherit;cursor:pointer}
+.bar button{background:#fff;color:var(--ink);border:2px solid var(--ink);border-radius:999px;font-weight:800;font-size:14px;padding:2px 12px;line-height:1.4}
+.bar button:hover{background:#ffd34d}
+.bar button:disabled{opacity:.4;cursor:default;background:#fff}
+.bar .count{font-weight:800;font-size:14px;min-width:3.6em;text-align:center}
+#slides{flex:1;min-height:0;padding:16px 20px 20px;width:100%;max-width:1840px;margin:0 auto}
+.slide{display:none;height:100%;gap:22px;grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);grid-template-rows:minmax(0,1fr)}
+.slide.on{display:grid;animation:slidein .35s ease-out}
+.slide.nopic{grid-template-columns:minmax(0,1fr)}
+.slide.pic{grid-template-columns:minmax(0,1.7fr) minmax(0,1fr)}
+@keyframes slidein{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.slide .photo{position:relative;background:var(--tint);overflow:hidden;min-height:0}
+.slide .photo img{position:absolute;inset:16px;width:calc(100% - 32px);height:calc(100% - 32px);object-fit:contain;border-radius:12px}
+.slide .txt{min-height:0;overflow:hidden;padding:1.1em 1.4em;font-size:var(--f,18px);line-height:1.45}
+.slide.scroll .txt{overflow:auto}
+.slide h2{margin:0;font-size:2em;font-weight:600;line-height:1.1}
+.slide .by{margin:.35em 0 .5em;font-weight:800;font-size:.85em;color:var(--muted)}
+.slide h3{margin:.7em 0 .1em;font-size:1em;font-weight:800;color:var(--acc);display:flex;gap:.35em;align-items:baseline}
+.slide p{margin:.12em 0}.slide ul{margin:.12em 0;padding-left:1.3em}
+.slide .body.c2{columns:2;column-gap:1.8em}
+.slide .body.c2 .sec{break-inside:avoid}
+.slide .none{color:var(--muted);font-weight:700;margin-top:.8em}
+@media (max-width:700px) and (orientation:portrait){
+  #slides{padding:10px 12px 12px}
+  .slide,.slide.pic{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,38%) minmax(0,1fr);gap:12px}
+  .slide.pic{grid-template-rows:minmax(0,1fr) auto}
+  .slide .photo img{inset:8px;width:calc(100% - 16px);height:calc(100% - 16px)}
+  .bar{padding:6px 10px;gap:6px}.bar .ttl,.bar .fs{display:none}.bar button{padding:2px 10px}
+}
+@media (prefers-reduced-motion:reduce){.slide.on{animation:none}a.co,a.card{transition:none}}
 """
 
-FIT_TILES = """
+SECTION_JS = """
 // Pick the column count that gives every tile the most room at a card-like shape,
 // then lay each tile out photo-left (wide tiles) or photo-top (tall tiles)
 function fitTiles(){
@@ -262,22 +270,62 @@ function fitTiles(){
   g.style.setProperty('--phh',Math.min(b.w*0.68,b.h*0.46)+'px');
   g.style.setProperty('--fs',Math.max(10.5,Math.min(13.5,tw/22)).toFixed(1)+'px');
 }
-// Tile view by default; a #p<n> link shows the full board at that company
-function view(){
-  var full=/^#p\\d+$/.test(location.hash),r=document.documentElement;
-  r.className=full?'full':'tiles';
-  if(full){var a=document.getElementById(location.hash.slice(1));if(a)a.scrollIntoView();}
-  else{scrollTo(0,0);fitTiles();}
+var slides=[].slice.call(document.querySelectorAll('.slide')),cur=-1;
+// Largest text size at which the whole profile fits its card, in one or two text columns
+// (whichever reads bigger); scroll only if even the smallest size won't fit
+function fitSlide(s){
+  var t=s.querySelector('.txt'),b=s.querySelector('.body'),best={f:0,c2:false};
+  s.classList.remove('scroll');
+  [false,true].forEach(function(c2){
+    if(c2&&t.clientWidth<620)return;
+    b.classList.toggle('c2',c2);
+    var lo=12,hi=34;
+    while(hi-lo>0.5){var m=(lo+hi)/2;t.style.setProperty('--f',m+'px');if(t.scrollHeight>t.clientHeight+1)hi=m;else lo=m;}
+    if(lo>best.f+1)best={f:lo,c2:c2}; // two columns only when clearly bigger
+  });
+  b.classList.toggle('c2',best.c2);
+  t.style.setProperty('--f',best.f+'px');
+  if(t.scrollHeight>t.clientHeight+1)s.classList.add('scroll');
 }
+function show(i){
+  slides.forEach(function(s,k){s.classList.toggle('on',k==i);});
+  cur=i;fitSlide(slides[i]);
+  document.querySelector('.count').textContent=(i+1)+' / '+slides.length;
+  document.querySelector('.prev').disabled=i==0;
+  document.querySelector('.next').disabled=i==slides.length-1;
+}
+// Tile view by default; #p<n> presents that company
+function view(){
+  var m=/^#(p\\d+)$/.exec(location.hash),i=m?slides.findIndex(function(s){return s.id==m[1];}):-1,r=document.documentElement;
+  r.className=i<0?'tiles':'full';
+  if(i<0){cur=-1;fitTiles();}else show(i);
+}
+function go(d){
+  var i=cur+d;if(cur<0||i<0||i>=slides.length)return;
+  history.replaceState(null,'','#'+slides[i].id);show(i);
+}
+document.querySelector('.prev').onclick=function(){go(-1);};
+document.querySelector('.next').onclick=function(){go(1);};
+var fsb=document.querySelector('.fs');
+if(document.fullscreenEnabled)fsb.onclick=function(){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();};
+else fsb.style.display='none';
+document.addEventListener('fullscreenchange',function(){fsb.textContent=document.fullscreenElement?'Exit full screen':'Full screen';});
+addEventListener('keydown',function(e){
+  if(cur<0||e.altKey||e.ctrlKey||e.metaKey)return;
+  if(['ArrowRight','PageDown',' '].indexOf(e.key)>=0){go(1);e.preventDefault();}
+  else if(['ArrowLeft','PageUp'].indexOf(e.key)>=0){go(-1);e.preventDefault();}
+  else if(e.key=='Escape'&&!document.fullscreenElement)location.hash='';
+});
 view();addEventListener('hashchange',view);
-addEventListener('resize',function(){if(document.documentElement.className=='tiles')fitTiles();});
+addEventListener('resize',function(){cur<0?fitTiles():fitSlide(slides[cur]);});
+if(document.fonts)document.fonts.ready.then(function(){cur<0?fitTiles():fitSlide(slides[cur]);});
 """
 
 
 def section_page(week, cfg, sec, data):
     code, lc = sec["code"], sec["code"].lower()
     posts = data["posts"]
-    tiles, cards = [], []
+    tiles, slides = [], []
     for i, p in enumerate(posts):
         tint = TINTS[i % len(TINTS)]
         tagline, secs = parse(p["text"], p["company"])
@@ -288,19 +336,15 @@ def section_page(week, cfg, sec, data):
             f'<a class="co{"" if has_text else " pic"}" href="#p{p["n"]}" style="--tint:{tint}">{img_t}'
             f'<span class="tx"><span class="nm">{esc(p["company"])}</span>'
             f'<span class="by">by <span>{esc(p["nick"])}</span></span>'
-            f'<span class="det">{det}</span><span class="more">Read more →</span></span></a>')
-        img_f = ""
-        if p["photo"]:
-            # real width/height keep the board from shifting while photos load, so #p<n> lands on the right card
-            w, h = jpeg_size(ROOT / week / "img" / f"{lc}-{p['n']}.jpg")
-            img_f = (f'<div class="ph"><img src="img/{lc}-{p["n"]}.jpg" width="{w}" height="{h}" '
-                     f'alt="{esc(p["company"])}" loading="lazy"></div>')
-        cards.append(
-            f'<article class="post card" id="p{p["n"]}" style="--tint:{tint}">{img_f}<div class="bd">'
+            f'<span class="det">{det}</span><span class="more">Present ▶</span></span></a>')
+        photo = (f'<div class="photo card"><img src="img/{lc}-{p["n"]}.jpg" alt="{esc(p["company"])}" loading="lazy"></div>'
+                 if p["photo"] else "")
+        body = full_html(tagline, secs) if has_text else '<p class="none">The details are in the picture.</p>'
+        kind = "" if p["photo"] and has_text else (" pic" if p["photo"] else " nopic")
+        slides.append(
+            f'<article class="slide{kind}" id="p{p["n"]}" style="--tint:{tint}">{photo}<div class="txt card">'
             f'<h2 class="dsp">{esc(p["company"])}</h2><div class="by">by <span>{esc(p["nick"])}</span></div>'
-            f'{full_html(tagline, secs)}</div></article>')
-    covers = "".join(f"<span>{esc(c)}</span>" for c in data.get("prompt", []))
-    covers = f'<div class="covers">Each profile covers: {covers}</div>' if covers else ""
+            f'<div class="body">{body}</div></div></article>')
     day = data["saved"].split(" at ")[0]
     page = f"""<!doctype html>
 <html lang="en" class="tiles"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -311,15 +355,16 @@ def section_page(week, cfg, sec, data):
 <header class="top"><div class="row"><a class="pill" href="./">← All sections</a><span class="pill">GE5072 · Ladpet</span></div>
 <h1 class="dsp"><span class="sticker">{code}</span> {esc(cfg["activity"])}</h1>
 <p>{esc(day)} · {len(posts)} companies</p></header>
-<section id="tiles"><div class="hint">Tap a company to read its <b>full profile</b>.</div><div class="grid">
+<section id="tiles"><div class="hint">Tap a company to <b>present</b> it to the class.</div><div class="grid">
 {chr(10).join(tiles)}
 </div></section>
-<section id="board">{covers}<div class="posts">
-{chr(10).join(cards)}
-</div></section>
-<a class="float" href="#">← All companies</a>
-<footer>Saved from Ladpet (GE5072) · names are the nicknames students chose.</footer>
-<script>{FIT_TILES}</script>
+<nav class="bar"><a class="pill" href="#">← All companies</a><span class="ttl dsp"><span class="sticker">{code}</span>{esc(cfg["activity"])}</span>
+<span class="sp"></span><button class="prev" aria-label="Previous company">◀</button><span class="count"></span>
+<button class="next" aria-label="Next company">▶</button><button class="fs">Full screen</button></nav>
+<section id="slides">
+{chr(10).join(slides)}
+</section>
+<script>{SECTION_JS}</script>
 </body></html>
 """
     (ROOT / week / f"{lc}.html").write_text(page, encoding="utf-8")
