@@ -326,6 +326,7 @@ if(document.fonts)document.fonts.ready.then(function(){cur<0?fitTiles():fitSlide
 def section_page(week, cfg, sec, data):
     code, lc = sec["code"], sec["code"].lower()
     posts = data["posts"]
+    noun, one = cfg.get("noun", "companies"), cfg.get("one", "company")
     tiles, slides = [], []
     for i, p in enumerate(posts):
         tint = TINTS[i % len(TINTS)]
@@ -336,7 +337,7 @@ def section_page(week, cfg, sec, data):
         tiles.append(
             f'<a class="co{"" if has_text else " pic"}" href="#p{p["n"]}" style="--tint:{tint}">{img_t}'
             f'<span class="tx"><span class="nm">{esc(p["company"])}</span>'
-            f'<span class="by">by <span>{esc(p["nick"])}</span></span>'
+            + (f'<span class="by">by <span>{esc(p["nick"])}</span></span>' if p["nick"] != p["company"] else "") +
             f'<span class="det">{det}</span><span class="more">Present ▶</span></span></a>')
         photo = (f'<div class="photo card"><img src="img/{lc}-{p["n"]}.jpg" alt="{esc(p["company"])}" loading="lazy"></div>'
                  if p["photo"] else "")
@@ -344,7 +345,8 @@ def section_page(week, cfg, sec, data):
         kind = "" if p["photo"] and has_text else (" pic" if p["photo"] else " nopic")
         slides.append(
             f'<article class="slide{kind}" id="p{p["n"]}" style="--tint:{tint}">{photo}<div class="txt card">'
-            f'<h2 class="dsp">{esc(p["company"])}</h2><div class="by">by <span>{esc(p["nick"])}</span></div>'
+            f'<h2 class="dsp">{esc(p["company"])}</h2>'
+            + (f'<div class="by">by <span>{esc(p["nick"])}</span></div>' if p["nick"] != p["company"] else "") +
             f'<div class="body">{body}</div></div></article>')
     day = data["saved"].split(" at ")[0]
     page = f"""<!doctype html>
@@ -355,13 +357,13 @@ def section_page(week, cfg, sec, data):
 <style>{BASE_CSS}{SECTION_CSS}:root{{--acc:{ACCENT.get(code, "#6d4aff")}}}</style></head><body>
 <header class="top"><div class="row"><a class="pill" href="./">← All sections</a><span class="pill">GE5072 · Ladpet</span></div>
 <h1 class="dsp"><span class="sticker">{code}</span> {esc(cfg["activity"])}</h1>
-<p>{esc(day)} · {len(posts)} companies</p></header>
-<section id="tiles"><div class="hint">Tap a company to <b>present</b> it to the class.</div><div class="grid">
+<p>{esc(day)} · {len(posts)} {noun}</p></header>
+<section id="tiles"><div class="hint">Tap a {one} to <b>present</b> it to the class.</div><div class="grid">
 {chr(10).join(tiles)}
 </div></section>
-<nav class="bar"><a class="pill" href="#">← All companies</a><span class="ttl dsp"><span class="sticker">{code}</span>{esc(cfg["activity"])}</span>
-<span class="sp"></span><button class="prev" aria-label="Previous company">◀</button><span class="count"></span>
-<button class="next" aria-label="Next company">▶</button><button class="fs">Full screen</button></nav>
+<nav class="bar"><a class="pill" href="#">← All {noun}</a><span class="ttl dsp"><span class="sticker">{code}</span>{esc(cfg["activity"])}</span>
+<span class="sp"></span><button class="prev" aria-label="Previous {one}">◀</button><span class="count"></span>
+<button class="next" aria-label="Next {one}">▶</button><button class="fs">Full screen</button></nav>
 <section id="slides">
 {chr(10).join(slides)}
 </section>
@@ -388,6 +390,7 @@ a.card:hover .go{background:var(--acc)}
 .mini{flex:1;min-height:0;display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));overflow:hidden}
 .mc{display:flex;flex-direction:column;min-width:0;min-height:0;border:2px solid var(--ink);border-radius:10px;overflow:hidden;background:#fff}
 .mc .ph{flex:1;min-height:0;position:relative;background:var(--tint);border-bottom:2px solid var(--ink)}
+.mc .ph .ini{position:absolute;inset:0;display:grid;place-items:center;font:600 26px 'Fredoka','Mitr',sans-serif;color:var(--ink);opacity:.55}
 .mc .ph img{position:absolute;inset:4px;width:calc(100% - 8px);height:calc(100% - 8px);object-fit:contain;border-radius:5px}
 .mc .nm{flex:none;margin:4px 5px;height:2.5em;overflow-wrap:break-word;font-size:var(--fs,12px);font-weight:800;line-height:1.25;text-align:center;
   display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
@@ -444,10 +447,11 @@ def index_page(week, cfg, datas):
         if data:
             cells = "\n".join(
                 f'<span class="mc" style="--tint:{TINTS[i % len(TINTS)]}"><span class="ph">'
-                f'<img src="thumbs/{lc}-{p["n"]}.jpg" alt=""></span><span class="nm">{esc(p["company"])}</span></span>'
+                + (f'<img src="thumbs/{lc}-{p["n"]}.jpg" alt="">' if p["photo"] else f'<span class="ini">{esc(p["company"][:1].upper())}</span>')
+                + f'</span><span class="nm">{esc(p["company"])}</span></span>'
                 for i, p in enumerate(data["posts"]))
             boards.append(f'<a class="card" href="{lc}.html" style="--acc:{acc}"><span class="hd">'
-                          f'<span class="sticker">{code}</span><span class="n">{len(data["posts"])} companies</span>'
+                          f'<span class="sticker">{code}</span><span class="n">{len(data["posts"])} {cfg.get("noun", "companies")}</span>'
                           f'<span class="go">Open board →</span></span><span class="mini">\n{cells}\n</span></a>')
         else:
             soon.append(f'<div class="card" style="--acc:{acc}"><span class="sticker">{code}</span>'
@@ -502,8 +506,7 @@ def walls_manifest():
     (ROOT / "walls.json").write_text(json.dumps(rows, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 
 
-def main():
-    week = sys.argv[1]
+def build(week):
     cfg = json.loads((ROOT / week / "sections.json").read_text(encoding="utf-8"))
     datas = {}
     for sec in cfg["sections"]:
@@ -513,6 +516,10 @@ def main():
             section_page(week, cfg, sec, datas[sec["code"]])
     index_page(week, cfg, datas)
     walls_manifest()
+
+
+def main():
+    build(sys.argv[1])
 
 
 if __name__ == "__main__":

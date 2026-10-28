@@ -1,0 +1,39 @@
+# Every 10 minutes: save finished / joining-closed / nearly-expired Ladpet walls as boards, publish them,
+# then delete walls that are 3 hours old. Uses only the public Firebase web config — no secrets.
+name: Save Ladpet walls as boards
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: archive
+  cancel-in-progress: false
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - run: pip install --quiet pillow
+      - name: Save walls as boards (data, photos, pages)
+        run: python3 tools/archive.py
+      - name: Publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git add -A
+          if git diff --cached --quiet; then echo "No new boards."; exit 0; fi
+          git -c user.name="ladpet-boards bot" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit -q -m "Boards saved from Ladpet walls ($(TZ=Asia/Bangkok date '+%d %b %H:%M'))"
+          git push -q
+          gh api -X POST "repos/${{ github.repository }}/pages/builds" >/dev/null || echo "Pages build request failed (the push may start one anyway)."

@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en" class="tiles"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ladpet · Week 12 Brainstorm · BS11</title>
+<script>document.documentElement.className=/^#p\d+$/.test(location.hash)?'full':'tiles'</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Mitr:wght@400;500&family=Nunito:wght@500;700;800&family=Noto+Sans+Thai:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1d1a3a;--muted:#5f5b80;--paper:#fffaf2;--acc:#6d4aff}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper) radial-gradient(#e8dfcf 1.2px,transparent 1.4px) 0 0/18px 18px;color:var(--ink);
+  font-family:'Nunito','Noto Sans Thai',system-ui,-apple-system,'Segoe UI',sans-serif}
+.dsp{font-family:'Fredoka','Mitr','Noto Sans Thai',system-ui,sans-serif}
+header.top{position:relative;overflow:hidden;background:var(--acc);color:#fff;padding:12px 18px 14px;flex:none;border-bottom:3px solid var(--ink)}
+header.top::before{content:"";position:absolute;right:-40px;top:-60px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.14)}
+header.top::after{content:"";position:absolute;right:120px;bottom:-46px;width:84px;height:84px;border-radius:50%;background:#ffd34d;border:3px solid var(--ink)}
+header.top .row{position:relative;z-index:1;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pill{display:inline-block;background:#fff;color:var(--ink);border:2px solid var(--ink);border-radius:999px;padding:1px 10px;font-weight:800;font-size:12px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none}
+a.pill:hover{background:#ffd34d}
+header.top h1{position:relative;z-index:1;margin:6px 0 2px;font-size:clamp(20px,3.2vw,30px);line-height:1.2;font-weight:600}
+header.top p{position:relative;z-index:1;margin:0;font-size:13px;font-weight:700;opacity:.92;max-width:62ch}
+.sticker{display:inline-block;background:#fff;color:var(--ink);border:2px solid var(--ink);border-radius:10px;padding:0 9px;
+  box-shadow:3px 3px 0 var(--ink);transform:rotate(-3deg);font-weight:700}
+.card{background:#fff;border:2px solid var(--ink);border-radius:16px;box-shadow:4px 4px 0 var(--ink)}
+a.card,a.co{text-decoration:none;color:inherit;transition:transform .12s,box-shadow .12s}
+a.card:hover,a.card:focus-visible,a.co:hover,a.co:focus-visible{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink);outline:none}
+footer{flex:none;text-align:center;color:var(--muted);font-size:12px;font-weight:700;padding:4px 16px 8px}
+@media (max-width:560px){header.top::after{display:none}header.top{padding:10px 14px 12px}}
+
+html,body{height:100%;overflow:hidden}
+body{display:flex;flex-direction:column;height:100dvh}
+html.full header.top,html.tiles .bar,html.tiles #slides,html.full #tiles{display:none}
+#tiles{flex:1;min-height:0;display:flex;flex-direction:column;gap:10px;padding:14px 18px 16px;width:100%;max-width:1840px;margin:0 auto}
+.hint{flex:none;font-weight:800;font-size:13px;color:var(--muted)}
+.hint b{color:var(--acc)}
+.grid{flex:1;min-height:0;display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.co{display:flex;min-width:0;min-height:0;overflow:hidden;background:#fff;border:2px solid var(--ink);border-radius:16px;box-shadow:4px 4px 0 var(--ink)}
+.grid.v .co{flex-direction:column}
+.co .ph{flex:none;position:relative;background:var(--tint);width:var(--pw,40%)}
+.grid.v .co .ph{width:auto;height:var(--phh,45%);border-bottom:2px solid var(--ink)}
+.grid.h .co .ph{border-right:2px solid var(--ink)}
+.co .ph img{position:absolute;inset:6px;width:calc(100% - 12px);height:calc(100% - 12px);object-fit:contain;border-radius:8px}
+.co.pic .ph{flex:1;width:auto;height:auto}
+.co .tx{flex:1;min-width:0;min-height:0;display:flex;flex-direction:column;padding:8px 11px 7px;font-size:var(--fs,12px)}
+.co.pic .tx{flex:none}
+.grid.h .co.pic .tx{width:42%}
+.co .nm{flex:none;font-family:'Fredoka','Mitr','Noto Sans Thai',sans-serif;font-weight:600;font-size:1.32em;line-height:1.15;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.co .by{flex:none;margin:3px 0 4px;font-size:.88em;font-weight:800;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.co .by span,.slide .by span{background:var(--tint);border:1.5px solid var(--ink);border-radius:999px;padding:0 .5em;color:var(--ink)}
+.co .det{flex:1;min-height:0;overflow:hidden;line-height:1.38;-webkit-mask-image:linear-gradient(#000 62%,transparent);mask-image:linear-gradient(#000 62%,transparent)}
+.co .det p{margin:0 0 3px}
+.co .det b{color:var(--acc);font-weight:800}
+.co .det .tg,.slide .tg{font-style:italic;font-weight:700}
+.co .more{flex:none;align-self:flex-end;font-weight:800;font-size:.92em;color:var(--acc)}
+.grid.tight .co .more,.grid.tight .co .det b{display:none}
+.grid.tight .co .by{margin:2px 0 3px}
+.co.pic .det{flex:none;color:var(--muted);font-weight:700;-webkit-mask-image:none;mask-image:none}
+@media (max-width:560px){#tiles{padding:10px 12px 12px;gap:8px}.grid{gap:10px}}
+
+.bar{flex:none;display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--acc);color:#fff;border-bottom:3px solid var(--ink)}
+.bar .ttl{font-weight:600;font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.bar .ttl .sticker{font-size:15px;margin-right:6px}
+.bar .sp{flex:1}
+.bar button,.bar a.pill{font:inherit;cursor:pointer}
+.bar button{background:#fff;color:var(--ink);border:2px solid var(--ink);border-radius:999px;font-weight:800;font-size:14px;padding:2px 12px;line-height:1.4}
+.bar button:hover{background:#ffd34d}
+.bar button:disabled{opacity:.4;cursor:default;background:#fff}
+.bar .count{font-weight:800;font-size:14px;min-width:3.6em;text-align:center}
+#slides{flex:1;min-height:0;padding:16px 20px 20px;width:100%;max-width:1840px;margin:0 auto}
+.slide{display:none;height:100%;gap:22px;grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);grid-template-rows:minmax(0,1fr)}
+.slide.on{display:grid;animation:slidein .35s ease-out}
+.slide.nopic{grid-template-columns:minmax(0,1fr)}
+.slide.pic{grid-template-columns:minmax(0,1.7fr) minmax(0,1fr)}
+@keyframes slidein{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.slide .photo{position:relative;background:var(--tint);overflow:hidden;min-height:0}
+.slide .photo img{position:absolute;inset:16px;width:calc(100% - 32px);height:calc(100% - 32px);object-fit:contain;border-radius:12px}
+.slide .txt{min-height:0;overflow:hidden;padding:1.1em 1.4em;font-size:var(--f,18px);line-height:1.45}
+.slide.scroll .txt{overflow:auto}
+.slide h2{margin:0;font-size:2em;font-weight:600;line-height:1.1}
+.slide .by{margin:.35em 0 .5em;font-weight:800;font-size:.85em;color:var(--muted)}
+.slide h3{margin:.7em 0 .1em;font-size:1em;font-weight:800;color:var(--acc);display:flex;gap:.35em;align-items:baseline}
+.slide p{margin:.12em 0}.slide ul{margin:.12em 0;padding-left:1.3em}
+.slide .body.c2{columns:2;column-gap:1.8em}
+.slide .body.c2 .sec{break-inside:avoid}
+.slide .none{color:var(--muted);font-weight:700;margin-top:.8em}
+@media (max-width:700px) and (orientation:portrait){
+  #slides{padding:10px 12px 12px}
+  .slide,.slide.pic{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,38%) minmax(0,1fr);gap:12px}
+  .slide.pic{grid-template-rows:minmax(0,1fr) auto}
+  .slide.nopic{grid-template-rows:minmax(0,1fr)}
+  .slide .photo img{inset:8px;width:calc(100% - 16px);height:calc(100% - 16px)}
+  .bar{padding:6px 10px;gap:6px}.bar .ttl,.bar .fs{display:none}.bar button{padding:2px 10px}
+}
+@media (prefers-reduced-motion:reduce){.slide.on{animation:none}a.co,a.card{transition:none}}
+:root{--acc:#c2410c}</style></head><body>
+<header class="top"><div class="row"><a class="pill" href="./">← All sections</a><span class="pill">GE5072 · Ladpet</span></div>
+<h1 class="dsp"><span class="sticker">BS11</span> Your Company</h1>
+<p>Wednesday, 28 October 2026 · 3 companies</p></header>
+<section id="tiles"><div class="hint">Tap a company to <b>present</b> it to the class.</div><div class="grid">
+<a class="co" href="#p1" style="--tint:#ffd9e2"><span class="tx"><span class="nm">REVIBE</span><span class="det"><p><b>🛍️ Products &amp; services</b> REVIBE is a curated vintage streetwear brand that sells carefully selected secondhand and vintage clothing. The brand also offers upcycled clothing with modern, colorful designs.</p><p><b>📜 History &amp; milestones</b> REVIBE was created from the idea of combining vintage streetwear with sustainability. The brand aims to make secondhand clothing more attractive to young consumers through colorful designs and carefully curated collections.</p><p><b>🎯 Goals</b> REVIBE aims to make sustainable fashion more accessible and appealing to young consumers. The brand seeks to reduce clothing waste by encouraging people to reuse and upcycle clothing. It also aims to build a recognizable streetwear brand that combines creativity, individuality, and environmental responsibility.</p><p><b>👥 Customers &amp; markets</b> REVIBE primarily targets Gen Z and young adults who enjoy streetwear, vintage fashion, and colorful outfits. Its customers value individuality, affordability, and sustainability. · The brand can reach its target market through online platforms, social media, vintage markets, pop-up stores, and collaborations with fashion creators.</p><p><b>✨ What makes it different</b> REVIBE stands out by combining curated vintage clothing, colorful streetwear, and creative upcycling. Unlike ordinary secondhand stores, focuses on selecting unique pieces and giving old clothes a fresh, modern look.</p><p><b>📈 Numbers that changed</b> As a new brand concept, We can track its progress using key performance indicators such as: · Number of clothing items sold. · Number of secondhand garments reused or upcycled. · Monthly sales revenue. · Number of customers and repeat purchases. · Social media followers and engagement.</p></span><span class="more">Present ▶</span></span></a>
+<a class="co" href="#p2" style="--tint:#fff0b3"><span class="tx"><span class="nm">Happy Grain</span><span class="det"><p><b>🛍️ Products &amp; Services</b> Happy Grain sells healthy granola made from oats, nuts, grains, and dried fruits. It is delicious, healthy, and easy to carry.</p><p><b>📜 History &amp; Milestones</b> Happy Grain started with the idea of encouraging people to eat healthier food that is convenient for everyday life.</p><p><b>🎯 Goals</b> To make the brand well-known, improve product quality, and expand the business in the future.</p><p><b>👥 Customers &amp; Markets</b> Our main customers are students, working people, and health-conscious people. We sell our products online.</p><p><b>✨ What Makes It Different</b> Our products are healthy, delicious, easy to carry, and affordable. We use a variety of grains and dried fruits.</p><p><b>📈 Numbers That Changed</b> We measure our business growth through sales, income, number of customers, social media followers, and business growth</p></span><span class="more">Present ▶</span></span></a>
+<a class="co" href="#p3" style="--tint:#cdf3e4"><span class="ph"><img src="thumbs/bs11-3.jpg" alt=""></span><span class="tx"><span class="nm">ทั้งกลุ่ม</span><span class="det"><p><b>🛍️ Products &amp; services</b> Our company provides premium healthy snacks and craft functional beverages made from natural ingredients, focusing on high quality, convenience, and great taste for daily consumption.</p><p><b>📜 History &amp; milestones</b> Founded as a small passion project, we expanded from local pop-up markets and event booths to building an established online brand identity with strong community engagement across social media platforms.</p><p><b>🎯 Goals</b> To become a leading lifestyle wellness brand, expanding our product distribution across major retail channels while maintaining zero compromise on product quality and authentic customer experience.</p><p><b>👥 Customers &amp; markets</b> Our primary target audience includes health-conscious young adults, university students, active professionals, and fitness enthusiasts who value quality, nutrition, and modern lifestyle branding.</p><p><b>✨ What makes it different</b> We bridge the gap between delicious taste and health benefits through artisanal micro-batching, clean ingredient transparency, and strong lifestyle branding that connects deeply with gen-Z and millennial consumers.</p><p><b>📈 Numbers that changed</b> 0 to 5,000+ active community followers across social channels. · 300% growth in monthly sales volume since launching pop-up events. · Expanded from 1 single core product to a diverse line of healthy beverage and snack offerings.</p></span><span class="more">Present ▶</span></span></a>
+</div></section>
+<nav class="bar"><a class="pill" href="#">← All companies</a><span class="ttl dsp"><span class="sticker">BS11</span>Your Company</span>
+<span class="sp"></span><button class="prev" aria-label="Previous company">◀</button><span class="count"></span>
+<button class="next" aria-label="Next company">▶</button><button class="fs">Full screen</button></nav>
+<section id="slides">
+<article class="slide nopic" id="p1" style="--tint:#ffd9e2"><div class="txt card"><h2 class="dsp">REVIBE</h2><div class="body"><div class="sec"><h3><span class="ic">🛍️</span>Products &amp; services (ผลิตภัณฑ์และบริการ)</h3><p>REVIBE is a curated vintage streetwear brand that sells carefully selected secondhand and vintage clothing. The brand also offers upcycled clothing with modern, colorful designs.</p></div><div class="sec"><h3><span class="ic">📜</span>History &amp; milestones (ประวัติและหมุดหมายสำคัญ)</h3><p>REVIBE was created from the idea of combining vintage streetwear with sustainability. The brand aims to make secondhand clothing more attractive to young consumers through colorful designs and carefully curated collections.</p></div><div class="sec"><h3><span class="ic">🎯</span>Goals (เป้าหมาย)</h3><p>REVIBE aims to make sustainable fashion more accessible and appealing to young consumers. The brand seeks to reduce clothing waste by encouraging people to reuse and upcycle clothing. It also aims to build a recognizable streetwear brand that combines creativity, individuality, and environmental responsibility.</p></div><div class="sec"><h3><span class="ic">👥</span>Customers &amp; markets (ลูกค้าและตลาด)</h3><p>REVIBE primarily targets Gen Z and young adults who enjoy streetwear, vintage fashion, and colorful outfits. Its customers value individuality, affordability, and sustainability.</p><p>The brand can reach its target market through online platforms, social media, vintage markets, pop-up stores, and collaborations with fashion creators.</p></div><div class="sec"><h3><span class="ic">✨</span>What makes it different (สิ่งที่ทำให้แตกต่าง)</h3><p>REVIBE stands out by combining curated vintage clothing, colorful streetwear, and creative upcycling. Unlike ordinary secondhand stores, focuses on selecting unique pieces and giving old clothes a fresh, modern look.</p></div><div class="sec"><h3><span class="ic">📈</span>Numbers that changed (ตัวเลขที่เปลี่ยนแปลงตั้งแต่ก่อตั้ง)</h3><p>As a new brand concept, We can track its progress using key performance indicators such as:</p><p>Number of clothing items sold.</p><p>Number of secondhand garments reused or upcycled.</p><p>Monthly sales revenue.</p><p>Number of customers and repeat purchases.</p><p>Social media followers and engagement.</p></div></div></div></article>
+<article class="slide nopic" id="p2" style="--tint:#fff0b3"><div class="txt card"><h2 class="dsp">Happy Grain</h2><div class="body"><div class="sec"><h3><span class="ic">🛍️</span>Products &amp; Services</h3><p>Happy Grain sells healthy granola made from oats, nuts, grains, and dried fruits. It is delicious, healthy, and easy to carry.</p></div><div class="sec"><h3><span class="ic">📜</span>History &amp; Milestones</h3><p>Happy Grain started with the idea of encouraging people to eat healthier food that is convenient for everyday life.</p></div><div class="sec"><h3><span class="ic">🎯</span>Goals</h3><p>To make the brand well-known, improve product quality, and expand the business in the future.</p></div><div class="sec"><h3><span class="ic">👥</span>Customers &amp; Markets</h3><p>Our main customers are students, working people, and health-conscious people. We sell our products online.</p></div><div class="sec"><h3><span class="ic">✨</span>What Makes It Different</h3><p>Our products are healthy, delicious, easy to carry, and affordable. We use a variety of grains and dried fruits.</p></div><div class="sec"><h3><span class="ic">📈</span>Numbers That Changed</h3><p>We measure our business growth through sales, income, number of customers, social media followers, and business growth</p></div></div></div></article>
+<article class="slide" id="p3" style="--tint:#cdf3e4"><div class="photo card"><img src="img/bs11-3.jpg" alt="ทั้งกลุ่ม" loading="lazy"></div><div class="txt card"><h2 class="dsp">ทั้งกลุ่ม</h2><div class="body"><div class="sec"><h3><span class="ic">🛍️</span>Products &amp; services</h3><p>Our company provides premium healthy snacks and craft functional beverages made from natural ingredients, focusing on high quality, convenience, and great taste for daily consumption.</p></div><div class="sec"><h3><span class="ic">📜</span>History &amp; milestones</h3><p>Founded as a small passion project, we expanded from local pop-up markets and event booths to building an established online brand identity with strong community engagement across social media platforms.</p></div><div class="sec"><h3><span class="ic">🎯</span>Goals</h3><p>To become a leading lifestyle wellness brand, expanding our product distribution across major retail channels while maintaining zero compromise on product quality and authentic customer experience.</p></div><div class="sec"><h3><span class="ic">👥</span>Customers &amp; markets</h3><p>Our primary target audience includes health-conscious young adults, university students, active professionals, and fitness enthusiasts who value quality, nutrition, and modern lifestyle branding.</p></div><div class="sec"><h3><span class="ic">✨</span>What makes it different</h3><p>We bridge the gap between delicious taste and health benefits through artisanal micro-batching, clean ingredient transparency, and strong lifestyle branding that connects deeply with gen-Z and millennial consumers.</p></div><div class="sec"><h3><span class="ic">📈</span>Numbers that changed</h3><p>0 to 5,000+ active community followers across social channels.</p><p>300% growth in monthly sales volume since launching pop-up events.</p><p>Expanded from 1 single core product to a diverse line of healthy beverage and snack offerings.</p></div></div></div></article>
+</section>
+<script>
+// Pick the column count that gives every tile the most room at a card-like shape,
+// then lay each tile out photo-left (wide tiles) or photo-top (tall tiles)
+function fitTiles(){
+  var g=document.querySelector('#tiles .grid');if(!g)return;
+  var n=g.children.length,gap=parseFloat(getComputedStyle(g).rowGap)||14,W=g.clientWidth,H=g.clientHeight,b=null;
+  for(var c=1;c<=n;c++){
+    var r=Math.ceil(n/c),w=(W-(c-1)*gap)/c,h=(H-(r-1)*gap)/r,a=w/h;
+    var s=w*h*Math.exp(-Math.abs(Math.log(a/1.6))*0.9)*(w<150?0.6:1);
+    if(!b||s>b.s)b={c:c,r:r,w:w,h:h,s:s};
+  }
+  var hz=b.w>=1.25*b.h,tw=hz?b.w*0.58:b.w;
+  g.className='grid '+(hz?'h':'v')+(b.h<170||b.w<150?' tight':'');
+  g.style.gridTemplateColumns='repeat('+b.c+',minmax(0,1fr))';
+  g.style.gridTemplateRows='repeat('+b.r+',minmax(0,1fr))';
+  g.style.setProperty('--pw',Math.min(b.h-4,b.w*0.42)+'px');
+  g.style.setProperty('--phh',Math.min(b.w*0.68,b.h*0.46)+'px');
+  g.style.setProperty('--fs',Math.max(10.5,Math.min(13.5,tw/22)).toFixed(1)+'px');
+}
+var slides=[].slice.call(document.querySelectorAll('.slide')),cur=-1;
+// Largest text size at which the whole profile fits its card, in one or two text columns
+// (whichever reads bigger); scroll only if even the smallest size won't fit
+function fitSlide(s){
+  var t=s.querySelector('.txt'),b=s.querySelector('.body'),best={f:0,c2:false};
+  s.classList.remove('scroll');
+  [false,true].forEach(function(c2){
+    if(c2&&t.clientWidth<620)return;
+    b.classList.toggle('c2',c2);
+    var lo=12,hi=34;
+    while(hi-lo>0.5){var m=(lo+hi)/2;t.style.setProperty('--f',m+'px');if(t.scrollHeight>t.clientHeight+1)hi=m;else lo=m;}
+    if(lo>best.f+1)best={f:lo,c2:c2}; // two columns only when clearly bigger
+  });
+  b.classList.toggle('c2',best.c2);
+  t.style.setProperty('--f',best.f+'px');
+  if(t.scrollHeight>t.clientHeight+1)s.classList.add('scroll');
+}
+function show(i){
+  slides.forEach(function(s,k){s.classList.toggle('on',k==i);});
+  cur=i;fitSlide(slides[i]);
+  document.querySelector('.count').textContent=(i+1)+' / '+slides.length;
+  document.querySelector('.prev').disabled=i==0;
+  document.querySelector('.next').disabled=i==slides.length-1;
+}
+// Tile view by default; #p<n> presents that company
+function view(){
+  var m=/^#(p\d+)$/.exec(location.hash),i=m?slides.findIndex(function(s){return s.id==m[1];}):-1,r=document.documentElement;
+  r.className=i<0?'tiles':'full';
+  if(i<0){cur=-1;fitTiles();}else show(i);
+}
+function go(d){
+  var i=cur+d;if(cur<0||i<0||i>=slides.length)return;
+  history.replaceState(null,'','#'+slides[i].id);show(i);
+}
+document.querySelector('.prev').onclick=function(){go(-1);};
+document.querySelector('.next').onclick=function(){go(1);};
+var fsb=document.querySelector('.fs');
+if(document.fullscreenEnabled)fsb.onclick=function(){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();};
+else fsb.style.display='none';
+document.addEventListener('fullscreenchange',function(){fsb.textContent=document.fullscreenElement?'Exit full screen':'Full screen';});
+addEventListener('keydown',function(e){
+  if(cur<0||e.altKey||e.ctrlKey||e.metaKey)return;
+  if(['ArrowRight','PageDown',' '].indexOf(e.key)>=0){go(1);e.preventDefault();}
+  else if(['ArrowLeft','PageUp'].indexOf(e.key)>=0){go(-1);e.preventDefault();}
+  else if(e.key=='Escape'&&!document.fullscreenElement)location.hash='';
+});
+view();addEventListener('hashchange',view);
+addEventListener('resize',function(){cur<0?fitTiles():fitSlide(slides[cur]);});
+if(document.fonts)document.fonts.ready.then(function(){cur<0?fitTiles():fitSlide(slides[cur]);});
+</script>
+</body></html>

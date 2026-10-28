@@ -39,6 +39,7 @@ a.card:hover .go{background:var(--acc)}
 .mini{flex:1;min-height:0;display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));overflow:hidden}
 .mc{display:flex;flex-direction:column;min-width:0;min-height:0;border:2px solid var(--ink);border-radius:10px;overflow:hidden;background:#fff}
 .mc .ph{flex:1;min-height:0;position:relative;background:var(--tint);border-bottom:2px solid var(--ink)}
+.mc .ph .ini{position:absolute;inset:0;display:grid;place-items:center;font:600 26px 'Fredoka','Mitr',sans-serif;color:var(--ink);opacity:.55}
 .mc .ph img{position:absolute;inset:4px;width:calc(100% - 8px);height:calc(100% - 8px);object-fit:contain;border-radius:5px}
 .mc .nm{flex:none;margin:4px 5px;height:2.5em;overflow-wrap:break-word;font-size:var(--fs,12px);font-weight:800;line-height:1.25;text-align:center;
   display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
@@ -55,6 +56,11 @@ a.card:hover .go{background:var(--acc)}
 <p>Final Project company profiles from the class brainstorming sessions, week of 26 October 2026. Tap a section to open its board.</p></header>
 <main>
 <div class="boards">
+<a class="card" href="bs11.html" style="--acc:#c2410c"><span class="hd"><span class="sticker">BS11</span><span class="n">3 companies</span><span class="go">Open board →</span></span><span class="mini">
+<span class="mc" style="--tint:#ffd9e2"><span class="ph"><span class="ini">R</span></span><span class="nm">REVIBE</span></span>
+<span class="mc" style="--tint:#fff0b3"><span class="ph"><span class="ini">H</span></span><span class="nm">Happy Grain</span></span>
+<span class="mc" style="--tint:#cdf3e4"><span class="ph"><img src="thumbs/bs11-3.jpg" alt=""></span><span class="nm">ทั้งกลุ่ม</span></span>
+</span></a>
 <a class="card" href="ca48.html" style="--acc:#db2777"><span class="hd"><span class="sticker">CA48</span><span class="n">9 companies</span><span class="go">Open board →</span></span><span class="mini">
 <span class="mc" style="--tint:#ffd9e2"><span class="ph"><img src="thumbs/ca48-1.jpg" alt=""></span><span class="nm">Chawaddee (Thai Tea House)</span></span>
 <span class="mc" style="--tint:#fff0b3"><span class="ph"><img src="thumbs/ca48-2.jpg" alt=""></span><span class="nm">Siam Delicious</span></span>
@@ -87,7 +93,6 @@ a.card:hover .go{background:var(--acc)}
 </span></a>
 </div>
 <div class="soon"><div class="card" style="--acc:#15803d"><span class="sticker">AC21</span><span class="w"><b>Coming soon</b>Thu 29 Oct · 15:20</span></div>
-<div class="card" style="--acc:#c2410c"><span class="sticker">BS11</span><span class="w"><b>Coming soon</b>Wed 28 Oct · 08:30</span></div>
 <div class="card" style="--acc:#2563eb"><span class="sticker">CA50</span><span class="w"><b>Coming soon</b>Thu 29 Oct · 11:30</span></div></div>
 </main>
 <footer>Saved from Ladpet (GE5072) · names are the nicknames students chose.</footer>
