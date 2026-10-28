@@ -25,16 +25,16 @@ ACCENT = {"CA48": "#db2777", "EC30": "#0d9488", "BS11": "#c2410c",
 TINTS = ["#ffd9e2", "#fff0b3", "#cdf3e4", "#d4e8ff", "#e6dcff", "#ffe0c7"]
 
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
-         '<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Mitr:wght@400;500&'
-         'family=Nunito:wght@500;700;800&family=Noto+Sans+Thai:wght@400;600&display=swap" rel="stylesheet">')
+         '<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&'
+         'family=Nunito:wght@500;700;800&family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">')
 
 BASE_CSS = """
 :root{--ink:#1d1a3a;--muted:#5f5b80;--paper:#fffaf2;--acc:#6d4aff}
 *{box-sizing:border-box}
 html,body{margin:0}
 body{background:var(--paper) radial-gradient(#e8dfcf 1.2px,transparent 1.4px) 0 0/18px 18px;color:var(--ink);
-  font-family:'Nunito','Noto Sans Thai',system-ui,-apple-system,'Segoe UI',sans-serif}
-.dsp{font-family:'Fredoka','Mitr','Noto Sans Thai',system-ui,sans-serif}
+  font-family:'Nunito','Sarabun',system-ui,-apple-system,'Segoe UI',sans-serif}
+.dsp{font-family:'Fredoka','Sarabun',system-ui,sans-serif}
 header.top{position:relative;overflow:hidden;background:var(--acc);color:#fff;padding:12px 18px 14px;flex:none;border-bottom:3px solid var(--ink)}
 header.top::before{content:"";position:absolute;right:-40px;top:-60px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.14)}
 header.top::after{content:"";position:absolute;right:120px;bottom:-46px;width:84px;height:84px;border-radius:50%;background:#ffd34d;border:3px solid var(--ink)}
@@ -246,7 +246,7 @@ html.full header.top,html.tiles .bar,html.tiles #slides,html.full #tiles{display
 .co .tx{flex:1;min-width:0;min-height:0;display:flex;flex-direction:column;padding:8px 11px 7px;font-size:var(--fs,12px)}
 .co.pic .tx{flex:none}
 .grid.h .co.pic .tx{width:42%}
-.co .nm{flex:none;font-family:'Fredoka','Mitr','Noto Sans Thai',sans-serif;font-weight:600;font-size:1.32em;line-height:1.15;
+.co .nm{flex:none;font-family:'Fredoka','Sarabun',sans-serif;font-weight:600;font-size:1.32em;line-height:1.15;
   display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .co .by{flex:none;margin:3px 0 4px;font-size:.88em;font-weight:800;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .co .by span,.slide .by span{background:var(--tint);border:1.5px solid var(--ink);border-radius:999px;padding:0 .5em;color:var(--ink)}
@@ -440,7 +440,7 @@ a.card:hover .go{background:var(--acc)}
 .mini{flex:1;min-height:0;display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));overflow:hidden}
 .mc{display:flex;flex-direction:column;min-width:0;min-height:0;border:2px solid var(--ink);border-radius:10px;overflow:hidden;background:#fff}
 .mc .ph{flex:1;min-height:0;position:relative;background:var(--tint);border-bottom:2px solid var(--ink)}
-.mc .ph .ini{position:absolute;inset:0;display:grid;place-items:center;font:600 26px 'Fredoka','Mitr',sans-serif;color:var(--ink);opacity:.55}
+.mc .ph .ini{position:absolute;inset:0;display:grid;place-items:center;font:600 26px 'Fredoka','Sarabun',sans-serif;color:var(--ink);opacity:.55}
 .mc .ph img{position:absolute;inset:4px;width:calc(100% - 8px);height:calc(100% - 8px);object-fit:contain;border-radius:5px}
 .mc .nm{flex:none;margin:4px 5px;height:2.5em;overflow-wrap:break-word;font-size:var(--fs,12px);font-weight:800;line-height:1.25;text-align:center;
   display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
