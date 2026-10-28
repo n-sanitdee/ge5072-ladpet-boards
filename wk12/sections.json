@@ -1,0 +1,17 @@
+{
+  "title": "Week 12 Brainstorm: Your Company",
+  "short": "Week 12 Brainstorm",
+  "blurb": "Final Project company profiles from the class brainstorming sessions, week of 26 October 2026.",
+  "sections": [
+    {"code": "AC21", "class": "Thu 29 Oct"},
+    {"code": "BS11", "class": "Wed 28 Oct"},
+    {"code": "CA48", "class": "Mon 26 Oct", "companies": [
+      "Chawaddee (Thai Tea House)", "Siam Delicious", "Bright Lab Skincare", "Six Seven Cloth",
+      "Bucha Thai Tea", "WHY2", "Burger Queen", "Topping Company", "Fun Luang Entertainment"]},
+    {"code": "CA50", "class": "Thu 29 Oct"},
+    {"code": "EC30", "class": "Mon 26 Oct", "companies": [
+      "nisityakpenbung (นิสิตอยากเป็นบัง)", "Sage & Stone", "Oat Beer", "Queen Man",
+      "Crispy Joy", "Mori Mood", "Block 90'"]},
+    {"code": "TS66", "class": "Wed 28 Oct"}
+  ]
+}

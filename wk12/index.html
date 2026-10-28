@@ -7,25 +7,37 @@ body{margin:0;font-family:system-ui,-apple-system,'Segoe UI',Roboto,Sarabun,'Lee
 header{background:#4f46e5;color:#fff;padding:10px 16px;flex:none}
 header .k{opacity:.85;font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:700}
 header h1{margin:2px 0 0;font-size:20px;line-height:1.25}header p{margin:2px 0 0;opacity:.9;font-size:13px}
-main{flex:1;min-height:0;padding:12px 16px;display:grid;gap:12px;grid-auto-rows:1fr;width:100%;max-width:1400px;margin:0 auto;box-sizing:border-box}
-@media (orientation:landscape) and (min-width:700px){main{grid-auto-flow:column;grid-auto-columns:1fr;grid-auto-rows:auto}}
-a.card{display:flex;flex-direction:column;min-height:0;min-width:0;background:#fff;border:1px solid #e3e5f1;border-radius:14px;padding:10px 12px;text-decoration:none;color:inherit;transition:border-color .15s,box-shadow .15s}
+main{flex:1;min-height:0;padding:10px 12px;display:flex;flex-direction:column;gap:10px;width:100%;max-width:1600px;margin:0 auto;box-sizing:border-box}
+.boards{flex:1;min-height:0;display:grid;gap:10px;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(0,1fr)}
+.soon{flex:none;display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(130px,1fr))}
+.card{display:flex;flex-direction:column;min-height:0;min-width:0;background:#fff;border:1px solid #e3e5f1;border-radius:12px;padding:8px 10px;text-decoration:none;color:inherit;box-sizing:border-box}
+a.card{transition:border-color .15s,box-shadow .15s}
 a.card:hover,a.card:focus-visible{border-color:#4f46e5;box-shadow:0 0 0 3px #c7d2fe;outline:none}
-.hd{display:flex;align-items:baseline;gap:10px;flex:none;margin-bottom:8px}
-.sec{font-size:22px;font-weight:800;color:#4f46e5}
-.n{font-size:13px;color:#64748b;font-weight:700;white-space:nowrap}
-.go{margin-left:auto;font-size:14px;font-weight:700;color:#4f46e5;white-space:nowrap}
+.card.empty{background:#f0f1f8;border-style:dashed;padding:6px 10px;flex-direction:row;align-items:baseline;gap:8px}
+.hd{display:flex;align-items:baseline;gap:8px;flex:none;margin-bottom:6px;min-width:0;overflow:hidden;white-space:nowrap}
+.card{container-type:inline-size}
+@container (max-width:250px){.n{display:none}}
+.sec{font-size:20px;font-weight:800;color:#4f46e5}
+.empty .sec{color:#94a3b8}
+.n{font-size:12px;color:#64748b;font-weight:700;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.go{margin-left:auto;font-size:13px;font-weight:700;color:#4f46e5;white-space:nowrap}
+.empty .sec{font-size:16px}
+.wait{color:#64748b;font-size:12px;font-weight:600;line-height:1.3}
+
 .grid{flex:1;min-height:0;display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));overflow:hidden}
-.co{display:flex;flex-direction:column;min-height:0;min-width:0;border:1px solid #e3e5f1;border-radius:8px;overflow:hidden}
+.co{display:flex;flex-direction:column;min-height:0;min-width:0;border:1px solid #e3e5f1;border-radius:8px;overflow:hidden;background:#fff;text-decoration:none;color:inherit}
 .ph{flex:1;min-height:0;position:relative;background:#eef0f8}
 .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
-.nm{flex:none;margin:4px 5px;overflow-wrap:break-word;font-size:var(--fs,12px);font-weight:600;line-height:1.25;text-align:center;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;height:2.5em}
-footer{flex:none;padding:0 16px 8px;color:#64748b;font-size:12px;text-align:center}
+.nm{flex:none;margin:4px 5px 0;overflow-wrap:break-word;font-size:var(--fs,12px);font-weight:600;line-height:1.25;text-align:center;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;height:2.5em}
+.by{flex:none;margin:0 5px 4px;font-size:calc(var(--fs,12px)*.85);line-height:1.25;color:#64748b;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+footer{flex:none;padding:0 16px 6px;color:#64748b;font-size:12px;text-align:center}
 </style></head><body>
 <header><div class="k">GE5072 · Ladpet</div><h1>Week 12 Brainstorm: Your Company</h1>
-<p>Final Project company profiles from the class brainstorming session, 26 October 2026. Tap a section to open its board.</p></header>
+<p>Final Project company profiles from the class brainstorming sessions, week of 26 October 2026. Tap a section to open its board.</p></header>
 <main>
-<a class="card" href="ca48.html"><span class="hd"><span class="sec">CA48</span><span class="n">9 companies</span><span class="go">Open board →</span></span><span class="grid">
+<div class="boards">
+<a class="card" href="ca48.html"><span class="hd"><span class="sec">CA48</span><span class="n">9 companies</span><span class="go">Open →</span></span><span class="grid">
 <span class="co"><span class="ph"><img src="thumbs/ca48-1.jpg" alt=""></span><span class="nm">Chawaddee (Thai Tea House)</span></span>
 <span class="co"><span class="ph"><img src="thumbs/ca48-2.jpg" alt=""></span><span class="nm">Siam Delicious</span></span>
 <span class="co"><span class="ph"><img src="thumbs/ca48-3.jpg" alt=""></span><span class="nm">Bright Lab Skincare</span></span>
@@ -36,7 +48,7 @@ footer{flex:none;padding:0 16px 8px;color:#64748b;font-size:12px;text-align:cent
 <span class="co"><span class="ph"><img src="thumbs/ca48-8.jpg" alt=""></span><span class="nm">Topping Company</span></span>
 <span class="co"><span class="ph"><img src="thumbs/ca48-9.jpg" alt=""></span><span class="nm">Fun Luang Entertainment</span></span>
 </span></a>
-<a class="card" href="ec30.html"><span class="hd"><span class="sec">EC30</span><span class="n">7 companies</span><span class="go">Open board →</span></span><span class="grid">
+<a class="card" href="ec30.html"><span class="hd"><span class="sec">EC30</span><span class="n">7 companies</span><span class="go">Open →</span></span><span class="grid">
 <span class="co"><span class="ph"><img src="thumbs/ec30-1.jpg" alt=""></span><span class="nm">nisityakpenbung (นิสิตอยากเป็นบัง)</span></span>
 <span class="co"><span class="ph"><img src="thumbs/ec30-2.jpg" alt=""></span><span class="nm">Sage &amp; Stone</span></span>
 <span class="co"><span class="ph"><img src="thumbs/ec30-3.jpg" alt=""></span><span class="nm">Oat Beer</span></span>
@@ -45,23 +57,44 @@ footer{flex:none;padding:0 16px 8px;color:#64748b;font-size:12px;text-align:cent
 <span class="co"><span class="ph"><img src="thumbs/ec30-6.jpg" alt=""></span><span class="nm">Mori Mood</span></span>
 <span class="co"><span class="ph"><img src="thumbs/ec30-7.jpg" alt=""></span><span class="nm">Block 90&#x27;</span></span>
 </span></a>
+</div>
+<div class="soon"><div class="card empty"><span class="sec">AC21</span><span class="wait">Board coming after class · Thu 29 Oct</span></div>
+<div class="card empty"><span class="sec">BS11</span><span class="wait">Board coming after class · Wed 28 Oct</span></div>
+<div class="card empty"><span class="sec">CA50</span><span class="wait">Board coming after class · Thu 29 Oct</span></div>
+<div class="card empty"><span class="sec">TS66</span><span class="wait">Board coming after class · Wed 28 Oct</span></div></div>
 </main>
 <footer>Saved from Ladpet (GE5072) · names are the nicknames students chose.</footer>
 <script>
-// Pick the column count that gives each company the biggest photo inside its section tile
+
+function best(n,W,H,lines){
+  var gap=8,b=null;
+  for(var c=1;c<=n;c++){
+    var r=Math.ceil(n/c),w=(W-(c-1)*gap)/c,h=(H-(r-1)*gap)/r;
+    var fs=Math.max(10,Math.min(15,w*0.085)),side=Math.min(w-2,h-lines*1.25*fs-10);
+    var score=w<70?side*0.75:side;
+    if(!b||score>b.score)b={c:c,r:r,score:score,fs:fs};
+  }
+  return b;
+}
+function fitGrid(g){
+  var n=g.children.length;if(!n)return;
+  var b=best(n,g.clientWidth,g.clientHeight,+g.dataset.lines||2.5);
+  g.style.gridTemplateColumns='repeat('+b.c+',minmax(0,1fr))';
+  g.style.gridTemplateRows='repeat('+b.r+',minmax(0,1fr))';
+  g.style.setProperty('--fs',b.fs.toFixed(1)+'px');
+}
+
+// Lay the sections out so the smallest photo on the page is as big as possible
 function fit(){
-  document.querySelectorAll('.grid').forEach(function(g){
-    var n=g.children.length,gap=8,W=g.clientWidth,H=g.clientHeight,best=null;
-    for(var c=1;c<=n;c++){
-      var r=Math.ceil(n/c),w=(W-(c-1)*gap)/c,h=(H-(r-1)*gap)/r;
-      var fs=Math.max(10,Math.min(15,w*0.085)),side=Math.min(w-2,h-2.5*fs-8);
-      var score=w<70?side*0.75:side; // narrow cells cut the names
-      if(!best||score>best.score)best={c:c,r:r,score:score,fs:fs};
-    }
-    g.style.gridTemplateColumns='repeat('+best.c+',minmax(0,1fr))';
-    g.style.gridTemplateRows='repeat('+best.r+',minmax(0,1fr))';
-    g.style.setProperty('--fs',best.fs.toFixed(1)+'px');
-  });
+  var m=document.querySelector('.boards'),cards=[].slice.call(m.children),S=cards.length,gap=10;
+  var W=m.clientWidth,H=m.clientHeight,pick=null;
+  for(var C=1;C<=S;C++){
+    var R=Math.ceil(S/C),w=(W-(C-1)*gap)/C-22,h=(H-(R-1)*gap)/R-18-34,worst=Infinity;
+    cards.forEach(function(k){var g=k.querySelector('.grid');if(g)worst=Math.min(worst,best(g.children.length,w,h,2.5).score);});
+    if(!pick||worst>pick.worst)pick={C:C,worst:worst};
+  }
+  m.style.gridTemplateColumns='repeat('+pick.C+',minmax(0,1fr))';
+  m.querySelectorAll('.grid').forEach(fitGrid);
 }
 fit();addEventListener('resize',fit);
 </script>
