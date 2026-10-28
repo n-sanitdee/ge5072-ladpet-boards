@@ -8,9 +8,9 @@ The live Ladpet app is a separate repo (`ge5072-class-wall`).
 
 ## Adding a section board
 
-1. Clean the export (strip the header's "not posted" list, recompress photos ≤1400 px JPEG q82) and save it as `<week>/<code>.html`; give each `<article>` an `id="p<n>"`.
-2. Make `<week>/thumbs/<code>-<n>.jpg` (≤480 px) for each post.
-3. Add the company names to the section in `<week>/sections.json`.
-4. `python3 tools/build.py <week>` — rebuilds the index and the section page's tile view (safe to re-run).
+1. Clean the export (strip the header's "not posted" list, recompress photos ≤1400 px JPEG q82).
+2. `python3 tools/extract.py <week> <code> <export.html>` — writes `<week>/data/<code>.json` plus `img/` photos and `thumbs/`.
+3. Fill in each post's `"company"` in the data file.
+4. `python3 tools/build.py <week>` — rebuilds the index and every section page (safe to re-run).
 
-Each page fits one screen: the index shows every section (sections without a board yet show as small "coming" tiles); a section page shows its companies as tiles, and tapping one opens the full board at that company.
+Every page fits one screen. The index shows every section in `<week>/sections.json` (sections without data show as small "coming soon" tiles). A section page shows each company as a tile with its photo and the start of its profile; tapping one opens the full board at that company (`#p<n>`).
