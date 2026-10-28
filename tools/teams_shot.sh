@@ -19,8 +19,9 @@ cp "$week/shots/$code.png" "$HOME/Library/CloudStorage/OneDrive-UniversityoftheT
 git add "$week/shots/$code.png"
 git commit -qm "$week: $UP board screenshot for the Teams post" || true
 git pull -q --rebase && git push -q
-for i in $(seq 1 40); do
-  [ "$(curl -s -o /dev/null -w '%{http_code}' "https://n-sanitdee.github.io/ge5072-ladpet-boards/$week/shots/$code.png?t=$i")" = 200 ] && echo "published: $week/shots/$code.png" && exit 0
-  sleep 5
+want=$(wc -c < "$week/shots/$code.png" | tr -d ' ')
+for i in $(seq 1 90); do  # wait for THIS file (Pages caches the old one for up to ~10 min)
+  [ "$(curl -s "https://n-sanitdee.github.io/ge5072-ladpet-boards/$week/shots/$code.png?t=$i$(date +%s)" | wc -c | tr -d ' ')" = "$want" ] && echo "published: $week/shots/$code.png" && exit 0
+  sleep 10
 done
 echo "pushed, but not served yet"
