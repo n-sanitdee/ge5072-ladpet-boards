@@ -148,6 +148,15 @@ def linked_walls():
     return out
 
 
+def activity_folder(title):
+    """A custom wall run as an existing activity (e.g. titled "Your Company", as BS11 was) joins that activity's folder."""
+    t = slug(title)
+    for f in ROOT.glob("*/sections.json"):
+        if t and slug(json.loads(f.read_text(encoding="utf-8")).get("activity", "")) == t:
+            return f.parent.name
+    return None
+
+
 def new_folder_cfg(pub, created):
     week, activity, title, noun, one = PRESETS.get(pub["preset"], ("", "Class wall", pub.get("title") or "Class wall", "posts", "post"))
     monday = (created - timedelta(days=created.weekday())).replace(hour=0, minute=0)
@@ -177,7 +186,7 @@ def archive(fb, code, pub, created_ms, linked):
         print(f"  {code}: section {section!r} is not a class — skipped")
         return "skip"
     elif pub["preset"] == "custom":
-        folder = "wall-" + slug(pub.get("title") or code)
+        folder = activity_folder(pub.get("title") or "") or "wall-" + slug(pub.get("title") or code)
     else:
         folder = FOLDER.get(pub["preset"], pub["preset"])
     lc = section.lower()
