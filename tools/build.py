@@ -473,6 +473,34 @@ def index_page(week, cfg, datas):
     (ROOT / week / "index.html").write_text(page, encoding="utf-8")
 
 
+def walls_manifest():
+    """walls.json: every saved board (and live wall code, sections.json "wall") for the Ladpet host page's
+    "Your walls" list. Covers all weeks, so any week's build refreshes it."""
+    from datetime import datetime
+    rows = []
+    for f in sorted(ROOT.glob("*/sections.json")):
+        week = f.parent.name
+        cfg = json.loads(f.read_text(encoding="utf-8"))
+        year = re.search(r"\b(20\d\d)\b", cfg.get("blurb", ""))
+        year = int(year.group(1)) if year else datetime.now().year
+        for sec in cfg["sections"]:
+            lc = sec["code"].lower()
+            board = (ROOT / week / "data" / f"{lc}.json").exists()
+            if not board and not sec.get("wall"):
+                continue
+            m = re.match(r"\w+ (\d+) (\w+) · (\d+):(\d+)", sec.get("class", ""))
+            when = (datetime.strptime(f"{m.group(1)} {m.group(2)} {year} {m.group(3)}:{m.group(4)}", "%d %b %Y %H:%M")
+                    .strftime("%Y-%m-%dT%H:%M:00+07:00")) if m else None
+            row = {"week": week, "section": sec["code"], "title": cfg["title"], "when": when}
+            if board:
+                row["board"] = f"{week}/{lc}.html"
+            if sec.get("wall"):
+                row["wall"] = sec["wall"]
+            rows.append(row)
+    rows.sort(key=lambda r: r["when"] or "", reverse=True)
+    (ROOT / "walls.json").write_text(json.dumps(rows, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+
+
 def main():
     week = sys.argv[1]
     cfg = json.loads((ROOT / week / "sections.json").read_text(encoding="utf-8"))
@@ -483,6 +511,7 @@ def main():
             datas[sec["code"]] = json.loads(f.read_text(encoding="utf-8"))
             section_page(week, cfg, sec, datas[sec["code"]])
     index_page(week, cfg, datas)
+    walls_manifest()
 
 
 if __name__ == "__main__":
