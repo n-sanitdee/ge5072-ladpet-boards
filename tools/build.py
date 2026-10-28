@@ -61,6 +61,21 @@ def esc(s):
 
 NUM = re.compile(r"^\s*(\d{1,2})\s*\.\s*(?!\d)(.*)$")
 BULLET = re.compile(r"^[*•\-–]\s+(.*)$")
+PIPE_RULE = re.compile(r"^\|?\s*:?-{2,}:?\s*(\|\s*:?-{2,}:?\s*)*\|?$")
+
+
+def table_cells(line):
+    """A table row pasted from Word / Sheets (tab-separated) or written in Markdown (| a | b |): its cells, else None."""
+    if "\t" in line:
+        cells = [c.strip() for c in line.split("\t")]
+    elif line.count("|") >= 2:
+        cells = [c.strip() for c in line.strip().strip("|").split("|")]
+    else:
+        return None
+    cells = [c for c in cells if c]
+    return cells if len(cells) >= 2 else None
+
+
 COLON = re.compile(r"^([^\d*•\-–:][^:]{0,38}?)\s*:\s*(.+)$")
 KNOWN = re.compile(r"^(products?\s*(?:&|and|/)\s*services?|history\s*(?:&|and)\s*milestones?|goals?|"
                    r"customers?\s*(?:&|and)\s*markets?|what makes \S+(?: it)? different|numbers that changed|"
@@ -118,6 +133,18 @@ def parse(text, company):
     numbered = any(NUM.match(l) for l in lines)
     secs, cur = [], None
     for l in lines:
+        if PIPE_RULE.match(l):  # the |---|---| line under a Markdown table header
+            continue
+        cells = table_cells(l)
+        if cells:
+            if cur is None:
+                cur = {"h": "", "items": []}
+                secs.append(cur)
+            if cur["items"] and cur["items"][-1][0] == "tbl":
+                cur["items"][-1][1].append(cells)
+            else:
+                cur["items"].append(("tbl", [cells]))
+            continue
         m = NUM.match(l)
         if m:
             h, body = split_numbered(m.group(2).strip())
@@ -154,9 +181,24 @@ def short_heading(h):
 def excerpt_html(tagline, secs):
     out = [f'<p class="tg">{esc(tagline)}</p>'] if tagline else []
     for s in secs:
-        parts = [f"{esc(i[1])}: {esc(i[2])}" if i[0] == "kv" else esc(i[1]) for i in s["items"]]
+        parts = [f"{esc(i[1])}: {esc(i[2])}" if i[0] == "kv" else
+                 "📊 " + " · ".join(esc(r[0]) for r in i[1][1:]) if i[0] == "tbl" else esc(i[1]) for i in s["items"]]
         head = f'<b>{icon(s["h"])} {esc(short_heading(s["h"]))}</b> ' if s["h"] else ""
         out.append(f"<p>{head}{' · '.join(parts)}</p>")
+    return "".join(out)
+
+
+def table_html(rows):
+    """First row = header; cells that are numbers line up on the right."""
+    n = max(len(r) for r in rows)
+    num = re.compile(r"^[\d.,%+\-–\s]+(?:baht|THB|฿|k|K|M)?$")
+    out = ['<div class="tbl"><table>']
+    for k, r in enumerate(rows):
+        tag = "th" if k == 0 and len(rows) > 1 else "td"
+        r = r + [""] * (n - len(r))
+        out.append("<tr>" + "".join(f'<{tag}{" class=n" if j and num.match(c) else ""}>{esc(c)}</{tag}>'
+                                    for j, c in enumerate(r)) + "</tr>")
+    out.append("</table></div>")
     return "".join(out)
 
 
@@ -174,6 +216,9 @@ def full_html(tagline, secs):
             if ul:
                 out.append("<ul>" + "".join(ul) + "</ul>")
                 ul = []
+            if i[0] == "tbl":
+                out.append(table_html(i[1]))
+                continue
             out.append(f"<p><b>{esc(i[1])}:</b> {esc(i[2])}</p>" if i[0] == "kv" else f"<p>{esc(i[1])}</p>")
         if ul:
             out.append("<ul>" + "".join(ul) + "</ul>")
@@ -240,6 +285,11 @@ html.full header.top,html.tiles .bar,html.tiles #slides,html.full #tiles{display
 .slide p{margin:.12em 0}.slide ul{margin:.12em 0;padding-left:1.3em}
 .slide .body.c2{columns:2;column-gap:1.8em}
 .slide .body.c2 .sec{break-inside:avoid}
+.slide .tbl{margin:.35em 0 .2em;break-inside:avoid}
+.slide table{border-collapse:collapse;width:100%;font-size:.86em;line-height:1.3;background:#fff}
+.slide th,.slide td{border:1.5px solid var(--ink);padding:.22em .45em;text-align:left;vertical-align:top}
+.slide th{background:var(--tint);font-weight:800}
+.slide td.n,.slide th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 .slide .none{color:var(--muted);font-weight:700;margin-top:.8em}
 @media (max-width:700px) and (orientation:portrait){
   #slides{padding:10px 12px 12px}
