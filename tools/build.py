@@ -245,6 +245,7 @@ html.full header.top,html.tiles .bar,html.tiles #slides,html.full #tiles{display
   #slides{padding:10px 12px 12px}
   .slide,.slide.pic{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,38%) minmax(0,1fr);gap:12px}
   .slide.pic{grid-template-rows:minmax(0,1fr) auto}
+  .slide.nopic{grid-template-rows:minmax(0,1fr)}
   .slide .photo img{inset:8px;width:calc(100% - 16px);height:calc(100% - 16px)}
   .bar{padding:6px 10px;gap:6px}.bar .ttl,.bar .fs{display:none}.bar button{padding:2px 10px}
 }
