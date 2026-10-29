@@ -116,13 +116,14 @@ html.full header.top,html.tiles .bar,html.tiles #slides,html.full #tiles{display
 </section>
 <script>
 // Pick the column count that gives every tile the most room at a card-like shape,
-// then lay each tile out photo-left (wide tiles) or photo-top (tall tiles)
+// then lay each tile out photo-left (wide tiles) or photo-top (tall tiles);
+// on landscape screens wide photo-left tiles win close calls (Mew prefers that look)
 function fitTiles(){
   var g=document.querySelector('#tiles .grid');if(!g)return;
   var n=g.children.length,gap=parseFloat(getComputedStyle(g).rowGap)||14,W=g.clientWidth,H=g.clientHeight,b=null;
   for(var c=1;c<=n;c++){
     var r=Math.ceil(n/c),w=(W-(c-1)*gap)/c,h=(H-(r-1)*gap)/r,a=w/h;
-    var s=w*h*Math.exp(-Math.abs(Math.log(a/1.6))*0.9)*(w<150?0.6:1);
+    var s=w*h*Math.exp(-Math.abs(Math.log(a/1.6))*0.9)*(w<150?0.6:1)*(W>H&&w>=1.25*h?1.2:1);
     if(!b||s>b.s)b={c:c,r:r,w:w,h:h,s:s};
   }
   var hz=b.w>=1.25*b.h,tw=hz?b.w*0.58:b.w;
