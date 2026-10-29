@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en" class="tiles"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ladpet · Week 12 Brainstorm · CA50</title>
+<script>document.documentElement.className=/^#p\d+$/.test(location.hash)?'full':'tiles'</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;700;800&family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1d1a3a;--muted:#5f5b80;--paper:#fffaf2;--acc:#6d4aff}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper) radial-gradient(#e8dfcf 1.2px,transparent 1.4px) 0 0/18px 18px;color:var(--ink);
+  font-family:'Nunito','Sarabun',system-ui,-apple-system,'Segoe UI',sans-serif}
+.dsp{font-family:'Fredoka','Sarabun',system-ui,sans-serif}
+header.top{position:relative;overflow:hidden;background:var(--acc);color:#fff;padding:12px 18px 14px;flex:none;border-bottom:3px solid var(--ink)}
+header.top::before{content:"";position:absolute;right:-40px;top:-60px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.14)}
+header.top::after{content:"";position:absolute;right:120px;bottom:-46px;width:84px;height:84px;border-radius:50%;background:#ffd34d;border:3px solid var(--ink)}
+header.top .row{position:relative;z-index:1;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pill{display:inline-block;background:#fff;color:var(--ink);border:2px solid var(--ink);border-radius:999px;padding:1px 10px;font-weight:800;font-size:12px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none}
+a.pill:hover{background:#ffd34d}
+header.top h1{position:relative;z-index:1;margin:6px 0 2px;font-size:clamp(20px,3.2vw,30px);line-height:1.2;font-weight:600}
+header.top p{position:relative;z-index:1;margin:0;font-size:13px;font-weight:700;opacity:.92;max-width:62ch}
+.sticker{display:inline-block;background:#fff;color:var(--ink);border:2px solid var(--ink);border-radius:10px;padding:0 9px;
+  box-shadow:3px 3px 0 var(--ink);transform:rotate(-3deg);font-weight:700}
+.card{background:#fff;border:2px solid var(--ink);border-radius:16px;box-shadow:4px 4px 0 var(--ink)}
+a.card,a.co{text-decoration:none;color:inherit;transition:transform .12s,box-shadow .12s}
+a.card:hover,a.card:focus-visible,a.co:hover,a.co:focus-visible{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink);outline:none}
+footer{flex:none;text-align:center;color:var(--muted);font-size:12px;font-weight:700;padding:4px 16px 8px}
+@media (max-width:560px){header.top::after{display:none}header.top{padding:10px 14px 12px}}
+
+html,body{height:100%;overflow:hidden}
+body{display:flex;flex-direction:column;height:100dvh}
+html.full header.top,html.tiles .bar,html.tiles #slides,html.full #tiles{display:none}
+#tiles{flex:1;min-height:0;display:flex;flex-direction:column;gap:10px;padding:14px 18px 16px;width:100%;max-width:1840px;margin:0 auto}
+.hint{flex:none;font-weight:800;font-size:13px;color:var(--muted)}
+.hint b{color:var(--acc)}
+.grid{flex:1;min-height:0;display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.co{display:flex;min-width:0;min-height:0;overflow:hidden;background:#fff;border:2px solid var(--ink);border-radius:16px;box-shadow:4px 4px 0 var(--ink)}
+.grid.v .co{flex-direction:column}
+.co .ph{flex:none;position:relative;background:var(--tint);width:var(--pw,40%)}
+.grid.v .co .ph{width:auto;height:var(--phh,45%);border-bottom:2px solid var(--ink)}
+.grid.h .co .ph{border-right:2px solid var(--ink)}
+.co .ph img{position:absolute;inset:6px;width:calc(100% - 12px);height:calc(100% - 12px);object-fit:contain;border-radius:8px}
+.co.pic .ph{flex:1;width:auto;height:auto}
+.co .tx{flex:1;min-width:0;min-height:0;display:flex;flex-direction:column;padding:8px 11px 7px;font-size:var(--fs,12px)}
+.co.pic .tx{flex:none}
+.grid.h .co.pic .tx{width:42%}
+.co .nm{flex:none;font-family:'Fredoka','Sarabun',sans-serif;font-weight:600;font-size:1.32em;line-height:1.15;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.co .by{flex:none;margin:3px 0 4px;font-size:.88em;font-weight:800;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.co .by span,.slide .by span{background:var(--tint);border:1.5px solid var(--ink);border-radius:999px;padding:0 .5em;color:var(--ink)}
+.co .det{flex:1;min-height:0;overflow:hidden;line-height:1.38;-webkit-mask-image:linear-gradient(#000 62%,transparent);mask-image:linear-gradient(#000 62%,transparent)}
+.co .det p{margin:0 0 3px}
+.co .det b{color:var(--acc);font-weight:800}
+.co .det .tg,.slide .tg{font-style:italic;font-weight:700}
+.co .more{flex:none;align-self:flex-end;font-weight:800;font-size:.92em;color:var(--acc)}
+.grid.tight .co .more,.grid.tight .co .det b{display:none}
+.grid.tight .co .by{margin:2px 0 3px}
+.co.pic .det{flex:none;color:var(--muted);font-weight:700;-webkit-mask-image:none;mask-image:none}
+@media (max-width:560px){#tiles{padding:10px 12px 12px;gap:8px}.grid{gap:10px}}
+
+.bar{flex:none;display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--acc);color:#fff;border-bottom:3px solid var(--ink)}
+.bar .ttl{font-weight:600;font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.bar .ttl .sticker{font-size:15px;margin-right:6px}
+.bar .sp{flex:1}
+.bar button,.bar a.pill{font:inherit;cursor:pointer}
+.bar button{background:#fff;color:var(--ink);border:2px solid var(--ink);border-radius:999px;font-weight:800;font-size:14px;padding:2px 12px;line-height:1.4}
+.bar button:hover{background:#ffd34d}
+.bar button:disabled{opacity:.4;cursor:default;background:#fff}
+.bar .count{font-weight:800;font-size:14px;min-width:3.6em;text-align:center}
+#slides{flex:1;min-height:0;padding:16px 20px 20px;width:100%;max-width:1840px;margin:0 auto}
+.slide{display:none;height:100%;gap:22px;grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);grid-template-rows:minmax(0,1fr)}
+.slide.on{display:grid;animation:slidein .35s ease-out}
+.slide.nopic{grid-template-columns:minmax(0,1fr)}
+.slide.pic{grid-template-columns:minmax(0,1.7fr) minmax(0,1fr)}
+@keyframes slidein{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.slide .photo{position:relative;background:var(--tint);overflow:hidden;min-height:0}
+.slide .photo img{position:absolute;inset:16px;width:calc(100% - 32px);height:calc(100% - 32px);object-fit:contain;border-radius:12px}
+.slide .txt{min-height:0;overflow:hidden;padding:1.1em 1.4em;font-size:var(--f,18px);line-height:1.45}
+.slide.scroll .txt{overflow:auto}
+.slide h2{margin:0;font-size:2em;font-weight:600;line-height:1.1}
+.slide .by{margin:.35em 0 .5em;font-weight:800;font-size:.85em;color:var(--muted)}
+.slide h3{margin:.7em 0 .1em;font-size:1em;font-weight:800;color:var(--acc);display:flex;gap:.35em;align-items:baseline}
+.slide p{margin:.12em 0}.slide ul{margin:.12em 0;padding-left:1.3em}
+.slide .body.c2{columns:2;column-gap:1.8em}
+.slide .body.c2 .sec{break-inside:avoid}
+.slide .tbl{margin:.35em 0 .2em;break-inside:avoid}
+.slide table{border-collapse:collapse;width:100%;font-size:.86em;line-height:1.3;background:#fff}
+.slide th,.slide td{border:1.5px solid var(--ink);padding:.22em .45em;text-align:left;vertical-align:top}
+.slide th{background:var(--tint);font-weight:800}
+.slide td.n,.slide th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.slide .none{color:var(--muted);font-weight:700;margin-top:.8em}
+@media (max-width:700px) and (orientation:portrait){
+  #slides{padding:10px 12px 12px}
+  .slide,.slide.pic{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,38%) minmax(0,1fr);gap:12px}
+  .slide.pic{grid-template-rows:minmax(0,1fr) auto}
+  .slide.nopic{grid-template-rows:minmax(0,1fr)}
+  .slide .photo img{inset:8px;width:calc(100% - 16px);height:calc(100% - 16px)}
+  .bar{padding:6px 10px;gap:6px}.bar .ttl,.bar .fs{display:none}.bar button{padding:2px 10px}
+}
+@media (prefers-reduced-motion:reduce){.slide.on{animation:none}a.co,a.card{transition:none}}
+:root{--acc:#2563eb}</style></head><body>
+<header class="top"><div class="row"><a class="pill" href="./">← All sections</a><span class="pill">GE5072 · Ladpet</span></div>
+<h1 class="dsp"><span class="sticker">CA50</span> Your Company</h1>
+<p>Thursday, 29 October 2026 · 7 companies</p></header>
+<section id="tiles"><div class="hint">Tap a company to <b>present</b> it to the class.</div><div class="grid">
+<a class="co" href="#p1" style="--tint:#ffd9e2"><span class="ph"><img src="thumbs/ca50-1.jpg" alt=""></span><span class="tx"><span class="nm">Hom Nuea</span><span class="det"><p><b>🛍️ Products &amp; Services</b> HOM NUEA is a Northern Thai fusion fast-food brand. · Its menu combines traditional Northern Thai flavors with modern street food. · Customers can customize their meals by choosing dough, meat, vegetables, and sauces. · The business operates restaurants in shopping malls and automated vending machines at BTS and MRT stations.</p><p><b>📜 History &amp; Milestones</b> HOM NUEA was established around the concept of bringing traditional Northern Thai cuisine to modern urban consumers. · The introduction of vending machines at BTS and MRT stations marked an important milestone in expanding its sales channels. · These vending machines made HOM NUEA’s products more accessible to commuters and people with busy lifestyles. · In Year 4, the company increased its social media marketing efforts, helping sales recover significantly.</p><p><b>🎯 Goals</b> Expand the business to CentralWorld next year. · Increase brand awareness among urban consumers. · Improve sales performance through digital marketing and convenient distribution channels.</p><p><b>👥 Customers &amp; Markets</b> HOM NUEA targets teenagers, students, and young adults aged 16–35. · Its key customers include office workers, commuters, and people seeking convenient meals. · The brand appeals to customers who enjoy local Thai flavors presented in a modern format. · Its main markets include shopping malls and busy BTS and MRT stations.</p><p><b>✨ What Makes It Different</b> Combines authentic Northern Thai flavors with the convenience of modern fast food. · Offers customizable meals to suit different customer preferences. · Sources ingredients directly from local suppliers to support local communities. · Uses eco-friendly packaging to reduce environmental impact. · Offers convenient purchasing options through restaurants and vending machines.</p><p><b>📈 Numbers That Changed</b> Year 1: The overall sales index stood at 100. · Year 2: The sales index increased to 125 following the introduction of vending machines. · Year 3: The sales index decreased slightly to 120. · Year 4: The sales index recovered to 168 following increased investment in social media marketing. · Next Year: The sales index is projected to reach 210.</p></span><span class="more">Present ▶</span></span></a>
+<a class="co" href="#p2" style="--tint:#fff0b3"><span class="ph"><img src="thumbs/ca50-2.jpg" alt=""></span><span class="tx"><span class="nm">Chicken Fly</span><span class="by">by <span>SixSeven</span></span><span class="det"><p><b>🛍️ Products &amp; Services</b> English: Chicken Fly sells fast-food box sets containing fried chicken, French fries, hamburgers, chicken nuggets, and soft drinks. We offer delicious and convenient meals at affordable prices.</p><p><b>📜 History &amp; Milestones</b> English: Chicken Fly was established in 2026 with the idea of creating convenient and affordable fast-food box sets. Our goal is to grow into a popular fast-food brand.</p><p><b>🎯 Goals</b> English: Our goals are to provide tasty food, maintain good quality, satisfy customers, and expand our business in the future.</p><p><b>👥 Customers &amp; Markets</b> English: Our main customers are students, office workers, families, and people who want quick and affordable meals.</p><p><b>✨ What Makes It Different</b> English: Chicken Fly offers a variety of favorite fast foods in one convenient box. Our box sets are delicious, easy to carry, and perfect for sharing.</p><p><b>📈 Numbers That Changed</b> English: Since its establishment in 2026, Chicken Fly aims to increase its customers, box set sales, and number of branches every year.</p></span><span class="more">Present ▶</span></span></a>
+<a class="co" href="#p3" style="--tint:#cdf3e4"><span class="ph"><img src="thumbs/ca50-3.jpg" alt=""></span><span class="tx"><span class="nm">Banana Suit</span><span class="by">by <span>Banana suit</span></span><span class="det"><p><b>🛍️ Products &amp; services</b> We offer high-quality sports clothing and equipment (such as moisture-wicking sportswear, training shirts, pants, and fitness accessories like water bottles and resistance bands) designed for both professional athletes and beginners. We also provide customized redesigning and retail services through our physical store and online platforms.</p><p><b>📜 History &amp; milestones</b> Banana Suit was founded with the vision of making premium sportswear accessible and comfortable for everyone. A major milestone was the successful launch of our flagship store at CentralWorld, Bangkok, followed by the expansion into major e-commerce channels (Shopee and Facebook) and the launch of our popular new sportswear collection which dramatically boosted sales.</p><p><b>🎯 Goals</b> Our goal is to grow into a leading sportswear brand in the retail market while delivering the best customer experience with every purchase, continuously expanding our digital presence, and increasing our market share by the end of the year.</p><p><b>👥 Customers &amp; markets</b> We operate in the retail sector (tertiary sector) targeting fitness enthusiasts, professional athletes, and everyday beginners who are just starting to exercise. Our market includes both walk-in customers at our physical store in Bangkok and online shoppers across Thailand.</p><p><b>✨ What makes it different</b> We focus heavily on a unique combination of quality, comfort, and versatile design that suits both pro athletes and beginners. Additionally, we curate and expertly redesign sourced products to match modern trends, alongside offering a seamless omnichannel shopping experience (both physical store at CentralWorld and online channels).</p><p><b>📈 Numbers that changed</b> Overall sales climbed dramatically by 150% following the launch of our new collection in the first quarter. · Online website traffic increased steadily by 85% month-over-month due to expanded digital marketing. · Overall market share is projected to grow at a significant rate of 40% by the end of the year.</p></span><span class="more">Present ▶</span></span></a>
+<a class="co" href="#p4" style="--tint:#d4e8ff"><span class="ph"><img src="thumbs/ca50-4.jpg" alt=""></span><span class="tx"><span class="nm">GlowUp Skincare</span><span class="by">by <span>Magister tennyson</span></span><span class="det"><p><b>🛍️ Products &amp; Services</b> We sell facial cleansers, moisturizers, and sunscreens.</p><p><b>📜 History &amp; Milestones</b> GlowUp Skincare was founded in 2024. We started with three skincare products.</p><p><b>🎯 Goals</b> Our goal is to provide affordable and gentle skincare products.</p><p><b>👥 Customers &amp; Markets</b> Our target customers are teenagers and university students.</p><p><b>✨ What Makes It Different</b> Our products are affordable, easy to use, and suitable for everyday skincare.</p><p><b>📈 Numbers That Changed</b> We started with 3 products and aim to offer 10 products in the future.</p></span><span class="more">Present ▶</span></span></a>
+<a class="co" href="#p5" style="--tint:#e6dcff"><span class="ph"><img src="thumbs/ca50-5.jpg" alt=""></span><span class="tx"><span class="nm">Cha Doi</span><span class="det"><p><b>🛍️ Products &amp; Services</b> CHA DOI offers modern green tea beverages crafted from locally grown tea leaves in northern Thailand. We blend traditional authentic flavors with innovative recipes to create accessible and refreshing drinks for modern generations.</p><p><b>📜 History &amp; Milestones</b> CHA DOI began with a successful flagship store in Chiang Rai, which experienced rapid growth. This success led to expanding our second branch in Chiang Mai with steady profits, followed by our third branch in Bangkok to introduce northern tea culture to urban consumers.</p><p><b>🎯 Goals</b> Our goals are to increase brand awareness in Bangkok through focused content marketing, make northern Thai tea widely recognized across the country, and establish CHA DOI as a globally recognized Thai tea brand.</p><p><b>👥 Customers &amp; Markets</b> Our target customers are students, young professionals, cafe lovers, and tourists. Our market spans local tea lovers in northern Thailand and urban consumers in Bangkok who seek premium local taste.</p><p><b>✨ What Makes It Different</b> CHA DOI sources directly from local mountain farmers, preserving northern heritage while serving creative modern flavors. It is not just a cup of tea, but an authentic experience of northern Thai culture.</p><p><b>📈 Numbers That Changed</b> The flagship store in Chiang Rai achieved exponential order growth, and the Chiang Mai branch continues to generate steady revenue growth. Following new content marketing campaigns in Bangkok, brand awareness and sales are projected to grow significantly.</p></span><span class="more">Present ▶</span></span></a>
+<a class="co" href="#p6" style="--tint:#ffe0c7"><span class="ph"><img src="thumbs/ca50-6.jpg" alt=""></span><span class="tx"><span class="nm">Crispy Bite</span><span class="by">by <span>Crispy bite</span></span><span class="det"><p><b>🛍️ Products &amp; Services</b> We sell burgers, fried chicken, French fries, nuggets, and soft drinks in affordable meal sets. Customers can dine in or order through delivery apps.</p><p><b>📜 History &amp; Milestones</b> 2026: Opened our first restaurant in Thailand to serve students and local customers · Later: Joined food delivery apps · Next: Open more branches</p><p><b>🎯 Goals</b> Serve tasty food, keep good quality, and give excellent service while growing sales and customers.</p><p><b>👥 Customers &amp; Markets</b> Students, office workers, and families who want quick, tasty, and affordable meals, at our restaurant and online.</p><p><b>✨ What Makes It Different</b> Our special sauce recipe and unique burger buns give us a taste you can&#x27;t find anywhere else. Local suppliers help us keep prices low without losing quality.</p><p><b>📈 Numbers That Changed</b> Customers: 50 → 120 per day · Sales: up 35% · Online orders: up 40% on weekends · Food costs: down 8% · Staff: 6 → 4, so we need to hire more</p></span><span class="more">Present ▶</span></span></a>
+<a class="co" href="#p7" style="--tint:#ffd9e2"><span class="ph"><img src="thumbs/ca50-7.jpg" alt=""></span><span class="tx"><span class="nm">girlsbeat</span><span class="by">by <span>pun, kratae, kwan, baitong, Gus &amp; cake</span></span><span class="det"><p><b>🛍️ Products &amp; Services</b> Summer collection featuring graphic printed t-shirts and linen pants. · Custom ordering services for special events.</p><p><b>📜 History &amp; Milestones</b> 2020: Founded as a small-scale brand. · 2021: Launched the first official online store.</p><p><b>🎯 Goals</b> Achieve a 25% growth in online sales by 2026. · Expand into 2 new retail locations within the ASEAN region.</p><p><b>👥 Customers &amp; Markets</b> </p><p><b> Target Audience</b> Teenagers and young professionals who prefer casual fashion.</p><p><b>👥 Market Share Breakdown</b> 80% Online / 20% Pop-up Stores. · Key Differentiator (Unique Selling Proposition): · Uses 100% organic cotton. · Made-to-order production process designed to minimize waste (Sustainability). · Key Performance &amp; Metrics (Since Inception): · T-shirt sales surged by 50% during the New Year period. · Total online sales grew significantly in 2025 following a social media campaign. · The regular customer base (repeat customers) remained stable throughout the year, with brand awareness and popularity growing noticeably.</p><p><b> Note</b> Retail pop-up store foot traffic saw a drop during the rainy season.</p></span><span class="more">Present ▶</span></span></a>
+</div></section>
+<nav class="bar"><a class="pill" href="#">← All companies</a><span class="ttl dsp"><span class="sticker">CA50</span>Your Company</span>
+<span class="sp"></span><button class="prev" aria-label="Previous company">◀</button><span class="count"></span>
+<button class="next" aria-label="Next company">▶</button><button class="fs">Full screen</button></nav>
+<section id="slides">
+<article class="slide" id="p1" style="--tint:#ffd9e2"><div class="photo card"><img src="img/ca50-1.jpg" alt="Hom Nuea" loading="lazy"></div><div class="txt card"><h2 class="dsp">Hom Nuea</h2><div class="body"><div class="sec"><h3><span class="ic">🛍️</span>Products &amp; Services</h3><ul><li>HOM NUEA is a Northern Thai fusion fast-food brand.</li><li>Its menu combines traditional Northern Thai flavors with modern street food.</li><li>Customers can customize their meals by choosing dough, meat, vegetables, and sauces.</li><li>The business operates restaurants in shopping malls and automated vending machines at BTS and MRT stations.</li></ul></div><div class="sec"><h3><span class="ic">📜</span>History &amp; Milestones</h3><ul><li>HOM NUEA was established around the concept of bringing traditional Northern Thai cuisine to modern urban consumers.</li><li>The introduction of vending machines at BTS and MRT stations marked an important milestone in expanding its sales channels.</li><li>These vending machines made HOM NUEA’s products more accessible to commuters and people with busy lifestyles.</li><li>In Year 4, the company increased its social media marketing efforts, helping sales recover significantly.</li></ul></div><div class="sec"><h3><span class="ic">🎯</span>Goals</h3><ul><li>Expand the business to CentralWorld next year.</li><li>Increase brand awareness among urban consumers.</li><li>Improve sales performance through digital marketing and convenient distribution channels.</li></ul></div><div class="sec"><h3><span class="ic">👥</span>Customers &amp; Markets</h3><ul><li>HOM NUEA targets teenagers, students, and young adults aged 16–35.</li><li>Its key customers include office workers, commuters, and people seeking convenient meals.</li><li>The brand appeals to customers who enjoy local Thai flavors presented in a modern format.</li><li>Its main markets include shopping malls and busy BTS and MRT stations.</li></ul></div><div class="sec"><h3><span class="ic">✨</span>What Makes It Different</h3><ul><li>Combines authentic Northern Thai flavors with the convenience of modern fast food.</li><li>Offers customizable meals to suit different customer preferences.</li><li>Sources ingredients directly from local suppliers to support local communities.</li><li>Uses eco-friendly packaging to reduce environmental impact.</li><li>Offers convenient purchasing options through restaurants and vending machines.</li></ul></div><div class="sec"><h3><span class="ic">📈</span>Numbers That Changed</h3><ul><li>Year 1: The overall sales index stood at 100.</li><li>Year 2: The sales index increased to 125 following the introduction of vending machines.</li><li>Year 3: The sales index decreased slightly to 120.</li><li>Year 4: The sales index recovered to 168 following increased investment in social media marketing.</li><li>Next Year: The sales index is projected to reach 210.</li></ul></div></div></div></article>
+<article class="slide" id="p2" style="--tint:#fff0b3"><div class="photo card"><img src="img/ca50-2.jpg" alt="Chicken Fly" loading="lazy"></div><div class="txt card"><h2 class="dsp">Chicken Fly</h2><div class="by">by <span>SixSeven</span></div><div class="body"><div class="sec"><h3><span class="ic">🛍️</span>Products &amp; Services (ผลิตภัณฑ์และบริการ)</h3><p><b>English:</b> Chicken Fly sells fast-food box sets containing fried chicken, French fries, hamburgers, chicken nuggets, and soft drinks. We offer delicious and convenient meals at affordable prices.</p></div><div class="sec"><h3><span class="ic">📜</span>History &amp; Milestones (ประวัติและหมุดหมายสำคัญ)</h3><p><b>English:</b> Chicken Fly was established in 2026 with the idea of creating convenient and affordable fast-food box sets. Our goal is to grow into a popular fast-food brand.</p></div><div class="sec"><h3><span class="ic">🎯</span>Goals (เป้าหมาย)</h3><p><b>English:</b> Our goals are to provide tasty food, maintain good quality, satisfy customers, and expand our business in the future.</p></div><div class="sec"><h3><span class="ic">👥</span>Customers &amp; Markets (ลูกค้าและตลาด)</h3><p><b>English:</b> Our main customers are students, office workers, families, and people who want quick and affordable meals.</p></div><div class="sec"><h3><span class="ic">✨</span>What Makes It Different (สิ่งที่ทำให้แตกต่าง)</h3><p><b>English:</b> Chicken Fly offers a variety of favorite fast foods in one convenient box. Our box sets are delicious, easy to carry, and perfect for sharing.</p></div><div class="sec"><h3><span class="ic">📈</span>Numbers That Changed (ตัวเลขที่เปลี่ยนแปลงตั้งแต่ก่อตั้ง)</h3><p><b>English:</b> Since its establishment in 2026, Chicken Fly aims to increase its customers, box set sales, and number of branches every year.</p></div></div></div></article>
+<article class="slide" id="p3" style="--tint:#cdf3e4"><div class="photo card"><img src="img/ca50-3.jpg" alt="Banana Suit" loading="lazy"></div><div class="txt card"><h2 class="dsp">Banana Suit</h2><div class="by">by <span>Banana suit</span></div><div class="body"><div class="sec"><h3><span class="ic">🛍️</span>Products &amp; services</h3><p>We offer high-quality sports clothing and equipment (such as moisture-wicking sportswear, training shirts, pants, and fitness accessories like water bottles and resistance bands) designed for both professional athletes and beginners. We also provide customized redesigning and retail services through our physical store and online platforms.</p></div><div class="sec"><h3><span class="ic">📜</span>History &amp; milestones</h3><p>Banana Suit was founded with the vision of making premium sportswear accessible and comfortable for everyone. A major milestone was the successful launch of our flagship store at CentralWorld, Bangkok, followed by the expansion into major e-commerce channels (Shopee and Facebook) and the launch of our popular new sportswear collection which dramatically boosted sales.</p></div><div class="sec"><h3><span class="ic">🎯</span>Goals</h3><p>Our goal is to grow into a leading sportswear brand in the retail market while delivering the best customer experience with every purchase, continuously expanding our digital presence, and increasing our market share by the end of the year.</p></div><div class="sec"><h3><span class="ic">👥</span>Customers &amp; markets</h3><p>We operate in the retail sector (tertiary sector) targeting fitness enthusiasts, professional athletes, and everyday beginners who are just starting to exercise. Our market includes both walk-in customers at our physical store in Bangkok and online shoppers across Thailand.</p></div><div class="sec"><h3><span class="ic">✨</span>What makes it different</h3><p>We focus heavily on a unique combination of quality, comfort, and versatile design that suits both pro athletes and beginners. Additionally, we curate and expertly redesign sourced products to match modern trends, alongside offering a seamless omnichannel shopping experience (both physical store at CentralWorld and online channels).</p></div><div class="sec"><h3><span class="ic">📈</span>Numbers that changed</h3><p>Overall sales climbed dramatically by 150% following the launch of our new collection in the first quarter.</p><p>Online website traffic increased steadily by 85% month-over-month due to expanded digital marketing.</p><p>Overall market share is projected to grow at a significant rate of 40% by the end of the year.</p></div></div></div></article>
+<article class="slide" id="p4" style="--tint:#d4e8ff"><div class="photo card"><img src="img/ca50-4.jpg" alt="GlowUp Skincare" loading="lazy"></div><div class="txt card"><h2 class="dsp">GlowUp Skincare</h2><div class="by">by <span>Magister tennyson</span></div><div class="body"><div class="sec"><h3><span class="ic">🛍️</span>Products &amp; Services</h3><p>We sell facial cleansers, moisturizers, and sunscreens.</p></div><div class="sec"><h3><span class="ic">📜</span>History &amp; Milestones</h3><p>GlowUp Skincare was founded in 2024. We started with three skincare products.</p></div><div class="sec"><h3><span class="ic">🎯</span>Goals</h3><p>Our goal is to provide affordable and gentle skincare products.</p></div><div class="sec"><h3><span class="ic">👥</span>Customers &amp; Markets</h3><p>Our target customers are teenagers and university students.</p></div><div class="sec"><h3><span class="ic">✨</span>What Makes It Different</h3><p>Our products are affordable, easy to use, and suitable for everyday skincare.</p></div><div class="sec"><h3><span class="ic">📈</span>Numbers That Changed</h3><p>We started with 3 products and aim to offer 10 products in the future.</p></div></div></div></article>
+<article class="slide" id="p5" style="--tint:#e6dcff"><div class="photo card"><img src="img/ca50-5.jpg" alt="Cha Doi" loading="lazy"></div><div class="txt card"><h2 class="dsp">Cha Doi</h2><div class="body"><div class="sec"><h3><span class="ic">🛍️</span>Products &amp; Services</h3><p>CHA DOI offers modern green tea beverages crafted from locally grown tea leaves in northern Thailand. We blend traditional authentic flavors with innovative recipes to create accessible and refreshing drinks for modern generations.</p></div><div class="sec"><h3><span class="ic">📜</span>History &amp; Milestones</h3><p>CHA DOI began with a successful flagship store in Chiang Rai, which experienced rapid growth. This success led to expanding our second branch in Chiang Mai with steady profits, followed by our third branch in Bangkok to introduce northern tea culture to urban consumers.</p></div><div class="sec"><h3><span class="ic">🎯</span>Goals</h3><p>Our goals are to increase brand awareness in Bangkok through focused content marketing, make northern Thai tea widely recognized across the country, and establish CHA DOI as a globally recognized Thai tea brand.</p></div><div class="sec"><h3><span class="ic">👥</span>Customers &amp; Markets</h3><p>Our target customers are students, young professionals, cafe lovers, and tourists. Our market spans local tea lovers in northern Thailand and urban consumers in Bangkok who seek premium local taste.</p></div><div class="sec"><h3><span class="ic">✨</span>What Makes It Different</h3><p>CHA DOI sources directly from local mountain farmers, preserving northern heritage while serving creative modern flavors. It is not just a cup of tea, but an authentic experience of northern Thai culture.</p></div><div class="sec"><h3><span class="ic">📈</span>Numbers That Changed</h3><p>The flagship store in Chiang Rai achieved exponential order growth, and the Chiang Mai branch continues to generate steady revenue growth. Following new content marketing campaigns in Bangkok, brand awareness and sales are projected to grow significantly.</p></div></div></div></article>
+<article class="slide" id="p6" style="--tint:#ffe0c7"><div class="photo card"><img src="img/ca50-6.jpg" alt="Crispy Bite" loading="lazy"></div><div class="txt card"><h2 class="dsp">Crispy Bite</h2><div class="by">by <span>Crispy bite</span></div><div class="body"><div class="sec"><h3><span class="ic">🛍️</span>Products &amp; Services</h3><p>We sell burgers, fried chicken, French fries, nuggets, and soft drinks in affordable meal sets. Customers can dine in or order through delivery apps.</p></div><div class="sec"><h3><span class="ic">📜</span>History &amp; Milestones</h3><p>2026: Opened our first restaurant in Thailand to serve students and local customers</p><p><b>Later:</b> Joined food delivery apps</p><p><b>Next:</b> Open more branches</p></div><div class="sec"><h3><span class="ic">🎯</span>Goals</h3><p>Serve tasty food, keep good quality, and give excellent service while growing sales and customers.</p></div><div class="sec"><h3><span class="ic">👥</span>Customers &amp; Markets</h3><p>Students, office workers, and families who want quick, tasty, and affordable meals, at our restaurant and online.</p></div><div class="sec"><h3><span class="ic">✨</span>What Makes It Different</h3><p>Our special sauce recipe and unique burger buns give us a taste you can&#x27;t find anywhere else. Local suppliers help us keep prices low without losing quality.</p></div><div class="sec"><h3><span class="ic">📈</span>Numbers That Changed</h3><p><b>Customers:</b> 50 → 120 per day</p><p><b>Sales:</b> up 35%</p><p><b>Online orders:</b> up 40% on weekends</p><p><b>Food costs:</b> down 8%</p><p><b>Staff:</b> 6 → 4, so we need to hire more</p></div></div></div></article>
+<article class="slide" id="p7" style="--tint:#ffd9e2"><div class="photo card"><img src="img/ca50-7.jpg" alt="girlsbeat" loading="lazy"></div><div class="txt card"><h2 class="dsp">girlsbeat</h2><div class="by">by <span>pun, kratae, kwan, baitong, Gus &amp; cake</span></div><div class="body"><div class="sec"><h3><span class="ic">🛍️</span>Products &amp; Services</h3><p>Summer collection featuring graphic printed t-shirts and linen pants.</p><p>Custom ordering services for special events.</p></div><div class="sec"><h3><span class="ic">📜</span>History &amp; Milestones</h3><p>2020: Founded as a small-scale brand.</p><p>2021: Launched the first official online store.</p></div><div class="sec"><h3><span class="ic">🎯</span>Goals</h3><p>Achieve a 25% growth in online sales by 2026.</p><p>Expand into 2 new retail locations within the ASEAN region.</p></div><div class="sec"><h3><span class="ic">👥</span>Customers &amp; Markets</h3></div><div class="sec"><h3><span class="ic">•</span>Target Audience</h3><p>Teenagers and young professionals who prefer casual fashion.</p></div><div class="sec"><h3><span class="ic">👥</span>Market Share Breakdown</h3><p>80% Online / 20% Pop-up Stores.</p><p>Key Differentiator (Unique Selling Proposition):</p><p>Uses 100% organic cotton.</p><p>Made-to-order production process designed to minimize waste (Sustainability).</p><p>Key Performance &amp; Metrics (Since Inception):</p><p>T-shirt sales surged by 50% during the New Year period.</p><p>Total online sales grew significantly in 2025 following a social media campaign.</p><p>The regular customer base (repeat customers) remained stable throughout the year, with brand awareness and popularity growing noticeably.</p></div><div class="sec"><h3><span class="ic">•</span>Note</h3><p>Retail pop-up store foot traffic saw a drop during the rainy season.</p></div></div></div></article>
+</section>
+<script>
+// Pick the column count that gives every tile the most room at a card-like shape,
+// then lay each tile out photo-left (wide tiles) or photo-top (tall tiles);
+// on landscape screens wide photo-left tiles win close calls (Mew prefers that look)
+function fitTiles(){
+  var g=document.querySelector('#tiles .grid');if(!g)return;
+  var n=g.children.length,gap=parseFloat(getComputedStyle(g).rowGap)||14,W=g.clientWidth,H=g.clientHeight,b=null;
+  for(var c=1;c<=n;c++){
+    var r=Math.ceil(n/c),w=(W-(c-1)*gap)/c,h=(H-(r-1)*gap)/r,a=w/h;
+    var s=w*h*Math.exp(-Math.abs(Math.log(a/1.6))*0.9)*(w<150?0.6:1)*(W>H&&w>=1.25*h?1.2:1);
+    if(!b||s>b.s)b={c:c,r:r,w:w,h:h,s:s};
+  }
+  var hz=b.w>=1.25*b.h,tw=hz?b.w*0.58:b.w;
+  g.className='grid '+(hz?'h':'v')+(b.h<170||b.w<150?' tight':'');
+  g.style.gridTemplateColumns='repeat('+b.c+',minmax(0,1fr))';
+  g.style.gridTemplateRows='repeat('+b.r+',minmax(0,1fr))';
+  g.style.setProperty('--pw',Math.min(b.h-4,b.w*0.42)+'px');
+  g.style.setProperty('--phh',Math.min(b.w*0.68,b.h*0.46)+'px');
+  g.style.setProperty('--fs',Math.max(10.5,Math.min(13.5,tw/22)).toFixed(1)+'px');
+}
+var slides=[].slice.call(document.querySelectorAll('.slide')),cur=-1;
+// Largest text size at which the whole profile fits its card, in one or two text columns
+// (whichever reads bigger); scroll only if even the smallest size won't fit
+function fitSlide(s){
+  var t=s.querySelector('.txt'),b=s.querySelector('.body'),best={f:0,c2:false};
+  s.classList.remove('scroll');
+  [false,true].forEach(function(c2){
+    if(c2&&t.clientWidth<620)return;
+    b.classList.toggle('c2',c2);
+    var lo=12,hi=34;
+    while(hi-lo>0.5){var m=(lo+hi)/2;t.style.setProperty('--f',m+'px');if(t.scrollHeight>t.clientHeight+1)hi=m;else lo=m;}
+    if(lo>best.f+1)best={f:lo,c2:c2}; // two columns only when clearly bigger
+  });
+  b.classList.toggle('c2',best.c2);
+  t.style.setProperty('--f',best.f+'px');
+  if(t.scrollHeight>t.clientHeight+1)s.classList.add('scroll');
+}
+function show(i){
+  slides.forEach(function(s,k){s.classList.toggle('on',k==i);});
+  cur=i;fitSlide(slides[i]);
+  document.querySelector('.count').textContent=(i+1)+' / '+slides.length;
+  document.querySelector('.prev').disabled=i==0;
+  document.querySelector('.next').disabled=i==slides.length-1;
+}
+// Tile view by default; #p<n> presents that company
+function view(){
+  var m=/^#(p\d+)$/.exec(location.hash),i=m?slides.findIndex(function(s){return s.id==m[1];}):-1,r=document.documentElement;
+  r.className=i<0?'tiles':'full';
+  if(i<0){cur=-1;fitTiles();}else show(i);
+}
+function go(d){
+  var i=cur+d;if(cur<0||i<0||i>=slides.length)return;
+  history.replaceState(null,'','#'+slides[i].id);show(i);
+}
+document.querySelector('.prev').onclick=function(){go(-1);};
+document.querySelector('.next').onclick=function(){go(1);};
+var fsb=document.querySelector('.fs');
+if(document.fullscreenEnabled)fsb.onclick=function(){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();};
+else fsb.style.display='none';
+document.addEventListener('fullscreenchange',function(){fsb.textContent=document.fullscreenElement?'Exit full screen':'Full screen';});
+addEventListener('keydown',function(e){
+  if(cur<0||e.altKey||e.ctrlKey||e.metaKey)return;
+  if(['ArrowRight','PageDown',' '].indexOf(e.key)>=0){go(1);e.preventDefault();}
+  else if(['ArrowLeft','PageUp'].indexOf(e.key)>=0){go(-1);e.preventDefault();}
+  else if(e.key=='Escape'&&!document.fullscreenElement)location.hash='';
+});
+view();addEventListener('hashchange',view);
+addEventListener('resize',function(){cur<0?fitTiles():fitSlide(slides[cur]);});
+if(document.fonts)document.fonts.ready.then(function(){cur<0?fitTiles():fitSlide(slides[cur]);});
+</script>
+</body></html>
