@@ -7,7 +7,8 @@ Reads <week>/sections.json (sections + class times) and <week>/data/<code>.json
 (posts, made by tools/extract.py). A section with no data file shows on the
 index as "coming soon". Photos: <week>/img/<code>-<n>.jpg, thumbnails in thumbs/.
 
-Every page fits one screen. A section page opens as a grid of company tiles
+Every page fits one screen, except the index once every section has a board:
+it then scrolls, one band of company tiles per section. A section page opens as a grid of company tiles
 (photo + the start of the profile); tapping one presents that company (#p<n>):
 photo on the left, the whole profile on the right, ◀ ▶ / arrow keys / a
 clicker to move between companies.
@@ -454,6 +455,24 @@ a.card:hover .go{background:var(--acc)}
   .soon .sticker{font-size:15px;padding:0 6px}.soon .w{font-size:11px;white-space:normal}}
 """
 
+# Once every section has a board the index scrolls instead: one band per section,
+# company tiles at a fixed, readable size (no fitting script)
+SCROLL_CSS = """
+html,body{height:auto;overflow:visible}
+body{display:block;min-height:100dvh}
+main{display:block;padding:18px 18px 12px}
+.boards{display:flex;flex-direction:column;gap:20px}
+a.card{padding:12px 14px 14px}
+.hd{margin-bottom:11px}
+.hd .sticker{font-size:22px}
+.hd .n{font-size:14px}
+.mini{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(max(130px,9vw),1fr));overflow:visible}
+.mc .ph{flex:none;aspect-ratio:1}
+.mc .nm{font-size:14px;margin:6px 7px}
+@media (max-width:560px){main{padding:12px 12px 8px}.boards{gap:16px}a.card{padding:10px 10px 12px}
+  .mini{gap:8px;grid-template-columns:repeat(3,minmax(0,1fr))}.mc .nm{font-size:12px;margin:4px 5px}}
+"""
+
 FIT_INDEX = """
 // Column count that gives each company the biggest photo inside a box
 function best(n,W,H){
@@ -508,11 +527,12 @@ def index_page(week, cfg, datas):
             soon.append(f'<div class="card" style="--acc:{acc}"><span class="sticker">{code}</span>'
                         f'<span class="w"><b>Coming soon</b>{esc(sec["class"])}</span></div>')
     soon_html = '<div class="soon">' + "\n".join(soon) + "</div>" if soon else ""
+    scroll = not soon
     page = f"""<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en"{' class="scroll"' if scroll else ''}><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ladpet · {esc(cfg["short"])}</title>
 {FONTS}
-<style>{BASE_CSS}{INDEX_CSS}</style></head><body>
+<style>{BASE_CSS}{INDEX_CSS}{SCROLL_CSS if scroll else ''}</style></head><body>
 <header class="top"><div class="row"><span class="pill">GE5072 · Ladpet</span></div>
 <h1 class="dsp">{esc(cfg["title"])}</h1>
 <p>{esc(cfg["blurb"])} Tap a section to open its board.</p></header>
@@ -523,7 +543,7 @@ def index_page(week, cfg, datas):
 {soon_html}
 </main>
 <footer>Saved from Ladpet (GE5072) · names are the nicknames students chose.</footer>
-<script>{FIT_INDEX}</script>
+{'' if scroll else f'<script>{FIT_INDEX}</script>'}
 </body></html>
 """
     (ROOT / week / "index.html").write_text(page, encoding="utf-8")

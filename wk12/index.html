@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en" class="scroll"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ladpet · Week 12 Brainstorm</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;700;800&family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -50,6 +50,20 @@ a.card:hover .go{background:var(--acc)}
 .soon .w b{display:block;color:var(--ink);font-weight:800}
 @media (max-width:560px){header.top p{display:none}main{padding:10px 12px 8px;gap:10px}.boards{gap:12px}.soon{gap:8px;grid-template-columns:repeat(2,minmax(0,1fr))}
   .soon .sticker{font-size:15px;padding:0 6px}.soon .w{font-size:11px;white-space:normal}}
+
+html,body{height:auto;overflow:visible}
+body{display:block;min-height:100dvh}
+main{display:block;padding:18px 18px 12px}
+.boards{display:flex;flex-direction:column;gap:20px}
+a.card{padding:12px 14px 14px}
+.hd{margin-bottom:11px}
+.hd .sticker{font-size:22px}
+.hd .n{font-size:14px}
+.mini{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(max(130px,9vw),1fr));overflow:visible}
+.mc .ph{flex:none;aspect-ratio:1}
+.mc .nm{font-size:14px;margin:6px 7px}
+@media (max-width:560px){main{padding:12px 12px 8px}.boards{gap:16px}a.card{padding:10px 10px 12px}
+  .mini{gap:8px;grid-template-columns:repeat(3,minmax(0,1fr))}.mc .nm{font-size:12px;margin:4px 5px}}
 </style></head><body>
 <header class="top"><div class="row"><span class="pill">GE5072 · Ladpet</span></div>
 <h1 class="dsp">Week 12 Brainstorm: Your Company</h1>
@@ -115,37 +129,5 @@ a.card:hover .go{background:var(--acc)}
 
 </main>
 <footer>Saved from Ladpet (GE5072) · names are the nicknames students chose.</footer>
-<script>
-// Column count that gives each company the biggest photo inside a box
-function best(n,W,H){
-  var gap=8,b=null;
-  for(var c=1;c<=n;c++){
-    var r=Math.ceil(n/c),w=(W-(c-1)*gap)/c,h=(H-(r-1)*gap)/r;
-    var fs=Math.max(10,Math.min(14,w*0.085)),side=Math.min(w-4,h-2.5*1.25*fs-14);
-    var score=w<70?side*0.75:side; // narrow cells cut the names
-    if(!b||score>b.score)b={c:c,r:r,score:score,fs:fs};
-  }
-  return b;
-}
-function fitGrid(g){
-  var b=best(g.children.length,g.clientWidth,g.clientHeight);
-  g.style.gridTemplateColumns='repeat('+b.c+',minmax(0,1fr))';
-  g.style.gridTemplateRows='repeat('+b.r+',minmax(0,1fr))';
-  g.style.setProperty('--fs',b.fs.toFixed(1)+'px');
-}
-// Lay the sections out so the smallest photo on the page is as big as possible
-function fit(){
-  var m=document.querySelector('.boards');if(!m||!m.children.length)return;
-  var cards=[].slice.call(m.children),S=cards.length,gap=parseFloat(getComputedStyle(m).rowGap)||16,W=m.clientWidth,H=m.clientHeight,pick=null;
-  for(var C=1;C<=S;C++){
-    var R=Math.ceil(S/C),w=(W-(C-1)*gap)/C-28,h=(H-(R-1)*gap)/R-26-46,worst=Infinity;
-    cards.forEach(function(k){worst=Math.min(worst,best(k.querySelector('.mini').children.length,w,h).score);});
-    if(w<200)worst*=0.8; // squeezed cards cut the header and names
-    if(!pick||worst>pick.worst)pick={C:C,worst:worst};
-  }
-  m.style.gridTemplateColumns='repeat('+pick.C+',minmax(0,1fr))';
-  m.querySelectorAll('.mini').forEach(fitGrid);
-}
-fit();addEventListener('resize',fit);
-</script>
+
 </body></html>
