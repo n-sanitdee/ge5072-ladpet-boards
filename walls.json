@@ -1,6 +1,14 @@
 [
  {
   "week": "wk12",
+  "section": "AC21",
+  "title": "Week 12 Brainstorm: Your Company",
+  "when": "2026-10-29T15:20:00+07:00",
+  "board": "wk12/ac21.html",
+  "wall": "870486"
+ },
+ {
+  "week": "wk12",
   "section": "CA50",
   "title": "Week 12 Brainstorm: Your Company",
   "when": "2026-10-29T11:30:00+07:00",
