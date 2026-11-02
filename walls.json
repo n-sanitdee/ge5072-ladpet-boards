@@ -1,5 +1,21 @@
 [
  {
+  "week": "wk13-spot9",
+  "section": "EC30",
+  "title": "Week 13 Think-Pair-Share: Spot the Nine Mistakes",
+  "when": "2026-11-02T15:20:00+07:00",
+  "board": "wk13-spot9/ec30.html",
+  "wall": "137756"
+ },
+ {
+  "week": "wk13-spot9",
+  "section": "CA48",
+  "title": "Week 13 Think-Pair-Share: Spot the Nine Mistakes",
+  "when": "2026-11-02T11:30:00+07:00",
+  "board": "wk13-spot9/ca48.html",
+  "wall": "965664"
+ },
+ {
   "week": "wk12",
   "section": "AC21",
   "title": "Week 12 Brainstorm: Your Company",
