@@ -1,6 +1,14 @@
 [
  {
   "week": "wk13-spot9",
+  "section": "BS11",
+  "title": "Week 13 Think-Pair-Share: Spot the Nine Mistakes",
+  "when": "2026-11-04T08:30:00+07:00",
+  "board": "wk13-spot9/bs11.html",
+  "wall": "506979"
+ },
+ {
+  "week": "wk13-spot9",
   "section": "EC30",
   "title": "Week 13 Think-Pair-Share: Spot the Nine Mistakes",
   "when": "2026-11-02T15:20:00+07:00",

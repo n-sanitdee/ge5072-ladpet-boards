@@ -14,7 +14,8 @@ goes to wk12/; every other activity to a folder named after its preset
 (wk13-spot9/, …); a custom wall to wall-<title>/. A new folder gets a
 sections.json with all six sections. A section's data file is only ever
 replaced by the same wall, so hand-made boards (CA48, EC30) are never touched;
-company names typed by hand into a data file are kept.
+company names and nicknames typed by hand into a data file are kept
+(e.g. a pair's full names cut to first names, since this site is public).
 
 Signs in to Firebase as a throw-away anonymous user over REST (the public web
 config, no secrets) and deletes that user at the end. Deleting a wall needs it
@@ -217,7 +218,7 @@ def archive(fb, code, pub, created_ms, linked):
             n, next_n = next_n, next_n + 1
         text = post_text(p)
         team = teams[tid].get("name", "")
-        row = {"n": n, "id": tid, "at": p.get("at", 0), "nick": team,
+        row = {"n": n, "id": tid, "at": p.get("at", 0), "nick": o["nick"] if o and o.get("nick") else team,
                "company": o["company"] if o and o.get("company") else guess_company(text, team) if cfg.get("noun", "companies") == "companies" else team,
                "photo": bool(p.get("photo")), "text": text}
         if row["photo"]:

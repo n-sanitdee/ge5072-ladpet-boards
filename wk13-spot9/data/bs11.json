@@ -1,0 +1,115 @@
+{
+ "wall": "506979",
+ "saved": "Wednesday, 4 November 2026 at 09:46",
+ "prompt": [],
+ "posts": [
+  {
+   "n": 1,
+   "id": "UbofBnadLpXEsp7rVjTI",
+   "at": 1793759530129,
+   "nick": "Nattida & Pornsuang",
+   "company": "Nattida & Pornsuang",
+   "photo": false,
+   "text": "-Sunny  Tea a Thai - Sunny Tea is \n-2021 , - 2021, \n-and it is based in Chiang Mai. - and is based in Chiang Mai.\n-The company sell - The company sells\n-Thai tea, green tea, and snack. - Thai tea, green tea, and snacks.\n-All our tea are - All our tea is\n-the leaves are picked by hand - The leaves are picked by hand.\n-ต้องมี comma เชื่อมประโยค brand. Itต้องเว้นวรรค Commaก่อนเขียน It\n-ต้องมี full stop ท้ายประโยค hand."
+  },
+  {
+   "n": 2,
+   "id": "LbrC2KWgzPJXVUsXpXGc",
+   "at": 1793759757767,
+   "nick": "Pat & crepes",
+   "company": "Pat & crepes",
+   "photo": true,
+   "text": "1. Sunny Tea a = Sunny Tea is a\n2. brand.It = brand. It\n3. Founded = founded\n4. 2021 , = 2021,\n5. company sell = company sells\n6. snack = snacks\n7. tea are = tea is\n8. farms, the leaves = farms. The leaves\n9. hand = hand."
+  },
+  {
+   "n": 3,
+   "id": "vzrO6ODOacdZRQgXeKxA",
+   "at": 1793759840311,
+   "nick": "Four & Punpun",
+   "company": "Four & Punpun",
+   "photo": false,
+   "text": "1.Sunny Tea is a Thai tea brand.เพิ่ม is\n2.brand. It (เว้นวรรคหลังจุด)\n3.founded (เปลี่ยน F เป็น f)\n4.2021,(ลบช่องว่างก่อนเครื่องหมายจุลภาค)\n5.The company sells Thai tea.\n6.and snacks.\n7.All our tea is grown on local farms.\n8.farms**. The** leaves (เปลี่ยน comma เป็น full stop)\n9.hand**.** (เติมจุดปิดท้าย)\n\nSunny Tea is a Thai tea brand. It was founded in 2021, and it is based in Chiang Mai. The company sells Thai tea, green tea, and snacks. All our teas are grown on local farms. The leaves are picked by hand."
+  },
+  {
+   "n": 4,
+   "id": "OqdYXNxI5FJGA2xxaGVY",
+   "at": 1793759882363,
+   "nick": "JJ & Pry",
+   "company": "JJ & Pry",
+   "photo": true,
+   "text": ""
+  },
+  {
+   "n": 5,
+   "id": "mCVeX0BHTBL1NAte22TL",
+   "at": 1793760021988,
+   "nick": "Mook, Bell & Brees",
+   "company": "Mook, Bell & Brees",
+   "photo": true,
+   "text": ""
+  },
+  {
+   "n": 6,
+   "id": "HnArGFFxCiJEzJi1F49z",
+   "at": 1793760128221,
+   "nick": "Noey & Gaem",
+   "company": "Noey & Gaem",
+   "photo": true,
+   "text": "1 Sunny Tea is a Thai tea brand.\n2  . It\n3  founded\n4 2021, and\n5 sells\n6 snacks\n7 tea is\n8 farms. The leaves\n9 hand."
+  },
+  {
+   "n": 7,
+   "id": "GhyCwyuteH2FxIi5TO37",
+   "at": 1793760212577,
+   "nick": "Kritssadakron & Phumipat",
+   "company": "Kritssadakron & Phumipat",
+   "photo": false,
+   "text": "a\n  brand.It\n  Founded\n  2021 ,\n  sell\n  snack\n  are\n  farms,\n  hand\n  is\n brand. It\n  founded\n  2021,\n sells\n  snack\nis\n  farms.\n  hand."
+  },
+  {
+   "n": 8,
+   "id": "zNMZzDTcEkdEu4Ub7fZj",
+   "at": 1793760220830,
+   "nick": "Ztong & Gain",
+   "company": "Ztong & Gain",
+   "photo": false,
+   "text": "Sunny Tea a → Sunny Tea is a (เติม is)\nbrand.It → brand. It (เว้นวรรค)\nFounded → founded (เปลี่ยนเป็นตัวพิมพ์เล็ก)\n2021 , → 2021, (ลบช่องว่างก่อนจุลภาค)\ncompany sell → company sells (เติม s)\nsnack → snacks (เติม s)\nAll our tea are → All our tea is\nเติม and ก่อน the leaves\nเติมจุด Full stop (.) ปิดท้ายประโยค"
+  },
+  {
+   "n": 9,
+   "id": "iXmX6YYDIEopV0ZpQDum",
+   "at": 1793760241950,
+   "nick": "Prite & Copter",
+   "company": "Prite & Copter",
+   "photo": false,
+   "text": "Sunny Tea a Thai tea brand → Sunny Tea is a Thai tea brand. (เติม is)\nbrand.It → brand. It (เว้นวรรค)\nFounded → founded (เปลี่ยนตัวพิมพ์ใหญ่เป็นเล็ก)\n2021 , → 2021, (ลบช่องว่างก่อนเครื่องหมายจุลภาค)\nThe company sell → The company sells (เติม s)\nsnack → snacks (เปลี่ยนเป็นพหูพจน์)\nAll our tea are → All our teas are (เติม s)\nfarms, the leaves → farms. The leaves (แก้ comma splice และขึ้นต้นประโยคใหม่)\nhand → hand. (เติมจุด Full stop)"
+  },
+  {
+   "n": 10,
+   "id": "d8L2fZUhgBpM6UC4oPpW",
+   "at": 1793760297912,
+   "nick": "Boss nitipoom & Ink Kanjana",
+   "company": "Boss nitipoom & Ink Kanjana",
+   "photo": true,
+   "text": "Sunny Tea is a Thai tea brand. It was founded in 2021, and it is based in Chiang Mai. The company sells Thai tea, green tea, and snacks. All our teas are grown on local farms. The leaves are picked by hand."
+  },
+  {
+   "n": 11,
+   "id": "7Vr1k3GJvZXDNgAuXqAZ",
+   "at": 1793760329911,
+   "nick": "Better",
+   "company": "Better",
+   "photo": false,
+   "text": "Founded → founded\nsell → sells\nsnack → snacks\nare grown → is grown \nSunny Tea is a Thai tea brand. It was founded in 2021, and it is based in Chiang Mai. The company sells Thai tea, green tea, and snacks. All our tea is grown on local farms, and the leaves are picked by hand*."
+  },
+  {
+   "n": 12,
+   "id": "HTQ7H8GyfNCVQvClP96d",
+   "at": 1793760391723,
+   "nick": "SN",
+   "company": "SN",
+   "photo": true,
+   "text": "1.Sunny Tea is a เติม is\n2.brand. It เว้นวรรค\n3.  founded ไม่ต้องใช้ตัวใหญ่\n4.company sells เติม s\n5.  snacks ต้องเป็นพหูพจน์\n6.tea is Tea เป็นคำนามนับไม่ได้\n7.its tea ให้สอดคล้องกับบริษัท\n8.farms. The leaves แยกประโยค\n9.by hand. เติมจุด Full stop"
+  }
+ ]
+}
