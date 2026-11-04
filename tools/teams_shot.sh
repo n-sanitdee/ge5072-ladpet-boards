@@ -3,14 +3,17 @@
 # the old 1920 → 800×462 shots were blurry) and publish it.
 #   sh tools/teams_shot.sh wk12 ca50
 # Writes <week>/shots/<code>.png (served at https://n-sanitdee.github.io/ge5072-ladpet-boards/<week>/shots/<code>.png,
-# which the Teams page can fetch) and a copy in OneDrive Teaching/Teams_Post_Images/.
+# which the Teams page can fetch; raw.githubusercontent.com/n-sanitdee/ge5072-ladpet-boards/main/<same path> works too
+# and is there as soon as the push lands) and a copy in OneDrive Teaching/Teams_Post_Images/.
 set -e
 week=$1; code=$2
 cd "$(dirname "$0")/.."
 tmp=$(mktemp -d)
+url="https://n-sanitdee.github.io/ge5072-ladpet-boards/$week/$code.html?t=$(date +%s)"
+# GitHub Pages can lag or stall (4 Nov: builds stuck for 20+ min) — then shoot the local copy, which is the same page
+[ "$(curl -s -o /dev/null -w '%{http_code}' "$url")" = 200 ] || { url="file://$PWD/$week/$code.html"; echo "Pages not serving $week/$code.html yet — shooting the local file"; }
 "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=2 \
-  --window-size=1440,832 --virtual-time-budget=8000 --screenshot="$tmp/raw.png" \
-  "https://n-sanitdee.github.io/ge5072-ladpet-boards/$week/$code.html?t=$(date +%s)" 2>/dev/null
+  --window-size=1440,832 --virtual-time-budget=8000 --screenshot="$tmp/raw.png" "$url" 2>/dev/null
 mkdir -p "$week/shots"
 python3 -c "
 from PIL import Image
@@ -19,7 +22,8 @@ UP=$(echo "$code" | tr a-z A-Z)
 cp "$week/shots/$code.png" "$HOME/Library/CloudStorage/OneDrive-UniversityoftheThaiChamberofCommerce/Teaching/Teams_Post_Images/$(echo $week | sed 's/wk/Wk/')_Ladpet_Board_$UP.png"
 git add "$week/shots/$code.png"
 git commit -qm "$week: $UP board screenshot for the Teams post" || true
-git pull -q --rebase && git push -q
+git pull -q --rebase --autostash
+git push -q  # set -e stops here if the push fails, instead of waiting for a file that never arrives
 want=$(wc -c < "$week/shots/$code.png" | tr -d ' ')
 for i in $(seq 1 90); do  # wait for THIS file (Pages caches the old one for up to ~10 min)
   [ "$(curl -s "https://n-sanitdee.github.io/ge5072-ladpet-boards/$week/shots/$code.png?t=$i$(date +%s)" | wc -c | tr -d ' ')" = "$want" ] && echo "published: $week/shots/$code.png" && exit 0
