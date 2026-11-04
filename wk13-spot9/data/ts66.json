@@ -1,0 +1,106 @@
+{
+ "wall": "502178",
+ "saved": "Wednesday, 4 November 2026 at 12:33",
+ "prompt": [],
+ "posts": [
+  {
+   "n": 1,
+   "id": "EeRLUeWCNDnBHsreEB2g",
+   "at": 1793769587562,
+   "nick": "453 Ananya & 442 Kanthida",
+   "company": "453 Ananya & 442 Kanthida",
+   "photo": false,
+   "text": "1    Sunny Tea a Thai tea brand       ขาด Verb to be\n2    brand.It    ขาดเว้นวรรค\n3    Founded    ไม่ควรใช้ตัวพิมพ์ใหญ่\n4    2021 ,    ไม่เว้นวรรคก่อน comma\n5    company sell    ประธานเอกพจน์ เติม s\n6    snack    ต้องใช้คำนามพหูพจน์\n7    tea are    Tea เป็นคำนามนับไม่ได้\n8    farms, the leaves    ต้องแยกประโยคและขึ้นต้นตัวใหญ่\n9    hand (ไม่มีจุด)    ขาด Full stop\n\nข้อความที่แก้ไขถูกต้องทั้งหมด\n\nCOMPANY PROFILE\n\nSunny Tea is a Thai tea brand. It was founded in 2021, and it is based in Chiang Mai. The company sells Thai tea, green tea, and snacks. All our tea is grown on local farms. The leaves are picked by hand."
+  },
+  {
+   "n": 2,
+   "id": "pf6dHU8OesVDAbcSuAAh",
+   "at": 1793769641037,
+   "nick": "Pui, Namfah & Meji",
+   "company": "Pui, Namfah & Meji",
+   "photo": true,
+   "text": ""
+  },
+  {
+   "n": 3,
+   "id": "6WiKzUXtOM0GVLJ3a5qH",
+   "at": 1793769673767,
+   "nick": "Fon & Big",
+   "company": "Fon & Big",
+   "photo": false,
+   "text": "Sunny Tea is a Thai tea brand. It was founded in 2021, and it is based in Chiang Mai. The company sells Thai tea, green tea, and snacks. All our tea is grown on local farms. The leaves are picked by hand."
+  },
+  {
+   "n": 4,
+   "id": "mtqPmZ8XwBHcpLOtAdkt",
+   "at": 1793769698558,
+   "nick": "เริ่ด",
+   "company": "เริ่ด",
+   "photo": true,
+   "text": ""
+  },
+  {
+   "n": 5,
+   "id": "qClGjAQcSgs7Tyo70L9y",
+   "at": 1793769848154,
+   "nick": "Pim & Khow",
+   "company": "Pim & Khow",
+   "photo": false,
+   "text": "Sunny Tea is a Thai tea brand. It was founded in 2021, and it is based in Chiang Mai. The company sells Thai tea, green tea, and snacks. All our tea is are grown on local farms. The leaves are picked by hand."
+  },
+  {
+   "n": 6,
+   "id": "towRAIpeTPJtPVNHEcFo",
+   "at": 1793769914648,
+   "nick": "Prince & nam",
+   "company": "Prince & nam",
+   "photo": true,
+   "text": ""
+  },
+  {
+   "n": 7,
+   "id": "C4JoC6U3aXpluzs4D5Q0",
+   "at": 1793769977556,
+   "nick": "ยีน & ออม",
+   "company": "ยีน & ออม",
+   "photo": false,
+   "text": "Sunny Tea a Thai tea brand. It was founded in 2021, and it is based in Chiang Mai. The company sells Thai tea, green tea, and snacks. All our teas is grown on local farms, the tea leaves are picked by hand.\n\nSunny Tea is a Thai tea brand ต้องเติม is\n\n:: The company sell เป็น The company sells (ประธานเป็นเอกพจน์)\n:: Thai tea, green tea, and snack เป็น Thai tea, green tea, and snacks ( ขนมหลายชนิด )\n:: All our tea เป็น All our teas (เติม s หลัง tea )\n::  are grown on local farms เป็น are grown at local farms ( เปลี่ยน on เป็น at )\n:: เติม . หลังจบประโยค\nthe leavesเปลี่ยนเป็นthe tea leaves"
+  },
+  {
+   "n": 8,
+   "id": "HJJGFKvxbHF3NNaE3NdN",
+   "at": 1793770122281,
+   "nick": "แก้ว & คิม",
+   "company": "แก้ว & คิม",
+   "photo": false,
+   "text": "Sunny Tea is a Thai tea brand. It was founded in 2021, and it is based in Chiang Mai. The company sells Thai tea, green tea, and snacks. All our tea is grown on local farms. The leaves are picked by hand."
+  },
+  {
+   "n": 9,
+   "id": "ooo0vkPbjFlq3DXO3bLd",
+   "at": 1793770124488,
+   "nick": "โนอา",
+   "company": "โนอา",
+   "photo": false,
+   "text": "Sunny Tea is a Thai tea brand. It was founded in 2021, and it is based in Chiang Mai. The company sells Thai tea, green tea, and snacks. All our tea are grown on local farms,the leaves are picked by hand."
+  },
+  {
+   "n": 10,
+   "id": "6LAiaq7ZkMR9JwsdGXQc",
+   "at": 1793770129813,
+   "nick": "3nergy",
+   "company": "3nergy",
+   "photo": false,
+   "text": "จุดที่ผิด\n1. Sunny Tea a Thai tea brand (ผิด) ขาด Verb\n2. brand.It (ผิด) ขาดเว้นวรรคหลังจุด\n3. was Founded (ผิด) ไม่ต้องใช้ตัวพิมพ์ใหญ่\n4. 2021 , (ผิด) ต้องไม่เว้นวรรคก่อน comma\n5. company sell (ผิด) ประธานเอกพจน์ กริยาเติม s\n6. and snack (ผิด) ต้องใช้คำนามพหูพจน์\n7. tea are (ผิด) tea เป็นคำนามนับไม่ได้\n8. farms, the leaves (ผิด) ต้องแยกประโยค ไม่ใช้ comma เชื่อม\n9. picked by hand (ผิด) ต้องเติม Full stop ท้ายประโยค\n\nแก้ไขประโยค\nSunny Tea is a Thai tea brand. It was founded in 2021, and it is based in Chiang Mai. The company sells Thai tea, green tea, and snacks. All our tea is grown on local farms. The leaves are picked by hand."
+  },
+  {
+   "n": 11,
+   "id": "LIBzgiAjhy0zIGo0mAcS",
+   "at": 1793770384896,
+   "nick": "ปัง",
+   "company": "ปัง",
+   "photo": false,
+   "text": "Sunny Tea is a Thai tea brand. It was founded in 2021, and it is based in Chiang Mai. The company sells Thai tea, green tea, and snacks. All our tea is grown on local farms. The leaves are picked by hand."
+  }
+ ]
+}
