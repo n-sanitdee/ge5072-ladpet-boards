@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en" class="tiles"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ladpet · Week 13 Think-Pair-Share · AC21</title>
+<script>document.documentElement.className=/^#p\d+$/.test(location.hash)?'full':'tiles'</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;700;800&family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1d1a3a;--muted:#5f5b80;--paper:#fffaf2;--acc:#6d4aff}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper) radial-gradient(#e8dfcf 1.2px,transparent 1.4px) 0 0/18px 18px;color:var(--ink);
+  font-family:'Nunito','Sarabun',system-ui,-apple-system,'Segoe UI',sans-serif}
+.dsp{font-family:'Fredoka','Sarabun',system-ui,sans-serif}
+header.top{position:relative;overflow:hidden;background:var(--acc);color:#fff;padding:12px 18px 14px;flex:none;border-bottom:3px solid var(--ink)}
+header.top::before{content:"";position:absolute;right:-40px;top:-60px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.14)}
+header.top::after{content:"";position:absolute;right:120px;bottom:-46px;width:84px;height:84px;border-radius:50%;background:#ffd34d;border:3px solid var(--ink)}
+header.top .row{position:relative;z-index:1;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pill{display:inline-block;background:#fff;color:var(--ink);border:2px solid var(--ink);border-radius:999px;padding:1px 10px;font-weight:800;font-size:12px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none}
+a.pill:hover{background:#ffd34d}
+header.top h1{position:relative;z-index:1;margin:6px 0 2px;font-size:clamp(20px,3.2vw,30px);line-height:1.2;font-weight:600}
+header.top p{position:relative;z-index:1;margin:0;font-size:13px;font-weight:700;opacity:.92;max-width:62ch}
+.sticker{display:inline-block;background:#fff;color:var(--ink);border:2px solid var(--ink);border-radius:10px;padding:0 9px;
+  box-shadow:3px 3px 0 var(--ink);transform:rotate(-3deg);font-weight:700}
+.card{background:#fff;border:2px solid var(--ink);border-radius:16px;box-shadow:4px 4px 0 var(--ink)}
+a.card,a.co{text-decoration:none;color:inherit;transition:transform .12s,box-shadow .12s}
+a.card:hover,a.card:focus-visible,a.co:hover,a.co:focus-visible{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink);outline:none}
+footer{flex:none;text-align:center;color:var(--muted);font-size:12px;font-weight:700;padding:4px 16px 8px}
+@media (max-width:560px){header.top::after{display:none}header.top{padding:10px 14px 12px}}
+
+html,body{height:100%;overflow:hidden}
+body{display:flex;flex-direction:column;height:100dvh}
+html.full header.top,html.tiles .bar,html.tiles #slides,html.full #tiles{display:none}
+#tiles{flex:1;min-height:0;display:flex;flex-direction:column;gap:10px;padding:14px 18px 16px;width:100%;max-width:1840px;margin:0 auto}
+.hint{flex:none;font-weight:800;font-size:13px;color:var(--muted)}
+.hint b{color:var(--acc)}
+.grid{flex:1;min-height:0;display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.co{display:flex;min-width:0;min-height:0;overflow:hidden;background:#fff;border:2px solid var(--ink);border-radius:16px;box-shadow:4px 4px 0 var(--ink)}
+.grid.v .co{flex-direction:column}
+.co .ph{flex:none;position:relative;background:var(--tint);width:var(--pw,40%)}
+.grid.v .co .ph{width:auto;height:var(--phh,45%);border-bottom:2px solid var(--ink)}
+.grid.h .co .ph{border-right:2px solid var(--ink)}
+.co .ph img{position:absolute;inset:6px;width:calc(100% - 12px);height:calc(100% - 12px);object-fit:contain;border-radius:8px}
+.co.pic .ph{flex:1;width:auto;height:auto}
+.co .tx{flex:1;min-width:0;min-height:0;display:flex;flex-direction:column;padding:8px 11px 7px;font-size:var(--fs,12px)}
+.co.pic .tx{flex:none}
+.grid.h .co.pic .tx{width:42%}
+.co .nm{flex:none;font-family:'Fredoka','Sarabun',sans-serif;font-weight:600;font-size:1.32em;line-height:1.15;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.co .by{flex:none;margin:3px 0 4px;font-size:.88em;font-weight:800;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.co .by span,.slide .by span{background:var(--tint);border:1.5px solid var(--ink);border-radius:999px;padding:0 .5em;color:var(--ink)}
+.co .det{flex:1;min-height:0;overflow:hidden;line-height:1.38;-webkit-mask-image:linear-gradient(#000 62%,transparent);mask-image:linear-gradient(#000 62%,transparent)}
+.co .det p{margin:0 0 3px}
+.co .det b{color:var(--acc);font-weight:800}
+.co .det .tg,.slide .tg{font-style:italic;font-weight:700}
+.co .more{flex:none;align-self:flex-end;font-weight:800;font-size:.92em;color:var(--acc)}
+.grid.tight .co .more,.grid.tight .co .det b{display:none}
+.grid.tight .co .by{margin:2px 0 3px}
+.co.pic .det{flex:none;color:var(--muted);font-weight:700;-webkit-mask-image:none;mask-image:none}
+@media (max-width:560px){#tiles{padding:10px 12px 12px;gap:8px}.grid{gap:10px}}
+
+.bar{flex:none;display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--acc);color:#fff;border-bottom:3px solid var(--ink)}
+.bar .ttl{font-weight:600;font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.bar .ttl .sticker{font-size:15px;margin-right:6px}
+.bar .sp{flex:1}
+.bar button,.bar a.pill{font:inherit;cursor:pointer}
+.bar button{background:#fff;color:var(--ink);border:2px solid var(--ink);border-radius:999px;font-weight:800;font-size:14px;padding:2px 12px;line-height:1.4}
+.bar button:hover{background:#ffd34d}
+.bar button:disabled{opacity:.4;cursor:default;background:#fff}
+.bar .count{font-weight:800;font-size:14px;min-width:3.6em;text-align:center}
+#slides{flex:1;min-height:0;padding:16px 20px 20px;width:100%;max-width:1840px;margin:0 auto}
+.slide{display:none;height:100%;gap:22px;grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);grid-template-rows:minmax(0,1fr)}
+.slide.on{display:grid;animation:slidein .35s ease-out}
+.slide.nopic{grid-template-columns:minmax(0,1fr)}
+.slide.pic{grid-template-columns:minmax(0,1.7fr) minmax(0,1fr)}
+@keyframes slidein{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.slide .photo{position:relative;background:var(--tint);overflow:hidden;min-height:0}
+.slide .photo img{position:absolute;inset:16px;width:calc(100% - 32px);height:calc(100% - 32px);object-fit:contain;border-radius:12px}
+.slide .txt{min-height:0;overflow:hidden;padding:1.1em 1.4em;font-size:var(--f,18px);line-height:1.45}
+.slide.scroll .txt{overflow:auto}
+.slide h2{margin:0;font-size:2em;font-weight:600;line-height:1.1}
+.slide .by{margin:.35em 0 .5em;font-weight:800;font-size:.85em;color:var(--muted)}
+.slide h3{margin:.7em 0 .1em;font-size:1em;font-weight:800;color:var(--acc);display:flex;gap:.35em;align-items:baseline}
+.slide p{margin:.12em 0}.slide ul{margin:.12em 0;padding-left:1.3em}
+.slide .body.c2{columns:2;column-gap:1.8em}
+.slide .body.c2 .sec{break-inside:avoid}
+.slide .tbl{margin:.35em 0 .2em;break-inside:avoid}
+.slide table{border-collapse:collapse;width:100%;font-size:.86em;line-height:1.3;background:#fff}
+.slide th,.slide td{border:1.5px solid var(--ink);padding:.22em .45em;text-align:left;vertical-align:top}
+.slide th{background:var(--tint);font-weight:800}
+.slide td.n,.slide th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.slide .none{color:var(--muted);font-weight:700;margin-top:.8em}
+@media (max-width:700px) and (orientation:portrait){
+  #slides{padding:10px 12px 12px}
+  .slide,.slide.pic{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,38%) minmax(0,1fr);gap:12px}
+  .slide.pic{grid-template-rows:minmax(0,1fr) auto}
+  .slide.nopic{grid-template-rows:minmax(0,1fr)}
+  .slide .photo img{inset:8px;width:calc(100% - 16px);height:calc(100% - 16px)}
+  .bar{padding:6px 10px;gap:6px}.bar .ttl,.bar .fs{display:none}.bar button{padding:2px 10px}
+}
+@media (prefers-reduced-motion:reduce){.slide.on{animation:none}a.co,a.card{transition:none}}
+:root{--acc:#15803d}</style></head><body>
+<header class="top"><div class="row"><a class="pill" href="./">← All sections</a><span class="pill">GE5072 · Ladpet</span></div>
+<h1 class="dsp"><span class="sticker">AC21</span> Spot the Nine Mistakes</h1>
+<p>Thursday, 5 November 2026 · 17 pairs</p></header>
+<section id="tiles"><div class="hint">Tap a pair to <b>present</b> it to the class.</div><div class="grid">
+<a class="co" href="#p1" style="--tint:#ffd9e2"><span class="tx"><span class="nm">Bell&amp;few</span><span class="det"><p>Sunny Tea a Thai tea brand → Sunny Tea is a Thai tea brand (เติม is</p><p><b> brand.It → brand. It</b> </p><p><b>📜 Founded → founded</b> 4.2021 , → 2021, (ไม่เว้นวรรคก่อนเครื่องหมายจุลภาค)</p><p><b>🏢 Company Sell → Company Sells</b> </p><p><b> Snack → Snacks</b> </p><p><b> Tea Are → Tea Is</b> </p><p>farms, the leaves → farms, and the leaves (แก้การเชื่อมประโยค)</p><p><b> เติมจุด . หลังคำว่า Hand</b> </p></span><span class="more">Present ▶</span></span></a>
+<a class="co" href="#p2" style="--tint:#fff0b3"><span class="tx"><span class="nm">Ninew &amp; Cake</span><span class="det"><p><b> A Missing Verb</b> &quot;Sunny Tea a Thai tea brand.&quot; ขาด verb to be ต้องเติม &quot;is&quot;</p><p><b> Spaces</b> &quot;brand.It&quot; ไม่ได้เว้นวรรคหลังจุด Full stop</p><p><b> Capitals</b> &quot;Founded&quot; อยู่กลางประโยคและไม่ใช่ชื่อเฉพาะ ต้องใช้ตัวพิมพ์เล็ก</p><p><b> Spaces</b> &quot;2021 ,&quot; มีการเว้นวรรคหน้าลูกน้ำ (Comma)</p><p><b> -S</b> &quot;The company sell&quot; ประธาน (company) เป็นเอกพจน์ กริยาต้องเติม s</p><p><b> Plural</b> &quot;and snack.&quot; ควรเป็นพหูพจน์เพื่อให้สอดคล้องกับบริบท ต้องเติม s</p><p><b> Is / Are</b> &quot;All our tea are&quot; คำว่า tea เป็นคำนามนับไม่ได้ ต้องใช้กริยาเอกพจน์ เป็น</p><p>a comma between sentences (การใช้ลูกน้ำคั่นระหว่างประโยคสมบูรณ์): &quot;local farms, the leaves...&quot; เป็นการเชื่อมประโยคสมบูรณ์ 2 ประโยคด้วยลูกน้ำ (Comma splice) ซึ่งผิดหลักไวยากรณ์ ควรเปลี่ยนลูกน้ำเป็นจุด Full stop</p><p><b> The Last Full Stop</b> ต้องแก้เป็น -&gt; &quot;picked by hand.&quot; · Sunny Tea is a Thai tea brand. It was founded in 2021, and it is based in Chiang Mai. The company sells Thai tea, green tea, and snacks. All our tea is grown on local farms. The leaves are picked by hand.</p></span><span class="more">Present ▶</span></span></a>
+<a class="co" href="#p3" style="--tint:#cdf3e4"><span class="tx"><span class="nm">Aom-Naming</span><span class="det"><p><b> Sunny tea a Thai tea brand</b> แก้เป็น: Sunny Tea is a Thai tea brand</p><p><b> ...brand.It</b> แก้เป็น: ....brand. It</p><p><b>📜 ..It was Founded ...</b> แก้เป็น: ...It was founded...</p><p><b> In 2021 ,</b> แก้เป็น: in 2021,</p><p><b>🏢 The company sell..</b> แก้เป็น: The company sells..</p><p><b> , And Snack.</b> แก้เป็น: , and snacks.</p><p><b> All our tea are grown...</b> แก้เป็น: All our tea is grown ..</p><p><b> ..Local Farms, The Leaves ..</b> แก้เป็น: ...local farms. The leaves..</p><p><b> Are Picked By Hand</b> แก้เป็น: are picked by hand.</p></span><span class="more">Present ▶</span></span></a>
+<a class="co" href="#p4" style="--tint:#d4e8ff"><span class="tx"><span class="nm">สาดไปสมาชิก</span><span class="det"><p><b> จุดที่ 1 กริยาหายไป)</b> คำว่า Sunny Tea a Thai tea brand. ขาด verb ช่วยหรือกริยาหลัก ควรแก้เป็น &quot;Sunny Tea is a Thai tea brand.</p><p><b> จุดที่ 2</b> หลังประโยคแรกติดกันกับคำว่า It ขาดเว้นวรรค ควรเพิ่มช่องว่างระหว่างจุดฟูลสโตว์กับคำว่า It</p><p><b> จุดที่ 3</b> คำว่า &quot;Founded&quot; ใช้ตัวพิมพ์ใหญ่ผิดที่ (ตัว F ไม่จำเป็นต้องเป็นพิมพ์ใหญ่กลางประโยค) ควรแก้เป็นตัวพิมพ์เล็ก found · จุดที่ 4 (ใช้คอมมาผิดตำแหน่งระหว่างประโยค): ในท่อน &quot;, and it is based...&quot; มีการเว้นวรรคหน้าเครื่องหมายคอมมาไม่ถูกต้อง ควรแก้เป็นติดกับคำว่า &quot;2021&quot; ไม่มีเว้นวรรคก่อนคอมมา หรือปรับการเชื่อม</p><p><b> จุดที่ 5</b> คำว่า &quot;The company sell&quot; ประธานเป็นเอกพจน์ (The company) กริยาต้องเติม -s ควรแก้เป็น sells</p><p><b> จุดที่ 6</b> คำว่า &quot;green tea, and snack&quot; ของว่างควรเป็นพหูพจน์หรือเติม -s เพราะพูดถึงประเภทของว่างทั่วไป ควรแก้เป็น snack · จุดที่ 7 (ใช้ Verb to be ไม่สอดคล้องกับพหูพจน์): ท่อน &quot;All our tea are&quot; คำว่า tea ในที่นี้หากมองเป็นนามนับไม่ได้หรือต้องการใช้รูปพหูพจน์ ควรแก้เป็น All our tea is · จุดที่ 8 (เว้นวรรคหน้าคอมมาหรือเครื่องหมายผิด): มีช่องว่างเกินบริเวณเครื่องหมายวรรคตอนต่าง ๆ ในประโยค · จุดที่ 9 (ขาดจุดฟูลสโตว์ปิดท้ายประโยคสุดท้าย): ประโยคสุดท้าย &quot;...picked by hand&quot; ไม่มีเครื่องหมายฟูลสโตว์ (.) ปิดท้ายประโยค · ประโยคที่ถูกต้อง · Sunny Tea is a Thai tea brand. It was founded in 2021, and it is based in Chiang Mai. The company sells Thai tea, green tea, and snacks. All its tea is grown on local farms, and the leaves are picked by hand.</p></span><span class="more">Present ▶</span></span></a>
+<a class="co pic" href="#p5" style="--tint:#e6dcff"><span class="ph"><img src="thumbs/ac21-5.jpg" alt=""></span><span class="tx"><span class="nm">bowling &amp; bell</span><span class="det">The details are in the picture.</span><span class="more">Present ▶</span></span></a>
+<a class="co" href="#p6" style="--tint:#ffe0c7"><span class="tx"><span class="nm">ติ๊งต๊อง</span><span class="det"><p><b> sunny tea is a Thai tea brand.</b> </p><p><b> brand. It</b> </p><p><b>📜 Founded</b> 4.2021, and</p><p><b>🏢 The company sells</b> </p><p><b> Green Tea, And Snacks.</b> </p><p><b> All our teas are</b> </p><p><b> on locale farms. The leaves…</b> </p><p><b> Picked By Hand.</b> </p></span><span class="more">Present ▶</span></span></a>
+<a class="co" href="#p7" style="--tint:#ffd9e2"><span class="ph"><img src="thumbs/ac21-7.jpg" alt=""></span><span class="tx"><span class="nm">Minno</span><span class="det"><p>จุดที่ผิด</p><p>Sunny Tea a Thai tea brand → ขาดกริยา → Sunny Tea is a Thai tea brand</p><p><b> brand.It → หลังจุดต้องเว้นวรรค → brand. It</b> </p><p>Founded → ไม่ใช่ชื่อเฉพาะ ไม่ต้องใช้ตัวใหญ่กลางประโยค → founded</p><p><b> 2021 , → มีเว้นวรรคก่อนเครื่องหมายจุลภาค → 2021,</b> </p><p><b>🏢 The company sell → ประธานเอกพจน์ กริยาต้องเติม -s → sells</b> </p><p><b> Snack → ใช้คู่กับ Tea หลายชนิด ต้องเป็นพหูพจน์ → Snacks</b> </p><p>All our tea are → tea ที่หมายถึงหลายชนิดต้องเป็นพหูพจน์ → teas (หรือใช้ is ถ้าเก็บ tea เป็นเอกพจน์ แต่ &quot;All our teas are&quot; เป็นแบบที่ถูกกว่า)</p><p>farms, the leaves → ใช้ comma เชื่อมประโยคสองประโยค (comma splice) → farms, and the leaves หรือ farms. The leaves (ทั้งตัว the → The ด้วย)</p><p><b> Picked By Hand → ไม่มีจุดท้ายประโยค → Picked By Hand.</b> </p></span><span class="more">Present ▶</span></span></a>
+<a class="co" href="#p8" style="--tint:#fff0b3"><span class="tx"><span class="nm">ข้าวกล้อง &amp; กานต์</span><span class="det"><p><b> ขาดกริยา</b> ประโยคภาษาอังกฤษต้องมีกริยา Sunny Tea a Thai tea brand ไม่มีกริยาเลย ต้องเติม is (A = B) · 📊 3. · 4. · 5. · 6. · 7. · 8. · 9.</p></span><span class="more">Present ▶</span></span></a>
+<a class="co" href="#p9" style="--tint:#cdf3e4"><span class="tx"><span class="nm">นาย &amp; ออม</span><span class="det"><p><b> Sunny Tea a → Sunny Tea is เพราะประโยคขาดคำกริยา is</b> </p><p><b> brand.It → brand. It เพราะต้องเว้นวรรคหลังจุด</b> </p><p><b>📜 Founded → founded เพราะไม่ใช้ตัวพิมพ์ใหญ่กลางประโยค</b> </p><p><b> 2021 , → 2021, เพราะไม่เว้นวรรคก่อนเครื่องหมายจุลภาค</b> </p><p>company sell → company sells เพราะประธานเอกพจน์ต้องเติม s ที่คำกริยา</p><p><b> Snack → Snacks เพราะต้องใช้รูปพหูพจน์</b> </p><p><b> Tea Are → Tea Is เพราะ Tea เป็นคำนามนับไม่ได้ ใช้ Is</b> </p><p><b> farms, the → farms. The เพราะต้องใช้จุดแบ่งประโยค</b> </p><p><b> Hand → Hand. เพราะต้องใส่จุดปิดท้ายประโยคครับ</b> </p></span><span class="more">Present ▶</span></span></a>
+<a class="co" href="#p10" style="--tint:#d4e8ff"><span class="tx"><span class="nm">Lovecat&amp;two</span><span class="det"><p>จุดผิด → จุดที่ถูก</p><p><b> Sunny Tea a Thai tea brand. → Sunny Tea is a Thai tea brand.</b> ❌ ขาด is</p><p><b> brand.It → brand. It</b> ❌ ขาดเว้นวรรคหลังจุด</p><p><b>📜 was Founded → was founded</b> ❌ founded ไม่ต้องขึ้นตัวใหญ่</p><p><b> 2021 , → 2021,</b> ❌ ไม่ควรเว้นวรรคก่อน comma</p><p><b>🏢 The company sell → The company sells</b> ❌ ประธานเอกพจน์ The company ต้องใช้ sells</p><p><b> And Snack → And Snacks</b> ❌ ต้องเป็นพหูพจน์ เพราะขายขนมหลายชนิด</p><p><b> All our tea are → All our tea is</b> ❌ tea เป็นคำนามนับไม่ได้ จึงใช้ is</p><p><b> local farms, the leaves → local farms. The leaves</b> ❌ เป็นประโยค 2 ประโยค ต้องไม่ใช้ comma เชื่อมกัน</p><p><b> ท้ายประโยค Hand → Hand.</b> ❌ ขาด full stop (.) · เเก้ประโยคที่ถูกต้องทั้งหมด · Sunny Tea is a Thai tea brand. It was founded in 2021, and it is based in Chiang Mai. The company sells Thai tea, green tea, and snacks. All our tea is grown on local farms. The leaves are picked by hand. · สรุป 9 จุด: · is / space / founded / comma space / sells / snacks / is / period + new sentence / full stop · อธิบายว่าทำไมถึงผิด</p><p><b> Sunny Tea a Thai tea brand → Sunny Tea is a Thai tea brand.</b> เพราะประโยคต้องมี verb และประธาน Sunny Tea ต้องใช้ is</p><p><b> brand.It → brand. It</b> เพราะหลังจุด (.) ต้องมี เว้นวรรค ก่อนเริ่มประโยคใหม่</p><p><b>📜 was Founded → was founded</b> เพราะ founded ไม่ใช่ชื่อเฉพาะ จึงไม่ต้องขึ้นต้นด้วยตัวพิมพ์ใหญ่</p><p><b> 2021 , → 2021,</b> เพราะ comma (,) ต้องติดกับคำด้านหน้า และไม่ควรเว้นวรรคก่อน comma</p><p><b>🏢 The company sell → The company sells</b> เพราะ The company เป็นประธานเอกพจน์ จึงต้องเติม -s ที่ sell → sells</p><p><b> Snack → Snacks</b> เพราะกำลังพูดถึงขนมหลายชนิด จึงใช้รูป พหูพจน์ (snacks)</p><p><b> All our tea are → All our tea is</b> เพราะ tea ในที่นี้เป็นคำนามนับไม่ได้ จึงใช้ is ไม่ใช้ are</p><p><b> local farms, the leaves → local farms. The leaves</b> เพราะตรงนี้เป็น 2 ประโยคสมบูรณ์ ไม่ควรใช้ comma เชื่อมกัน ต้องใช้ full stop (.) แล้วขึ้นประโยคใหม่</p><p><b> Hand → Hand.</b> เพราะเป็น จุดจบของย่อหน้า/ประโยค จึงต้องใส่ full stop (.)</p></span><span class="more">Present ▶</span></span></a>
+<a class="co" href="#p11" style="--tint:#e6dcff"><span class="tx"><span class="nm">Meetur &amp; Fahsai</span><span class="det"><p><b> Missing verb</b> ขาด is หลัง Sunny Tea → Sunny Tea is a Thai tea brand.</p><p><b> Spacing</b> หลังจุดไม่ได้เว้นวรรค → brand. It</p><p><b> Capitalization</b> คำว่า Founded ใช้ตัวพิมพ์ใหญ่ผิดตำแหน่ง → was founded</p><p><b> Spacing</b> มีเว้นวรรคส่วนเกินหน้าเครื่องหมาย comma → 2021,</p><p><b> Subject-Verb Agreement</b> กริยาขาด -s → The company sells</p><p><b> Plural noun</b> คำว่า snack ขาด -s → and snacks</p><p><b> Is / Are</b> ใช้ are กับคำนามนับไม่ได้ (tea) → All our tea is grown</p><p><b> Comma between sentences</b> ใช้ comma เชื่อมประโยคสมบูรณ์ 2 ประโยค → ต้องเปลี่ยนเป็นจุด . The leaves หรือใส่คำเชื่อม and</p><p><b> The last full stop</b> ขาดจุดจบประโยคท้ายสุด → picked by hand.</p></span><span class="more">Present ▶</span></span></a>
+<a class="co pic" href="#p12" style="--tint:#ffe0c7"><span class="ph"><img src="thumbs/ac21-12.jpg" alt=""></span><span class="tx"><span class="nm">จิ๋วอ้วน</span><span class="det">The details are in the picture.</span><span class="more">Present ▶</span></span></a>
+<a class="co" href="#p13" style="--tint:#ffd9e2"><span class="ph"><img src="thumbs/ac21-13.jpg" alt=""></span><span class="tx"><span class="nm">eiei</span><span class="det"><p>Sunny Tea is a Thai tea brand. It was founded in 2021, and it is based in Chiang Mai. The company sells Thai tea, green tea, and snacks. All our teas are grown on local farms. The leaves are picked by hand.</p></span><span class="more">Present ▶</span></span></a>
+<a class="co pic" href="#p14" style="--tint:#fff0b3"><span class="ph"><img src="thumbs/ac21-14.jpg" alt=""></span><span class="tx"><span class="nm">Potato</span><span class="det">The details are in the picture.</span><span class="more">Present ▶</span></span></a>
+<a class="co" href="#p15" style="--tint:#cdf3e4"><span class="ph"><img src="thumbs/ac21-15.jpg" alt=""></span><span class="tx"><span class="nm">Am &amp; Tong</span><span class="det"><p>Sunny Tea is a Thai tea brand. It was founded in 2021, and it is based in Chiang Mai. The company sells Thai tea, green tea, and snacks. All our teas are grown on local farms. The leaves are picked by hand.</p></span><span class="more">Present ▶</span></span></a>
+<a class="co pic" href="#p16" style="--tint:#d4e8ff"><span class="ph"><img src="thumbs/ac21-16.jpg" alt=""></span><span class="tx"><span class="nm">Rin bam may</span><span class="det">The details are in the picture.</span><span class="more">Present ▶</span></span></a>
+<a class="co" href="#p17" style="--tint:#e6dcff"><span class="ph"><img src="thumbs/ac21-17.jpg" alt=""></span><span class="tx"><span class="nm">Pat&amp;Mook</span><span class="det"><p>Sunny Tea a = Sunny Tea is a · brand.It = brand. It (เว้นหลังจบประโยค) · Founded = founded · 2021 , = 2021, (ติดกัน) · company sell = company sells · snack = snacks · tea are = tea is · farms, the leaves = farms. The leaves · hand = hand.</p></span><span class="more">Present ▶</span></span></a>
+</div></section>
+<nav class="bar"><a class="pill" href="#">← All pairs</a><span class="ttl dsp"><span class="sticker">AC21</span>Spot the Nine Mistakes</span>
+<span class="sp"></span><button class="prev" aria-label="Previous pair">◀</button><span class="count"></span>
+<button class="next" aria-label="Next pair">▶</button><button class="fs">Full screen</button></nav>
+<section id="slides">
+<article class="slide nopic" id="p1" style="--tint:#ffd9e2"><div class="txt card"><h2 class="dsp">Bell&amp;few</h2><div class="body"><div class="sec"><p>Sunny Tea a Thai tea brand → Sunny Tea is a Thai tea brand (เติม is</p></div><div class="sec"><h3><span class="ic">•</span>brand.It → brand. It (เว้นวรรคหลังจุด)</h3></div><div class="sec"><h3><span class="ic">📜</span>Founded → founded (ไม่ต้องใช้ตัวพิมพ์ใหญ่)</h3><p>4.2021 , → 2021, (ไม่เว้นวรรคก่อนเครื่องหมายจุลภาค)</p></div><div class="sec"><h3><span class="ic">🏢</span>Company Sell → Company Sells (ประธานเอกพจน์เติม S)</h3></div><div class="sec"><h3><span class="ic">•</span>Snack → Snacks (ใช้รูปพหูพจน์)</h3></div><div class="sec"><h3><span class="ic">•</span>Tea Are → Tea Is (Tea เป็นคำนามนับไม่ได้)</h3></div><div class="sec"><p>farms, the leaves → farms, and the leaves (แก้การเชื่อมประโยค)</p></div><div class="sec"><h3><span class="ic">•</span>เติมจุด . หลังคำว่า Hand</h3></div></div></div></article>
+<article class="slide nopic" id="p2" style="--tint:#fff0b3"><div class="txt card"><h2 class="dsp">Ninew &amp; Cake</h2><div class="body"><div class="sec"><h3><span class="ic">•</span>A Missing Verb (กริยาหายไป)</h3><p>&quot;Sunny Tea a Thai tea brand.&quot; ขาด verb to be ต้องเติม &quot;is&quot;</p></div><div class="sec"><h3><span class="ic">•</span>Spaces (การเว้นวรรคผิด)</h3><p>&quot;brand.It&quot; ไม่ได้เว้นวรรคหลังจุด Full stop</p></div><div class="sec"><h3><span class="ic">•</span>Capitals (การใช้ตัวพิมพ์ใหญ่/เล็ก)</h3><p>&quot;Founded&quot; อยู่กลางประโยคและไม่ใช่ชื่อเฉพาะ ต้องใช้ตัวพิมพ์เล็ก</p></div><div class="sec"><h3><span class="ic">•</span>Spaces (การเว้นวรรคผิด)</h3><p>&quot;2021 ,&quot; มีการเว้นวรรคหน้าลูกน้ำ (Comma)</p></div><div class="sec"><h3><span class="ic">•</span>-S (การเติม S ที่คำกริยา)</h3><p>&quot;The company sell&quot; ประธาน (company) เป็นเอกพจน์ กริยาต้องเติม s</p></div><div class="sec"><h3><span class="ic">•</span>Plural (รูปพหูพจน์)</h3><p>&quot;and snack.&quot; ควรเป็นพหูพจน์เพื่อให้สอดคล้องกับบริบท ต้องเติม s</p></div><div class="sec"><h3><span class="ic">•</span>Is / Are (การใช้ Is/Are)</h3><p>&quot;All our tea are&quot; คำว่า tea เป็นคำนามนับไม่ได้ ต้องใช้กริยาเอกพจน์ เป็น</p></div><div class="sec"><p>a comma between sentences (การใช้ลูกน้ำคั่นระหว่างประโยคสมบูรณ์): &quot;local farms, the leaves...&quot; เป็นการเชื่อมประโยคสมบูรณ์ 2 ประโยคด้วยลูกน้ำ (Comma splice) ซึ่งผิดหลักไวยากรณ์ ควรเปลี่ยนลูกน้ำเป็นจุด Full stop</p></div><div class="sec"><h3><span class="ic">•</span>The Last Full Stop (จุดท้ายประโยคหายไป)</h3><p>ต้องแก้เป็น -&gt; &quot;picked by hand.&quot;</p><p>Sunny Tea is a Thai tea brand. It was founded in 2021, and it is based in Chiang Mai. The company sells Thai tea, green tea, and snacks. All our tea is grown on local farms. The leaves are picked by hand.</p></div></div></div></article>
+<article class="slide nopic" id="p3" style="--tint:#cdf3e4"><div class="txt card"><h2 class="dsp">Aom-Naming</h2><div class="body"><div class="sec"><h3><span class="ic">•</span>Sunny tea a Thai tea brand</h3><p><b>แก้เป็น:</b> Sunny Tea is a Thai tea brand</p></div><div class="sec"><h3><span class="ic">•</span>...brand.It</h3><p><b>แก้เป็น:</b> ....brand. It</p></div><div class="sec"><h3><span class="ic">📜</span>..It was Founded ...</h3><p><b>แก้เป็น:</b> ...It was founded...</p></div><div class="sec"><h3><span class="ic">•</span>In 2021 ,</h3><p><b>แก้เป็น:</b> in 2021,</p></div><div class="sec"><h3><span class="ic">🏢</span>The company sell..</h3><p><b>แก้เป็น:</b> The company sells..</p></div><div class="sec"><h3><span class="ic">•</span>, And Snack.</h3><p><b>แก้เป็น:</b> , and snacks.</p></div><div class="sec"><h3><span class="ic">•</span>All our tea are grown...</h3><p><b>แก้เป็น:</b> All our tea is grown ..</p></div><div class="sec"><h3><span class="ic">•</span>..Local Farms, The Leaves ..</h3><p><b>แก้เป็น:</b> ...local farms. The leaves..</p></div><div class="sec"><h3><span class="ic">•</span>Are Picked By Hand</h3><p><b>แก้เป็น:</b> are picked by hand.</p></div></div></div></article>
+<article class="slide nopic" id="p4" style="--tint:#d4e8ff"><div class="txt card"><h2 class="dsp">สาดไปสมาชิก</h2><div class="body"><div class="sec"><h3><span class="ic">•</span>จุดที่ 1 กริยาหายไป)</h3><p>คำว่า Sunny Tea a Thai tea brand. ขาด verb ช่วยหรือกริยาหลัก ควรแก้เป็น &quot;Sunny Tea is a Thai tea brand.</p></div><div class="sec"><h3><span class="ic">•</span>จุดที่ 2 (ช่องว่างหายไป)</h3><p>หลังประโยคแรกติดกันกับคำว่า It ขาดเว้นวรรค ควรเพิ่มช่องว่างระหว่างจุดฟูลสโตว์กับคำว่า It</p></div><div class="sec"><h3><span class="ic">•</span>จุดที่ 3 (ตัวพิมพ์ใหญ่)</h3><p>คำว่า &quot;Founded&quot; ใช้ตัวพิมพ์ใหญ่ผิดที่ (ตัว F ไม่จำเป็นต้องเป็นพิมพ์ใหญ่กลางประโยค) ควรแก้เป็นตัวพิมพ์เล็ก found</p><p>จุดที่ 4 (ใช้คอมมาผิดตำแหน่งระหว่างประโยค): ในท่อน &quot;, and it is based...&quot; มีการเว้นวรรคหน้าเครื่องหมายคอมมาไม่ถูกต้อง ควรแก้เป็นติดกับคำว่า &quot;2021&quot; ไม่มีเว้นวรรคก่อนคอมมา หรือปรับการเชื่อม</p></div><div class="sec"><h3><span class="ic">•</span>จุดที่ 5 (เติม -S ผิดพลาด)</h3><p>คำว่า &quot;The company sell&quot; ประธานเป็นเอกพจน์ (The company) กริยาต้องเติม -s ควรแก้เป็น sells</p></div><div class="sec"><h3><span class="ic">•</span>จุดที่ 6 (รูปพหูพจน์หายไป)</h3><p>คำว่า &quot;green tea, and snack&quot; ของว่างควรเป็นพหูพจน์หรือเติม -s เพราะพูดถึงประเภทของว่างทั่วไป ควรแก้เป็น snack</p><p>จุดที่ 7 (ใช้ Verb to be ไม่สอดคล้องกับพหูพจน์): ท่อน &quot;All our tea are&quot; คำว่า tea ในที่นี้หากมองเป็นนามนับไม่ได้หรือต้องการใช้รูปพหูพจน์ ควรแก้เป็น All our tea is</p><p>จุดที่ 8 (เว้นวรรคหน้าคอมมาหรือเครื่องหมายผิด): มีช่องว่างเกินบริเวณเครื่องหมายวรรคตอนต่าง ๆ ในประโยค</p><p>จุดที่ 9 (ขาดจุดฟูลสโตว์ปิดท้ายประโยคสุดท้าย): ประโยคสุดท้าย &quot;...picked by hand&quot; ไม่มีเครื่องหมายฟูลสโตว์ (.) ปิดท้ายประโยค</p><p>ประโยคที่ถูกต้อง</p><p>Sunny Tea is a Thai tea brand. It was founded in 2021, and it is based in Chiang Mai. The company sells Thai tea, green tea, and snacks. All its tea is grown on local farms, and the leaves are picked by hand.</p></div></div></div></article>
+<article class="slide pic" id="p5" style="--tint:#e6dcff"><div class="photo card"><img src="img/ac21-5.jpg" alt="bowling &amp; bell" loading="lazy"></div><div class="txt card"><h2 class="dsp">bowling &amp; bell</h2><div class="body"><p class="none">The details are in the picture.</p></div></div></article>
+<article class="slide nopic" id="p6" style="--tint:#ffe0c7"><div class="txt card"><h2 class="dsp">ติ๊งต๊อง</h2><div class="body"><div class="sec"><h3><span class="ic">•</span>sunny tea is a Thai tea brand.</h3></div><div class="sec"><h3><span class="ic">•</span>brand. It</h3></div><div class="sec"><h3><span class="ic">📜</span>Founded</h3><p>4.2021, and</p></div><div class="sec"><h3><span class="ic">🏢</span>The company sells</h3></div><div class="sec"><h3><span class="ic">•</span>Green Tea, And Snacks.</h3></div><div class="sec"><h3><span class="ic">•</span>All our teas are</h3></div><div class="sec"><h3><span class="ic">•</span>on locale farms. The leaves…</h3></div><div class="sec"><h3><span class="ic">•</span>Picked By Hand.</h3></div></div></div></article>
+<article class="slide" id="p7" style="--tint:#ffd9e2"><div class="photo card"><img src="img/ac21-7.jpg" alt="Minno" loading="lazy"></div><div class="txt card"><h2 class="dsp">Minno</h2><div class="body"><div class="sec"><p>จุดที่ผิด</p></div><div class="sec"><p>Sunny Tea a Thai tea brand → ขาดกริยา → Sunny Tea is a Thai tea brand</p></div><div class="sec"><h3><span class="ic">•</span>brand.It → หลังจุดต้องเว้นวรรค → brand. It</h3></div><div class="sec"><p>Founded → ไม่ใช่ชื่อเฉพาะ ไม่ต้องใช้ตัวใหญ่กลางประโยค → founded</p></div><div class="sec"><h3><span class="ic">•</span>2021 , → มีเว้นวรรคก่อนเครื่องหมายจุลภาค → 2021,</h3></div><div class="sec"><h3><span class="ic">🏢</span>The company sell → ประธานเอกพจน์ กริยาต้องเติม -s → sells</h3></div><div class="sec"><h3><span class="ic">•</span>Snack → ใช้คู่กับ Tea หลายชนิด ต้องเป็นพหูพจน์ → Snacks</h3></div><div class="sec"><p>All our tea are → tea ที่หมายถึงหลายชนิดต้องเป็นพหูพจน์ → teas (หรือใช้ is ถ้าเก็บ tea เป็นเอกพจน์ แต่ &quot;All our teas are&quot; เป็นแบบที่ถูกกว่า)</p></div><div class="sec"><p>farms, the leaves → ใช้ comma เชื่อมประโยคสองประโยค (comma splice) → farms, and the leaves หรือ farms. The leaves (ทั้งตัว the → The ด้วย)</p></div><div class="sec"><h3><span class="ic">•</span>Picked By Hand → ไม่มีจุดท้ายประโยค → Picked By Hand.</h3></div></div></div></article>
+<article class="slide nopic" id="p8" style="--tint:#fff0b3"><div class="txt card"><h2 class="dsp">ข้าวกล้อง &amp; กานต์</h2><div class="body"><div class="sec"><h3><span class="ic">•</span>ขาดกริยา</h3><p>ประโยคภาษาอังกฤษต้องมีกริยา Sunny Tea a Thai tea brand ไม่มีกริยาเลย ต้องเติม is (A = B)</p><div class="tbl"><table><tr><th>2.</th><th>ไม่เว้นวรรคหลังจุด: หลัง . ต้องเว้น 1 ช่องก่อนประโยคใหม่ brand.It → brand. It</th></tr><tr><td>3.</td><td>ตัวพิมพ์ใหญ่ผิดที่: Founded อยู่กลางประโยค ไม่ใช่ชื่อเฉพาะ จึงใช้ตัวเล็ก founded</td></tr><tr><td>4.</td><td>เว้นวรรคก่อนคอมมา: คอมมาต้องติดกับคำหน้าเลย 2021, ไม่ใช่ 2021 ,</td></tr><tr><td>5.</td><td>กริยาไม่ตรงประธาน: The company เป็นเอกพจน์ (he/she/it) กริยาในประโยค present simple ต้องเติม -s เป็น sells</td></tr><tr><td>6.</td><td>ขาด -s พหูพจน์: Thai tea, green tea, and snack เป็นรายการของหลายอย่าง คำสุดท้ายจึงต้องเป็น snacks</td></tr><tr><td>7.</td><td>is/are ผิด: tea ในที่นี้คือใบชา เป็นนามนับไม่ได้ จึงใช้ is grown ไม่ใช่ are grown</td></tr><tr><td>8.</td><td>Comma splice: farms, the leaves are... เป็นสองประโยคเต็มที่ถูกเชื่อมด้วยคอมมาเฉยๆ ซึ่งไม่ได้ ต้องเติมคำเชื่อม and</td></tr><tr><td>9.</td><td>ขาดจุดท้ายประโยค: ประโยคสุดท้ายต้องปิดด้วย .</td></tr></table></div></div></div></div></article>
+<article class="slide nopic" id="p9" style="--tint:#cdf3e4"><div class="txt card"><h2 class="dsp">นาย &amp; ออม</h2><div class="body"><div class="sec"><h3><span class="ic">•</span>Sunny Tea a → Sunny Tea is เพราะประโยคขาดคำกริยา is</h3></div><div class="sec"><h3><span class="ic">•</span>brand.It → brand. It เพราะต้องเว้นวรรคหลังจุด</h3></div><div class="sec"><h3><span class="ic">📜</span>Founded → founded เพราะไม่ใช้ตัวพิมพ์ใหญ่กลางประโยค</h3></div><div class="sec"><h3><span class="ic">•</span>2021 , → 2021, เพราะไม่เว้นวรรคก่อนเครื่องหมายจุลภาค</h3></div><div class="sec"><p>company sell → company sells เพราะประธานเอกพจน์ต้องเติม s ที่คำกริยา</p></div><div class="sec"><h3><span class="ic">•</span>Snack → Snacks เพราะต้องใช้รูปพหูพจน์</h3></div><div class="sec"><h3><span class="ic">•</span>Tea Are → Tea Is เพราะ Tea เป็นคำนามนับไม่ได้ ใช้ Is</h3></div><div class="sec"><h3><span class="ic">•</span>farms, the → farms. The เพราะต้องใช้จุดแบ่งประโยค</h3></div><div class="sec"><h3><span class="ic">•</span>Hand → Hand. เพราะต้องใส่จุดปิดท้ายประโยคครับ</h3></div></div></div></article>
+<article class="slide nopic" id="p10" style="--tint:#d4e8ff"><div class="txt card"><h2 class="dsp">Lovecat&amp;two</h2><div class="body"><div class="sec"><p>จุดผิด → จุดที่ถูก</p></div><div class="sec"><h3><span class="ic">•</span>Sunny Tea a Thai tea brand. → Sunny Tea is a Thai tea brand.</h3><p>❌ ขาด is</p></div><div class="sec"><h3><span class="ic">•</span>brand.It → brand. It</h3><p>❌ ขาดเว้นวรรคหลังจุด</p></div><div class="sec"><h3><span class="ic">📜</span>was Founded → was founded</h3><p>❌ founded ไม่ต้องขึ้นตัวใหญ่</p></div><div class="sec"><h3><span class="ic">•</span>2021 , → 2021,</h3><p>❌ ไม่ควรเว้นวรรคก่อน comma</p></div><div class="sec"><h3><span class="ic">🏢</span>The company sell → The company sells</h3><p>❌ ประธานเอกพจน์ The company ต้องใช้ sells</p></div><div class="sec"><h3><span class="ic">•</span>And Snack → And Snacks</h3><p>❌ ต้องเป็นพหูพจน์ เพราะขายขนมหลายชนิด</p></div><div class="sec"><h3><span class="ic">•</span>All our tea are → All our tea is</h3><p>❌ tea เป็นคำนามนับไม่ได้ จึงใช้ is</p></div><div class="sec"><h3><span class="ic">•</span>local farms, the leaves → local farms. The leaves</h3><p>❌ เป็นประโยค 2 ประโยค ต้องไม่ใช้ comma เชื่อมกัน</p></div><div class="sec"><h3><span class="ic">•</span>ท้ายประโยค Hand → Hand.</h3><p>❌ ขาด full stop (.)</p><p>เเก้ประโยคที่ถูกต้องทั้งหมด</p><p>Sunny Tea is a Thai tea brand. It was founded in 2021, and it is based in Chiang Mai. The company sells Thai tea, green tea, and snacks. All our tea is grown on local farms. The leaves are picked by hand.</p><p>สรุป 9 จุด:</p><p>is / space / founded / comma space / sells / snacks / is / period + new sentence / full stop</p><p>อธิบายว่าทำไมถึงผิด</p></div><div class="sec"><h3><span class="ic">•</span>Sunny Tea a Thai tea brand → Sunny Tea is a Thai tea brand.</h3><p>เพราะประโยคต้องมี verb และประธาน Sunny Tea ต้องใช้ is</p></div><div class="sec"><h3><span class="ic">•</span>brand.It → brand. It</h3><p>เพราะหลังจุด (.) ต้องมี เว้นวรรค ก่อนเริ่มประโยคใหม่</p></div><div class="sec"><h3><span class="ic">📜</span>was Founded → was founded</h3><p>เพราะ founded ไม่ใช่ชื่อเฉพาะ จึงไม่ต้องขึ้นต้นด้วยตัวพิมพ์ใหญ่</p></div><div class="sec"><h3><span class="ic">•</span>2021 , → 2021,</h3><p>เพราะ comma (,) ต้องติดกับคำด้านหน้า และไม่ควรเว้นวรรคก่อน comma</p></div><div class="sec"><h3><span class="ic">🏢</span>The company sell → The company sells</h3><p>เพราะ The company เป็นประธานเอกพจน์ จึงต้องเติม -s ที่ sell → sells</p></div><div class="sec"><h3><span class="ic">•</span>Snack → Snacks</h3><p>เพราะกำลังพูดถึงขนมหลายชนิด จึงใช้รูป พหูพจน์ (snacks)</p></div><div class="sec"><h3><span class="ic">•</span>All our tea are → All our tea is</h3><p>เพราะ tea ในที่นี้เป็นคำนามนับไม่ได้ จึงใช้ is ไม่ใช้ are</p></div><div class="sec"><h3><span class="ic">•</span>local farms, the leaves → local farms. The leaves</h3><p>เพราะตรงนี้เป็น 2 ประโยคสมบูรณ์ ไม่ควรใช้ comma เชื่อมกัน ต้องใช้ full stop (.) แล้วขึ้นประโยคใหม่</p></div><div class="sec"><h3><span class="ic">•</span>Hand → Hand.</h3><p>เพราะเป็น จุดจบของย่อหน้า/ประโยค จึงต้องใส่ full stop (.)</p></div></div></div></article>
+<article class="slide nopic" id="p11" style="--tint:#e6dcff"><div class="txt card"><h2 class="dsp">Meetur &amp; Fahsai</h2><div class="body"><div class="sec"><h3><span class="ic">•</span>Missing verb</h3><p>ขาด is หลัง Sunny Tea → Sunny Tea is a Thai tea brand.</p></div><div class="sec"><h3><span class="ic">•</span>Spacing</h3><p>หลังจุดไม่ได้เว้นวรรค → brand. It</p></div><div class="sec"><h3><span class="ic">•</span>Capitalization</h3><p>คำว่า Founded ใช้ตัวพิมพ์ใหญ่ผิดตำแหน่ง → was founded</p></div><div class="sec"><h3><span class="ic">•</span>Spacing</h3><p>มีเว้นวรรคส่วนเกินหน้าเครื่องหมาย comma → 2021,</p></div><div class="sec"><h3><span class="ic">•</span>Subject-Verb Agreement</h3><p>กริยาขาด -s → The company sells</p></div><div class="sec"><h3><span class="ic">•</span>Plural noun</h3><p>คำว่า snack ขาด -s → and snacks</p></div><div class="sec"><h3><span class="ic">•</span>Is / Are</h3><p>ใช้ are กับคำนามนับไม่ได้ (tea) → All our tea is grown</p></div><div class="sec"><h3><span class="ic">•</span>Comma between sentences</h3><p>ใช้ comma เชื่อมประโยคสมบูรณ์ 2 ประโยค → ต้องเปลี่ยนเป็นจุด . The leaves หรือใส่คำเชื่อม and</p></div><div class="sec"><h3><span class="ic">•</span>The last full stop</h3><p>ขาดจุดจบประโยคท้ายสุด → picked by hand.</p></div></div></div></article>
+<article class="slide pic" id="p12" style="--tint:#ffe0c7"><div class="photo card"><img src="img/ac21-12.jpg" alt="จิ๋วอ้วน" loading="lazy"></div><div class="txt card"><h2 class="dsp">จิ๋วอ้วน</h2><div class="body"><p class="none">The details are in the picture.</p></div></div></article>
+<article class="slide" id="p13" style="--tint:#ffd9e2"><div class="photo card"><img src="img/ac21-13.jpg" alt="eiei" loading="lazy"></div><div class="txt card"><h2 class="dsp">eiei</h2><div class="body"><div class="sec"><p>Sunny Tea is a Thai tea brand. It was founded in 2021, and it is based in Chiang Mai. The company sells Thai tea, green tea, and snacks. All our teas are grown on local farms. The leaves are picked by hand.</p></div></div></div></article>
+<article class="slide pic" id="p14" style="--tint:#fff0b3"><div class="photo card"><img src="img/ac21-14.jpg" alt="Potato" loading="lazy"></div><div class="txt card"><h2 class="dsp">Potato</h2><div class="body"><p class="none">The details are in the picture.</p></div></div></article>
+<article class="slide" id="p15" style="--tint:#cdf3e4"><div class="photo card"><img src="img/ac21-15.jpg" alt="Am &amp; Tong" loading="lazy"></div><div class="txt card"><h2 class="dsp">Am &amp; Tong</h2><div class="body"><div class="sec"><p>Sunny Tea is a Thai tea brand. It was founded in 2021, and it is based in Chiang Mai. The company sells Thai tea, green tea, and snacks. All our teas are grown on local farms. The leaves are picked by hand.</p></div></div></div></article>
+<article class="slide pic" id="p16" style="--tint:#d4e8ff"><div class="photo card"><img src="img/ac21-16.jpg" alt="Rin bam may" loading="lazy"></div><div class="txt card"><h2 class="dsp">Rin bam may</h2><div class="body"><p class="none">The details are in the picture.</p></div></div></article>
+<article class="slide" id="p17" style="--tint:#e6dcff"><div class="photo card"><img src="img/ac21-17.jpg" alt="Pat&amp;Mook" loading="lazy"></div><div class="txt card"><h2 class="dsp">Pat&amp;Mook</h2><div class="body"><div class="sec"><ul><li>Sunny Tea a = Sunny Tea is a</li><li>brand.It = brand. It (เว้นหลังจบประโยค)</li><li>Founded = founded</li><li>2021 , = 2021, (ติดกัน)</li><li>company sell = company sells</li><li>snack = snacks</li><li>tea are = tea is</li><li>farms, the leaves = farms. The leaves</li><li>hand = hand.</li></ul></div></div></div></article>
+</section>
+<script>
+// Pick the column count that gives every tile the most room at a card-like shape,
+// then lay each tile out photo-left (wide tiles) or photo-top (tall tiles);
+// on landscape screens wide photo-left tiles win close calls (Mew prefers that look)
+function fitTiles(){
+  var g=document.querySelector('#tiles .grid');if(!g)return;
+  var n=g.children.length,gap=parseFloat(getComputedStyle(g).rowGap)||14,W=g.clientWidth,H=g.clientHeight,b=null;
+  for(var c=1;c<=n;c++){
+    var r=Math.ceil(n/c),w=(W-(c-1)*gap)/c,h=(H-(r-1)*gap)/r,a=w/h;
+    var s=w*h*Math.exp(-Math.abs(Math.log(a/1.6))*0.9)*(w<150?0.6:1)*(W>H&&w>=1.25*h?1.2:1);
+    if(!b||s>b.s)b={c:c,r:r,w:w,h:h,s:s};
+  }
+  var hz=b.w>=1.25*b.h,tw=hz?b.w*0.58:b.w;
+  g.className='grid '+(hz?'h':'v')+(b.h<170||b.w<150?' tight':'');
+  g.style.gridTemplateColumns='repeat('+b.c+',minmax(0,1fr))';
+  g.style.gridTemplateRows='repeat('+b.r+',minmax(0,1fr))';
+  g.style.setProperty('--pw',Math.min(b.h-4,b.w*0.42)+'px');
+  g.style.setProperty('--phh',Math.min(b.w*0.68,b.h*0.46)+'px');
+  g.style.setProperty('--fs',Math.max(10.5,Math.min(13.5,tw/22)).toFixed(1)+'px');
+}
+var slides=[].slice.call(document.querySelectorAll('.slide')),cur=-1;
+// Largest text size at which the whole profile fits its card, in one or two text columns
+// (whichever reads bigger); scroll only if even the smallest size won't fit
+function fitSlide(s){
+  var t=s.querySelector('.txt'),b=s.querySelector('.body'),best={f:0,c2:false};
+  s.classList.remove('scroll');
+  [false,true].forEach(function(c2){
+    if(c2&&t.clientWidth<620)return;
+    b.classList.toggle('c2',c2);
+    var lo=12,hi=34;
+    while(hi-lo>0.5){var m=(lo+hi)/2;t.style.setProperty('--f',m+'px');if(t.scrollHeight>t.clientHeight+1)hi=m;else lo=m;}
+    if(lo>best.f+1)best={f:lo,c2:c2}; // two columns only when clearly bigger
+  });
+  b.classList.toggle('c2',best.c2);
+  t.style.setProperty('--f',best.f+'px');
+  if(t.scrollHeight>t.clientHeight+1)s.classList.add('scroll');
+}
+function show(i){
+  slides.forEach(function(s,k){s.classList.toggle('on',k==i);});
+  cur=i;fitSlide(slides[i]);
+  document.querySelector('.count').textContent=(i+1)+' / '+slides.length;
+  document.querySelector('.prev').disabled=i==0;
+  document.querySelector('.next').disabled=i==slides.length-1;
+}
+// Tile view by default; #p<n> presents that company
+function view(){
+  var m=/^#(p\d+)$/.exec(location.hash),i=m?slides.findIndex(function(s){return s.id==m[1];}):-1,r=document.documentElement;
+  r.className=i<0?'tiles':'full';
+  if(i<0){cur=-1;fitTiles();}else show(i);
+}
+function go(d){
+  var i=cur+d;if(cur<0||i<0||i>=slides.length)return;
+  history.replaceState(null,'','#'+slides[i].id);show(i);
+}
+document.querySelector('.prev').onclick=function(){go(-1);};
+document.querySelector('.next').onclick=function(){go(1);};
+var fsb=document.querySelector('.fs');
+if(document.fullscreenEnabled)fsb.onclick=function(){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();};
+else fsb.style.display='none';
+document.addEventListener('fullscreenchange',function(){fsb.textContent=document.fullscreenElement?'Exit full screen':'Full screen';});
+addEventListener('keydown',function(e){
+  if(cur<0||e.altKey||e.ctrlKey||e.metaKey)return;
+  if(['ArrowRight','PageDown',' '].indexOf(e.key)>=0){go(1);e.preventDefault();}
+  else if(['ArrowLeft','PageUp'].indexOf(e.key)>=0){go(-1);e.preventDefault();}
+  else if(e.key=='Escape'&&!document.fullscreenElement)location.hash='';
+});
+view();addEventListener('hashchange',view);
+addEventListener('resize',function(){cur<0?fitTiles():fitSlide(slides[cur]);});
+if(document.fonts)document.fonts.ready.then(function(){cur<0?fitTiles():fitSlide(slides[cur]);});
+</script>
+</body></html>
