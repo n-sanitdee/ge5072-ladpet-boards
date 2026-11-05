@@ -1,0 +1,124 @@
+{
+ "wall": "614742",
+ "saved": "Thursday, 5 November 2026 at 12:41",
+ "prompt": [],
+ "posts": [
+  {
+   "n": 1,
+   "id": "4tbAJ55B54rOtTBWMuCS",
+   "at": 1793856523608,
+   "nick": "อะไรดีบุ๋มก็ว่าดีมั้งคะ",
+   "company": "อะไรดีบุ๋มก็ว่าดีมั้งคะ",
+   "photo": true,
+   "text": "Sunny Tea is a Thai tea brand. It was founded in 2021, and it is based in Chiang Mai. The company sells Thai tea, green tea, and snacks. All its tea is grown on local farms, the leaves are picked by hand."
+  },
+  {
+   "n": 2,
+   "id": "K5CxyCeVDPC9htAR05yV",
+   "at": 1793856527615,
+   "nick": "Test test",
+   "company": "Test test",
+   "photo": false,
+   "text": "Sunny Tea a Thai tea brand.It was Founded in 2021 , and it is based in Chiang Mai. The company sell Thai tea, green tea, and snack. All our tea are grown on local farms, the leaves are picked by hand"
+  },
+  {
+   "n": 3,
+   "id": "f3UqJe5JQGIG9vOgImVR",
+   "at": 1793856550845,
+   "nick": "lukwha & guitar",
+   "company": "lukwha & guitar",
+   "photo": true,
+   "text": ""
+  },
+  {
+   "n": 4,
+   "id": "NJ8qwDu3CYV52p8jGd4W",
+   "at": 1793856648694,
+   "nick": "Oshi & Wa",
+   "company": "Oshi & Wa",
+   "photo": true,
+   "text": ""
+  },
+  {
+   "n": 5,
+   "id": "KqdW2EDaElwkDpQkyPtI",
+   "at": 1793856745186,
+   "nick": "Mae nine Mae jai",
+   "company": "Mae nine Mae jai",
+   "photo": true,
+   "text": "Sunny Tea is a Thai tea brand. It was founded in 2021, and it is based in Chiang Mai. The company sells Thai tea, green tea, and snacks. All our teas is grown on local farms, and The leaves are picked by hand."
+  },
+  {
+   "n": 6,
+   "id": "vQ3uoc1uzQncDu7j0JXS",
+   "at": 1793856908391,
+   "nick": "PG Club",
+   "company": "PG Club",
+   "photo": false,
+   "text": "Sunny Tea is a Thai tea brand. It was founded in 2021, and it is based in Chiang Mai. The company sells Thai tea, green tea, and snacks. All our tea is grown on local farms. The leaves are picked by hand."
+  },
+  {
+   "n": 7,
+   "id": "Oruy7dzKOgIEzbLKpKNp",
+   "at": 1793856908495,
+   "nick": "BF",
+   "company": "BF",
+   "photo": true,
+   "text": "Sunny Tea is a Thai tea brand. It was founded in 2021, and it is based in Chiang Mai. The company sells Thai tea, green tea, and snacks. All our tea is grown on local farms. The leaves are picked by hand."
+  },
+  {
+   "n": 8,
+   "id": "G0AWSkGTwI4ZSrCYa4IT",
+   "at": 1793856920636,
+   "nick": "Kp",
+   "company": "Kp",
+   "photo": false,
+   "text": "Sunny Tea is a Thai tea brand. It was founded in 2021, and it is based in Chiang Mai. The company sells Thai tea, green tea, and snacks. All our tea is grown on local farms, and the leaves are picked by hand."
+  },
+  {
+   "n": 9,
+   "id": "5rLkQp0maKgMwddQBQ0S",
+   "at": 1793856924265,
+   "nick": "เกล้า & ปุณ",
+   "company": "เกล้า & ปุณ",
+   "photo": true,
+   "text": "Sunny Tea is a Thai tea brand. It was founded in 2021, and it is based in Chiang Mai. The company sells Thai tea, green tea, and snacks. All our tea is grown on local farms. The leaves are picked by hand."
+  },
+  {
+   "n": 10,
+   "id": "Cu7Nhqf4jMOv1kQPG2DJ",
+   "at": 1793856955592,
+   "nick": "Rak auan",
+   "company": "Rak auan",
+   "photo": true,
+   "text": "1.  Sunny Tea a Thai tea brand. → Sunny Tea is a Thai tea brand.\n2.  brand.It → brand. It (เว้นวรรคหลังจุด)\n3.  Founded → founded (ไม่ต้องขึ้นต้นตัวใหญ่)\n4.  2021 , → 2021, (ไม่เว้นวรรคก่อนเครื่องหมายจุลภาค)\n5.  company sell → company sells\n6.  snack → snacks\n7.  tea are → tea is\n8.  farms, the leaves → farms. The leaves (แก้ comma splice)\n9.  hand → hand. (เติมจุด Full stop) \n\nCOMPANY PROFILE\n\nSunny Tea is a Thai tea brand. It was founded in 2021, and it is based in Chiang Mai. The company sells Thai tea, green tea, and snacks. All our tea is grown on local farms. The leaves are picked by hand."
+  },
+  {
+   "n": 11,
+   "id": "IdTWu4YGmhZ5xTg8rGRt",
+   "at": 1793856990732,
+   "nick": "Uon",
+   "company": "Uon",
+   "photo": true,
+   "text": ""
+  },
+  {
+   "n": 12,
+   "id": "2oswgXNigNml9AkCXmQW",
+   "at": 1793857164719,
+   "nick": "Mi Mi Miiii",
+   "company": "Mi Mi Miiii",
+   "photo": true,
+   "text": "Sunny Tea is a Thai tea brand. It was founded in 2021, and it is based in Chiang Mai. The company sells Thai tea, green tea, and snacks. All our tea is grown on local farms. The leaves are picked by hand."
+  },
+  {
+   "n": 13,
+   "id": "9werjPffAEQp5zQlOHUe",
+   "at": 1793857278393,
+   "nick": "Build & Kratae",
+   "company": "Build & Kratae",
+   "photo": true,
+   "text": "Sunny Tea is a Thai tea brand. It was founded in 2021, and it is based in Chiang Mai. The company sells Thai tea, green tea, and snacks. All our tea is grown on local farms. The leaves are picked by hand."
+  }
+ ]
+}
