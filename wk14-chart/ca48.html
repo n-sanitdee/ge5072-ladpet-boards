@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en" class="tiles"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ladpet · Week 14 Think-Pair-Share · CA48</title>
+<script>document.documentElement.className=/^#p\d+$/.test(location.hash)?'full':'tiles'</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;700;800&family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1d1a3a;--muted:#5f5b80;--paper:#fffaf2;--acc:#6d4aff}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper) radial-gradient(#e8dfcf 1.2px,transparent 1.4px) 0 0/18px 18px;color:var(--ink);
+  font-family:'Nunito','Sarabun',system-ui,-apple-system,'Segoe UI',sans-serif}
+.dsp{font-family:'Fredoka','Sarabun',system-ui,sans-serif}
+header.top{position:relative;overflow:hidden;background:var(--acc);color:#fff;padding:12px 18px 14px;flex:none;border-bottom:3px solid var(--ink)}
+header.top::before{content:"";position:absolute;right:-40px;top:-60px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.14)}
+header.top::after{content:"";position:absolute;right:120px;bottom:-46px;width:84px;height:84px;border-radius:50%;background:#ffd34d;border:3px solid var(--ink)}
+header.top .row{position:relative;z-index:1;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pill{display:inline-block;background:#fff;color:var(--ink);border:2px solid var(--ink);border-radius:999px;padding:1px 10px;font-weight:800;font-size:12px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none}
+a.pill:hover{background:#ffd34d}
+header.top h1{position:relative;z-index:1;margin:6px 0 2px;font-size:clamp(20px,3.2vw,30px);line-height:1.2;font-weight:600}
+header.top p{position:relative;z-index:1;margin:0;font-size:13px;font-weight:700;opacity:.92;max-width:62ch}
+.sticker{display:inline-block;background:#fff;color:var(--ink);border:2px solid var(--ink);border-radius:10px;padding:0 9px;
+  box-shadow:3px 3px 0 var(--ink);transform:rotate(-3deg);font-weight:700}
+.card{background:#fff;border:2px solid var(--ink);border-radius:16px;box-shadow:4px 4px 0 var(--ink)}
+a.card,a.co{text-decoration:none;color:inherit;transition:transform .12s,box-shadow .12s}
+a.card:hover,a.card:focus-visible,a.co:hover,a.co:focus-visible{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink);outline:none}
+footer{flex:none;text-align:center;color:var(--muted);font-size:12px;font-weight:700;padding:4px 16px 8px}
+@media (max-width:560px){header.top::after{display:none}header.top{padding:10px 14px 12px}}
+
+html,body{height:100%;overflow:hidden}
+body{display:flex;flex-direction:column;height:100dvh}
+html.full header.top,html.tiles .bar,html.tiles #slides,html.full #tiles{display:none}
+#tiles{flex:1;min-height:0;display:flex;flex-direction:column;gap:10px;padding:14px 18px 16px;width:100%;max-width:1840px;margin:0 auto}
+.hint{flex:none;font-weight:800;font-size:13px;color:var(--muted)}
+.hint b{color:var(--acc)}
+.grid{flex:1;min-height:0;display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.co{display:flex;min-width:0;min-height:0;overflow:hidden;background:#fff;border:2px solid var(--ink);border-radius:16px;box-shadow:4px 4px 0 var(--ink)}
+.grid.v .co{flex-direction:column}
+.co .ph{flex:none;position:relative;background:var(--tint);width:var(--pw,40%)}
+.grid.v .co .ph{width:auto;height:var(--phh,45%);border-bottom:2px solid var(--ink)}
+.grid.h .co .ph{border-right:2px solid var(--ink)}
+.co .ph img{position:absolute;inset:6px;width:calc(100% - 12px);height:calc(100% - 12px);object-fit:contain;border-radius:8px}
+.co.pic .ph{flex:1;width:auto;height:auto}
+.co .tx{flex:1;min-width:0;min-height:0;display:flex;flex-direction:column;padding:8px 11px 7px;font-size:var(--fs,12px)}
+.co.pic .tx{flex:none}
+.grid.h .co.pic .tx{width:42%}
+.co .nm{flex:none;font-family:'Fredoka','Sarabun',sans-serif;font-weight:600;font-size:1.32em;line-height:1.15;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.co .by{flex:none;margin:3px 0 4px;font-size:.88em;font-weight:800;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.co .by span,.slide .by span{background:var(--tint);border:1.5px solid var(--ink);border-radius:999px;padding:0 .5em;color:var(--ink)}
+.co .det{flex:1;min-height:0;overflow:hidden;line-height:1.38;-webkit-mask-image:linear-gradient(#000 62%,transparent);mask-image:linear-gradient(#000 62%,transparent)}
+.co .det p{margin:0 0 3px}
+.co .det b{color:var(--acc);font-weight:800}
+.co .det .tg,.slide .tg{font-style:italic;font-weight:700}
+.co .more{flex:none;align-self:flex-end;font-weight:800;font-size:.92em;color:var(--acc)}
+.grid.tight .co .more,.grid.tight .co .det b{display:none}
+.grid.tight .co .by{margin:2px 0 3px}
+.co.pic .det{flex:none;color:var(--muted);font-weight:700;-webkit-mask-image:none;mask-image:none}
+@media (max-width:560px){#tiles{padding:10px 12px 12px;gap:8px}.grid{gap:10px}}
+
+.bar{flex:none;display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--acc);color:#fff;border-bottom:3px solid var(--ink)}
+.bar .ttl{font-weight:600;font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.bar .ttl .sticker{font-size:15px;margin-right:6px}
+.bar .sp{flex:1}
+.bar button,.bar a.pill{font:inherit;cursor:pointer}
+.bar button{background:#fff;color:var(--ink);border:2px solid var(--ink);border-radius:999px;font-weight:800;font-size:14px;padding:2px 12px;line-height:1.4}
+.bar button:hover{background:#ffd34d}
+.bar button:disabled{opacity:.4;cursor:default;background:#fff}
+.bar .count{font-weight:800;font-size:14px;min-width:3.6em;text-align:center}
+#slides{flex:1;min-height:0;padding:16px 20px 20px;width:100%;max-width:1840px;margin:0 auto}
+.slide{display:none;height:100%;gap:22px;grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);grid-template-rows:minmax(0,1fr)}
+.slide.on{display:grid;animation:slidein .35s ease-out}
+.slide.nopic{grid-template-columns:minmax(0,1fr)}
+.slide.pic{grid-template-columns:minmax(0,1.7fr) minmax(0,1fr)}
+@keyframes slidein{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.slide .photo{position:relative;background:var(--tint);overflow:hidden;min-height:0}
+.slide .photo img{position:absolute;inset:16px;width:calc(100% - 32px);height:calc(100% - 32px);object-fit:contain;border-radius:12px}
+.slide .txt{min-height:0;overflow:hidden;padding:1.1em 1.4em;font-size:var(--f,18px);line-height:1.45}
+.slide.scroll .txt{overflow:auto}
+.slide h2{margin:0;font-size:2em;font-weight:600;line-height:1.1}
+.slide .by{margin:.35em 0 .5em;font-weight:800;font-size:.85em;color:var(--muted)}
+.slide h3{margin:.7em 0 .1em;font-size:1em;font-weight:800;color:var(--acc);display:flex;gap:.35em;align-items:baseline}
+.slide p{margin:.12em 0}.slide ul{margin:.12em 0;padding-left:1.3em}
+.slide .body.c2{columns:2;column-gap:1.8em}
+.slide .body.c2 .sec{break-inside:avoid}
+.slide .tbl{margin:.35em 0 .2em;break-inside:avoid}
+.slide table{border-collapse:collapse;width:100%;font-size:.86em;line-height:1.3;background:#fff}
+.slide th,.slide td{border:1.5px solid var(--ink);padding:.22em .45em;text-align:left;vertical-align:top}
+.slide th{background:var(--tint);font-weight:800}
+.slide td.n,.slide th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.slide .none{color:var(--muted);font-weight:700;margin-top:.8em}
+@media (max-width:700px) and (orientation:portrait){
+  #slides{padding:10px 12px 12px}
+  .slide,.slide.pic{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,38%) minmax(0,1fr);gap:12px}
+  .slide.pic{grid-template-rows:minmax(0,1fr) auto}
+  .slide.nopic{grid-template-rows:minmax(0,1fr)}
+  .slide .photo img{inset:8px;width:calc(100% - 16px);height:calc(100% - 16px)}
+  .bar{padding:6px 10px;gap:6px}.bar .ttl,.bar .fs{display:none}.bar button{padding:2px 10px}
+}
+@media (prefers-reduced-motion:reduce){.slide.on{animation:none}a.co,a.card{transition:none}}
+:root{--acc:#db2777}</style></head><body>
+<header class="top"><div class="row"><a class="pill" href="./">← All sections</a><span class="pill">GE5072 · Ladpet</span></div>
+<h1 class="dsp"><span class="sticker">CA48</span> Describe a Chart</h1>
+<p>Monday, 9 November 2026 · 16 pairs</p></header>
+<section id="tiles"><div class="hint">Tap a pair to <b>present</b> it to the class.</div><div class="grid">
+<a class="co" href="#p1" style="--tint:#ffd9e2"><span class="tx"><span class="nm">ิิ</span><span class="det"><p>&quot;Hotel guests increased from 3,000 to 3,400 between January and February.&quot;</p><p><b>📈 The number of followers climbed to 5,000 in February.</b> </p><p>First, the café&#x27;s TikTok followers increased from 4,000 in January to 5,000 in February and 8,000 in March.</p><p>&quot;There was a sharp rise in hotel guests to 3,400 in February.&quot;</p><p><b> This was a remarkable increase.</b> </p><p>There was a sharp rise in followers from 8,000 in March to 15,000 in April, an increase of 7,000 followers.</p><p>&quot;The number of hotel guests fluctuated significantly over the six-month period, dropping to 1,800 in April before rising again.&quot;</p><p><b> There was no further increase.</b> </p><p>Finally, the number of followers reached 16,000 in May and remained stable in June.</p></span><span class="more">Present ▶</span></span></a>
+<a class="co" href="#p2" style="--tint:#fff0b3"><span class="tx"><span class="nm">จั๋งดุ๋ง</span><span class="det"><p>The followers increased from 4,000 in January to 16,000 in May.</p><p><b> There was a sharp rise in followers between March and April.</b> </p><p><b>📈 The number of followers remained stable from April to June.</b> </p><p><b> The followers increased from 4,000 to 5,000 in February.</b> </p><p><b>📈 The number of followers rose to 9,000 in March.</b> </p><p><b> There was a gradual increase from January to March.</b> </p><p><b> The followers reached 15,000 in April.</b> </p><p><b>📈 The number stayed almost the same from April to June.</b> </p><p><b> Overall, the café gained more followers over time.</b> </p></span><span class="more">Present ▶</span></span></a>
+<a class="co" href="#p3" style="--tint:#cdf3e4"><span class="tx"><span class="nm">วาริศ &amp; โบโย่</span><span class="det"><p>Bakery revenue rose from 2,000 thousand baht in 2021 to 3,600 thousand baht in 2025. · Bakery revenue increased from 2,000 thousand baht in 2021 to 3,600 thousand baht in 2025, rising by 1,600 thousand baht. · -There was a sharp rise in bakery revenue between 2023 and 2024, an increase of 800 thousand baht. · There was a sharp rise in bakery revenue from 2,300 thousand baht in 2023 to 3,100 thousand baht in 2024. · -Revenue climbed steadily to 2,400 thousand baht in 2022, dipped slightly to 2,300 in 2023, and then soared to 3,600 by 2025. · Bakery revenue in 2021, 2022, and 2025 was 2,000, 2,400, and 3,600 thousand baht, respectively.</p></span><span class="more">Present ▶</span></span></a>
+<a class="co" href="#p4" style="--tint:#d4e8ff"><span class="tx"><span class="nm">NBK</span><span class="det"><p>The number of hotel guests in Chiang Mai rose from 3,200 in January to 3,400 in February.</p><p>The number of hotel guests in Chiang Mai peaked at 3,400 in February.</p><p>The number of hotel guests in Chiang Mai dropped sharply from 3,400 in February to 1,900 in April.</p><p>The number of hotel guests in Chiang Mai fell by 1,500 between February and April.</p><p>The number of hotel guests in Chiang Mai bottomed out at 1,900 in April.</p><p>The number of hotel guests in Chiang Mai increased slightly from 1,900 in April to 1,950 in May.</p><p>The number of hotel guests in Chiang Mai rose slightly to 2,000 in June.</p><p>The number of hotel guests in Chiang Mai recovered gradually after April.</p><p>Overall, the number of hotel guests in Chiang Mai was higher in early months before falling and recovering slightly.</p></span><span class="more">Present ▶</span></span></a>
+<a class="co" href="#p5" style="--tint:#e6dcff"><span class="tx"><span class="nm">Aoratai &amp; Panvasa</span><span class="det"><p>The cafe gained 11 thousand followers from January to June. · The number of followers increased sharply from 9 thousand in March to 15 thousand in April. · Furthermore, the followers increased slightly to 16 thousand in May and remained stable in June.</p></span><span class="more">Present ▶</span></span></a>
+<a class="co" href="#p6" style="--tint:#ffe0c7"><span class="tx"><span class="nm">รดา &amp; เฟิน</span><span class="det"><p>Bakery revenue increased from 2,000 to 2,400 thousand baht in 2022.</p><p><b> Revenue fell by 100 thousand baht from 2022 to 2023.</b> </p><p><b> There was a sharp rise in revenue in 2024.</b> </p><p><b> Revenue climbed to 3,100 thousand baht in 2024.</b> </p><p><b> Overall, revenue increased over five years.</b> </p><p><b> Finally, revenue reached 3,600 thousand baht in 2025.</b> There was a sharp rise in bakery revenue of 800 thousand baht from 2023 to 2024. · Furthermore, revenue climbed by 500 thousand baht from 2024 to 2025.</p></span><span class="more">Present ▶</span></span></a>
+<a class="co" href="#p7" style="--tint:#ffd9e2"><span class="tx"><span class="nm">อ้วนครองโลก</span><span class="det"><p>Bakery revenue increased from 2,000 to 2,400 thousand baht in 2022. · Bakery revenue went up by 400 thousand baht from 2021 to 2022. · There was a slight drop in revenue in 2023. · Revenue decreased from 2,400 to 2,300 thousand baht in 2023. · Overall, revenue increased to 3,600 thousand baht in 2025. · Furthermore, bakery revenue reached its highest point in 2025.</p></span><span class="more">Present ▶</span></span></a>
+<a class="co" href="#p8" style="--tint:#fff0b3"><span class="tx"><span class="nm">R&amp;B</span><span class="det"><p><b> R</b> Hotel guests in Chiang Mai fell by 1,200, from 3,200 in January to 2,000 in June.</p><p><b> B</b> The number of hotel guests increased by 200, from 3,200 in January to 3,400 in February.</p><p><b> R</b> There was a sharp fall in hotel guests, from 3,400 in February to 1,900 in April.</p><p><b> B</b> There was a sharp drop in hotel guests from 3,400 in February to 1,900 in April.</p><p><b> R</b> The number bottomed out at 1,900 in April and then edged up to 2,000 in June.</p><p><b> B</b> Finally, the number of hotel guests increased slightly to 2,000 in June.</p></span><span class="more">Present ▶</span></span></a>
+<a class="co" href="#p9" style="--tint:#cdf3e4"><span class="tx"><span class="nm">คณะซอยจุ๊</span><span class="det"><p>The number of TikTok followers increased from 4,000 in January to 5,000 in February.</p><p><b> The café gained 4,000 followers in January.</b> </p><p><b> It rose sharply to 15,000 in April.</b> </p><p>The number of followers went up gradually from February to March.</p><p>The number of followers remained stable at 16,000 from May to June.</p><p>Overall, the café&#x27;s TikTok followers increased from 4,000 in January to 16,000 in June.</p></span><span class="more">Present ▶</span></span></a>
+<a class="co" href="#p10" style="--tint:#d4e8ff"><span class="tx"><span class="nm">ระดับ</span><span class="det"><p>กราฟที่1</p><p>The number of hotel guests fell from 3,400 in February to 2,600 in March.</p><p>The number of hotel guests increased from 3,200 in January to 3,400 in February. · 1 There was a sharp drop in hotel guests from 3,400 in February to 1,900 in April.</p><p>There was a slight increase in hotel guests from April to May.</p><p>The number of hotel guests rose slightly from 1,900 in April to 2,000 in June.</p><p>The number of hotel guests remained almost stable from May to June.</p></span><span class="more">Present ▶</span></span></a>
+<a class="co" href="#p11" style="--tint:#e6dcff"><span class="tx"><span class="nm">ฉงชิ่ง</span><span class="det"><p>Chart 2 · 1The followers increased by 6 thousand from March to April.</p><p>TikTok followers increased from 4,000 in January to 16,000 in June. · Chart 2 · 2The followers rose to 15 thousand in April.</p><p>There was a sharp rise in TikTok followers from March to April. · Chart 2 · 3Moreover, the followers remained stable from May to June.</p><p><b> TikTok followers remained stable at 16,000 from May to June.</b> </p></span><span class="more">Present ▶</span></span></a>
+<a class="co" href="#p12" style="--tint:#ffe0c7"><span class="tx"><span class="nm">ฟันเหลือฝ</span><span class="det"><p>Chart1</p><p><b> THINK (Noun – A sharp rise)</b> A sharp rise in bakery revenue from 2023 to 2024.</p><p><b> PAIR (Verb – Increased)</b> Bakery revenue increased by 800 thousand baht from 2023 to 2024.</p><p><b> SHARE (Best sentence)</b> Bakery revenue rose significantly by 800 thousand baht between 2023 and 2024.</p><p><b> THINK (Noun – A sharp drop)</b> A sharp drop in hotel guests from February to April.</p><p><b> PAIR (Verb – Decreased)</b> The number of hotel guests decreased by 1,900 from February to April.</p><p><b> SHARE (Best sentence)</b> Hotel guests fell dramatically from 3,400 in February to 1,500 in April.</p><p><b> From – To</b> The number of hotel guests increased from 3,200 in January to 3,400 in February.</p><p><b> Noun (A sharp decline)</b> There was a sharp decline in hotel guests from February to April.</p><p><b> List word (Furthermore)</b> Furthermore, the number of hotel guests remained stable at around 1,900 from April to June.</p></span><span class="more">Present ▶</span></span></a>
+<a class="co" href="#p13" style="--tint:#ffd9e2"><span class="tx"><span class="nm">อ้วนกลมอารมณ์ร้าย</span><span class="det"><p>Between 2021 and 2022, there was a sharp rise in revenue from 2,000 to 2,400 thousand baht.</p><p><b> Revenue decreased to 2,300 thousand baht in 2023.</b> </p><p>Revenue increased from 2,300 to 3,100 thousand baht between 2023 and 2024.</p><p><b> Revenue climbed to 3,600 thousand baht in 2025.</b> </p><p>Additionally, revenue increased from 2,300 to 3,100 thousand baht between 2023 and 2024.</p><p>Revenue increased from 2,000 to 2,400 thousand baht between 2021 and 2022.</p><p><b> Revenue increased by 800 thousand baht in 2024.</b> </p><p>Revenue decreased from 2,400 to 2,300 thousand baht between 2022 and 2023.</p><p>Consequently, revenue increased to 2,400 thousand baht in 2022.</p></span><span class="more">Present ▶</span></span></a>
+<a class="co" href="#p14" style="--tint:#fff0b3"><span class="tx"><span class="nm">ตุ้ยสบี่</span><span class="det"><p><b> Chart 2</b> Café TikTok Followers</p><p><b> The café had 4,000 followers in January.</b> </p><p><b> The followers increased to 5,000 in February.</b> </p><p><b> The followers went up to 9,000 in March.</b> </p><p><b> The followers increased to 15,000 in April.</b> </p><p><b> There was a big increase from March to April.</b> </p><p>The café had 16,000 followers in May. 7. The number stayed the same in June.</p><p><b> The café had 16,000 followers in June.</b> </p><p><b> Overall, the followers increased from January to June.</b> </p></span><span class="more">Present ▶</span></span></a>
+<a class="co" href="#p15" style="--tint:#cdf3e4"><span class="tx"><span class="nm">มาเฟียบ้านนอก</span><span class="det"><p>1There was a sharp rise from March to April · 2The number of followers reached 16,000 in May · 3The number of followers stayed the same between May and June</p></span><span class="more">Present ▶</span></span></a>
+<a class="co" href="#p16" style="--tint:#d4e8ff"><span class="tx"><span class="nm">ไอ้หยาง &amp; ไอ้เหยิน</span><span class="det"><p>The followers went up from 4,000 in January to 5,000 in February · The café had 4,000 followers in January. · . · There was a big increase between March and April. · The number of followers increased to 9,000 in March. · The number stayed the same at 16,000 from May to June. · The followers reached 15,000 in April.</p></span><span class="more">Present ▶</span></span></a>
+</div></section>
+<nav class="bar"><a class="pill" href="#">← All pairs</a><span class="ttl dsp"><span class="sticker">CA48</span>Describe a Chart</span>
+<span class="sp"></span><button class="prev" aria-label="Previous pair">◀</button><span class="count"></span>
+<button class="next" aria-label="Next pair">▶</button><button class="fs">Full screen</button></nav>
+<section id="slides">
+<article class="slide nopic" id="p1" style="--tint:#ffd9e2"><div class="txt card"><h2 class="dsp">ิิ</h2><div class="body"><div class="sec"><p>&quot;Hotel guests increased from 3,000 to 3,400 between January and February.&quot;</p></div><div class="sec"><h3><span class="ic">📈</span>The number of followers climbed to 5,000 in February.</h3></div><div class="sec"><p>First, the café&#x27;s TikTok followers increased from 4,000 in January to 5,000 in February and 8,000 in March.</p></div><div class="sec"><p>&quot;There was a sharp rise in hotel guests to 3,400 in February.&quot;</p></div><div class="sec"><h3><span class="ic">•</span>This was a remarkable increase.</h3></div><div class="sec"><p>There was a sharp rise in followers from 8,000 in March to 15,000 in April, an increase of 7,000 followers.</p></div><div class="sec"><p>&quot;The number of hotel guests fluctuated significantly over the six-month period, dropping to 1,800 in April before rising again.&quot;</p></div><div class="sec"><h3><span class="ic">•</span>There was no further increase.</h3></div><div class="sec"><p>Finally, the number of followers reached 16,000 in May and remained stable in June.</p></div></div></div></article>
+<article class="slide nopic" id="p2" style="--tint:#fff0b3"><div class="txt card"><h2 class="dsp">จั๋งดุ๋ง</h2><div class="body"><div class="sec"><p>The followers increased from 4,000 in January to 16,000 in May.</p></div><div class="sec"><h3><span class="ic">•</span>There was a sharp rise in followers between March and April.</h3></div><div class="sec"><h3><span class="ic">📈</span>The number of followers remained stable from April to June.</h3></div><div class="sec"><h3><span class="ic">•</span>The followers increased from 4,000 to 5,000 in February.</h3></div><div class="sec"><h3><span class="ic">📈</span>The number of followers rose to 9,000 in March.</h3></div><div class="sec"><h3><span class="ic">•</span>There was a gradual increase from January to March.</h3></div><div class="sec"><h3><span class="ic">•</span>The followers reached 15,000 in April.</h3></div><div class="sec"><h3><span class="ic">📈</span>The number stayed almost the same from April to June.</h3></div><div class="sec"><h3><span class="ic">•</span>Overall, the café gained more followers over time.</h3></div></div></div></article>
+<article class="slide nopic" id="p3" style="--tint:#cdf3e4"><div class="txt card"><h2 class="dsp">วาริศ &amp; โบโย่</h2><div class="body"><div class="sec"><ul><li>Bakery revenue rose from 2,000 thousand baht in 2021 to 3,600 thousand baht in 2025.</li><li>Bakery revenue increased from 2,000 thousand baht in 2021 to 3,600 thousand baht in 2025, rising by 1,600 thousand baht.</li></ul><p>-There was a sharp rise in bakery revenue between 2023 and 2024, an increase of 800 thousand baht.</p><ul><li>There was a sharp rise in bakery revenue from 2,300 thousand baht in 2023 to 3,100 thousand baht in 2024.</li></ul><p>-Revenue climbed steadily to 2,400 thousand baht in 2022, dipped slightly to 2,300 in 2023, and then soared to 3,600 by 2025.</p><ul><li>Bakery revenue in 2021, 2022, and 2025 was 2,000, 2,400, and 3,600 thousand baht, respectively.</li></ul></div></div></div></article>
+<article class="slide nopic" id="p4" style="--tint:#d4e8ff"><div class="txt card"><h2 class="dsp">NBK</h2><div class="body"><div class="sec"><p>The number of hotel guests in Chiang Mai rose from 3,200 in January to 3,400 in February.</p></div><div class="sec"><p>The number of hotel guests in Chiang Mai peaked at 3,400 in February.</p></div><div class="sec"><p>The number of hotel guests in Chiang Mai dropped sharply from 3,400 in February to 1,900 in April.</p></div><div class="sec"><p>The number of hotel guests in Chiang Mai fell by 1,500 between February and April.</p></div><div class="sec"><p>The number of hotel guests in Chiang Mai bottomed out at 1,900 in April.</p></div><div class="sec"><p>The number of hotel guests in Chiang Mai increased slightly from 1,900 in April to 1,950 in May.</p></div><div class="sec"><p>The number of hotel guests in Chiang Mai rose slightly to 2,000 in June.</p></div><div class="sec"><p>The number of hotel guests in Chiang Mai recovered gradually after April.</p></div><div class="sec"><p>Overall, the number of hotel guests in Chiang Mai was higher in early months before falling and recovering slightly.</p></div></div></div></article>
+<article class="slide nopic" id="p5" style="--tint:#e6dcff"><div class="txt card"><h2 class="dsp">Aoratai &amp; Panvasa</h2><div class="body"><div class="sec"><p>The cafe gained 11 thousand followers from January to June.</p><p>The number of followers increased sharply from 9 thousand in March to 15 thousand in April.</p><p>Furthermore, the followers increased slightly to 16 thousand in May and remained stable in June.</p></div></div></div></article>
+<article class="slide nopic" id="p6" style="--tint:#ffe0c7"><div class="txt card"><h2 class="dsp">รดา &amp; เฟิน</h2><div class="body"><div class="sec"><p>Bakery revenue increased from 2,000 to 2,400 thousand baht in 2022.</p></div><div class="sec"><h3><span class="ic">•</span>Revenue fell by 100 thousand baht from 2022 to 2023.</h3></div><div class="sec"><h3><span class="ic">•</span>There was a sharp rise in revenue in 2024.</h3></div><div class="sec"><h3><span class="ic">•</span>Revenue climbed to 3,100 thousand baht in 2024.</h3></div><div class="sec"><h3><span class="ic">•</span>Overall, revenue increased over five years.</h3></div><div class="sec"><h3><span class="ic">•</span>Finally, revenue reached 3,600 thousand baht in 2025.</h3><p>There was a sharp rise in bakery revenue of 800 thousand baht from 2023 to 2024.</p><p>Furthermore, revenue climbed by 500 thousand baht from 2024 to 2025.</p></div></div></div></article>
+<article class="slide nopic" id="p7" style="--tint:#ffd9e2"><div class="txt card"><h2 class="dsp">อ้วนครองโลก</h2><div class="body"><div class="sec"><p>Bakery revenue increased from 2,000 to 2,400 thousand baht in 2022.</p><p>Bakery revenue went up by 400 thousand baht from 2021 to 2022.</p><p>There was a slight drop in revenue in 2023.</p><p>Revenue decreased from 2,400 to 2,300 thousand baht in 2023.</p><p>Overall, revenue increased to 3,600 thousand baht in 2025.</p><p>Furthermore, bakery revenue reached its highest point in 2025.</p></div></div></div></article>
+<article class="slide nopic" id="p8" style="--tint:#fff0b3"><div class="txt card"><h2 class="dsp">R&amp;B</h2><div class="body"><div class="sec"><h3><span class="ic">•</span>R</h3><p>Hotel guests in Chiang Mai fell by 1,200, from 3,200 in January to 2,000 in June.</p></div><div class="sec"><h3><span class="ic">•</span>B</h3><p>The number of hotel guests increased by 200, from 3,200 in January to 3,400 in February.</p></div><div class="sec"><h3><span class="ic">•</span>R</h3><p>There was a sharp fall in hotel guests, from 3,400 in February to 1,900 in April.</p></div><div class="sec"><h3><span class="ic">•</span>B</h3><p>There was a sharp drop in hotel guests from 3,400 in February to 1,900 in April.</p></div><div class="sec"><h3><span class="ic">•</span>R</h3><p>The number bottomed out at 1,900 in April and then edged up to 2,000 in June.</p></div><div class="sec"><h3><span class="ic">•</span>B</h3><p>Finally, the number of hotel guests increased slightly to 2,000 in June.</p></div></div></div></article>
+<article class="slide nopic" id="p9" style="--tint:#cdf3e4"><div class="txt card"><h2 class="dsp">คณะซอยจุ๊</h2><div class="body"><div class="sec"><p>The number of TikTok followers increased from 4,000 in January to 5,000 in February.</p></div><div class="sec"><h3><span class="ic">•</span>The café gained 4,000 followers in January.</h3></div><div class="sec"><h3><span class="ic">•</span>It rose sharply to 15,000 in April.</h3></div><div class="sec"><p>The number of followers went up gradually from February to March.</p></div><div class="sec"><p>The number of followers remained stable at 16,000 from May to June.</p></div><div class="sec"><p>Overall, the café&#x27;s TikTok followers increased from 4,000 in January to 16,000 in June.</p></div></div></div></article>
+<article class="slide nopic" id="p10" style="--tint:#d4e8ff"><div class="txt card"><h2 class="dsp">ระดับ</h2><div class="body"><div class="sec"><p>กราฟที่1</p></div><div class="sec"><p>The number of hotel guests fell from 3,400 in February to 2,600 in March.</p></div><div class="sec"><p>The number of hotel guests increased from 3,200 in January to 3,400 in February.</p><p>1 There was a sharp drop in hotel guests from 3,400 in February to 1,900 in April.</p></div><div class="sec"><p>There was a slight increase in hotel guests from April to May.</p></div><div class="sec"><p>The number of hotel guests rose slightly from 1,900 in April to 2,000 in June.</p></div><div class="sec"><p>The number of hotel guests remained almost stable from May to June.</p></div></div></div></article>
+<article class="slide nopic" id="p11" style="--tint:#e6dcff"><div class="txt card"><h2 class="dsp">ฉงชิ่ง</h2><div class="body"><div class="sec"><p>Chart 2</p><p>1The followers increased by 6 thousand from March to April.</p></div><div class="sec"><p>TikTok followers increased from 4,000 in January to 16,000 in June.</p><p>Chart 2</p><p>2The followers rose to 15 thousand in April.</p></div><div class="sec"><p>There was a sharp rise in TikTok followers from March to April.</p><p>Chart 2</p><p>3Moreover, the followers remained stable from May to June.</p></div><div class="sec"><h3><span class="ic">•</span>TikTok followers remained stable at 16,000 from May to June.</h3></div></div></div></article>
+<article class="slide nopic" id="p12" style="--tint:#ffe0c7"><div class="txt card"><h2 class="dsp">ฟันเหลือฝ</h2><div class="body"><div class="sec"><p>Chart1</p></div><div class="sec"><h3><span class="ic">•</span>THINK (Noun – A sharp rise)</h3><p>A sharp rise in bakery revenue from 2023 to 2024.</p></div><div class="sec"><h3><span class="ic">•</span>PAIR (Verb – Increased)</h3><p>Bakery revenue increased by 800 thousand baht from 2023 to 2024.</p></div><div class="sec"><h3><span class="ic">•</span>SHARE (Best sentence)</h3><p>Bakery revenue rose significantly by 800 thousand baht between 2023 and 2024.</p></div><div class="sec"><h3><span class="ic">•</span>THINK (Noun – A sharp drop)</h3><p>A sharp drop in hotel guests from February to April.</p></div><div class="sec"><h3><span class="ic">•</span>PAIR (Verb – Decreased)</h3><p>The number of hotel guests decreased by 1,900 from February to April.</p></div><div class="sec"><h3><span class="ic">•</span>SHARE (Best sentence)</h3><p>Hotel guests fell dramatically from 3,400 in February to 1,500 in April.</p></div><div class="sec"><h3><span class="ic">•</span>From – To</h3><p>The number of hotel guests increased from 3,200 in January to 3,400 in February.</p></div><div class="sec"><h3><span class="ic">•</span>Noun (A sharp decline)</h3><p>There was a sharp decline in hotel guests from February to April.</p></div><div class="sec"><h3><span class="ic">•</span>List word (Furthermore)</h3><p>Furthermore, the number of hotel guests remained stable at around 1,900 from April to June.</p></div></div></div></article>
+<article class="slide nopic" id="p13" style="--tint:#ffd9e2"><div class="txt card"><h2 class="dsp">อ้วนกลมอารมณ์ร้าย</h2><div class="body"><div class="sec"><p>Between 2021 and 2022, there was a sharp rise in revenue from 2,000 to 2,400 thousand baht.</p></div><div class="sec"><h3><span class="ic">•</span>Revenue decreased to 2,300 thousand baht in 2023.</h3></div><div class="sec"><p>Revenue increased from 2,300 to 3,100 thousand baht between 2023 and 2024.</p></div><div class="sec"><h3><span class="ic">•</span>Revenue climbed to 3,600 thousand baht in 2025.</h3></div><div class="sec"><p>Additionally, revenue increased from 2,300 to 3,100 thousand baht between 2023 and 2024.</p></div><div class="sec"><p>Revenue increased from 2,000 to 2,400 thousand baht between 2021 and 2022.</p></div><div class="sec"><h3><span class="ic">•</span>Revenue increased by 800 thousand baht in 2024.</h3></div><div class="sec"><p>Revenue decreased from 2,400 to 2,300 thousand baht between 2022 and 2023.</p></div><div class="sec"><p>Consequently, revenue increased to 2,400 thousand baht in 2022.</p></div></div></div></article>
+<article class="slide nopic" id="p14" style="--tint:#fff0b3"><div class="txt card"><h2 class="dsp">ตุ้ยสบี่</h2><div class="body"><div class="sec"><h3><span class="ic">•</span>Chart 2</h3><p>Café TikTok Followers</p></div><div class="sec"><h3><span class="ic">•</span>The café had 4,000 followers in January.</h3></div><div class="sec"><h3><span class="ic">•</span>The followers increased to 5,000 in February.</h3></div><div class="sec"><h3><span class="ic">•</span>The followers went up to 9,000 in March.</h3></div><div class="sec"><h3><span class="ic">•</span>The followers increased to 15,000 in April.</h3></div><div class="sec"><h3><span class="ic">•</span>There was a big increase from March to April.</h3></div><div class="sec"><p>The café had 16,000 followers in May. 7. The number stayed the same in June.</p></div><div class="sec"><h3><span class="ic">•</span>The café had 16,000 followers in June.</h3></div><div class="sec"><h3><span class="ic">•</span>Overall, the followers increased from January to June.</h3></div></div></div></article>
+<article class="slide nopic" id="p15" style="--tint:#cdf3e4"><div class="txt card"><h2 class="dsp">มาเฟียบ้านนอก</h2><div class="body"><div class="sec"><p>1There was a sharp rise from March to April</p><p>2The number of followers reached 16,000 in May</p><p>3The number of followers stayed the same between May and June</p></div></div></div></article>
+<article class="slide nopic" id="p16" style="--tint:#d4e8ff"><div class="txt card"><h2 class="dsp">ไอ้หยาง &amp; ไอ้เหยิน</h2><div class="body"><div class="sec"><p>The followers went up from 4,000 in January to 5,000 in February</p><p>The café had 4,000 followers in January.</p><p>.</p><p>There was a big increase between March and April.</p><p>The number of followers increased to 9,000 in March.</p><p>The number stayed the same at 16,000 from May to June.</p><p>The followers reached 15,000 in April.</p></div></div></div></article>
+</section>
+<script>
+// Pick the column count that gives every tile the most room at a card-like shape,
+// then lay each tile out photo-left (wide tiles) or photo-top (tall tiles);
+// on landscape screens wide photo-left tiles win close calls (Mew prefers that look)
+function fitTiles(){
+  var g=document.querySelector('#tiles .grid');if(!g)return;
+  var n=g.children.length,gap=parseFloat(getComputedStyle(g).rowGap)||14,W=g.clientWidth,H=g.clientHeight,b=null;
+  for(var c=1;c<=n;c++){
+    var r=Math.ceil(n/c),w=(W-(c-1)*gap)/c,h=(H-(r-1)*gap)/r,a=w/h;
+    var s=w*h*Math.exp(-Math.abs(Math.log(a/1.6))*0.9)*(w<150?0.6:1)*(W>H&&w>=1.25*h?1.2:1);
+    if(!b||s>b.s)b={c:c,r:r,w:w,h:h,s:s};
+  }
+  var hz=b.w>=1.25*b.h,tw=hz?b.w*0.58:b.w;
+  g.className='grid '+(hz?'h':'v')+(b.h<170||b.w<150?' tight':'');
+  g.style.gridTemplateColumns='repeat('+b.c+',minmax(0,1fr))';
+  g.style.gridTemplateRows='repeat('+b.r+',minmax(0,1fr))';
+  g.style.setProperty('--pw',Math.min(b.h-4,b.w*0.42)+'px');
+  g.style.setProperty('--phh',Math.min(b.w*0.68,b.h*0.46)+'px');
+  g.style.setProperty('--fs',Math.max(10.5,Math.min(13.5,tw/22)).toFixed(1)+'px');
+}
+var slides=[].slice.call(document.querySelectorAll('.slide')),cur=-1;
+// Largest text size at which the whole profile fits its card, in one or two text columns
+// (whichever reads bigger); scroll only if even the smallest size won't fit
+function fitSlide(s){
+  var t=s.querySelector('.txt'),b=s.querySelector('.body'),best={f:0,c2:false};
+  s.classList.remove('scroll');
+  [false,true].forEach(function(c2){
+    if(c2&&t.clientWidth<620)return;
+    b.classList.toggle('c2',c2);
+    var lo=12,hi=34;
+    while(hi-lo>0.5){var m=(lo+hi)/2;t.style.setProperty('--f',m+'px');if(t.scrollHeight>t.clientHeight+1)hi=m;else lo=m;}
+    if(lo>best.f+1)best={f:lo,c2:c2}; // two columns only when clearly bigger
+  });
+  b.classList.toggle('c2',best.c2);
+  t.style.setProperty('--f',best.f+'px');
+  if(t.scrollHeight>t.clientHeight+1)s.classList.add('scroll');
+}
+function show(i){
+  slides.forEach(function(s,k){s.classList.toggle('on',k==i);});
+  cur=i;fitSlide(slides[i]);
+  document.querySelector('.count').textContent=(i+1)+' / '+slides.length;
+  document.querySelector('.prev').disabled=i==0;
+  document.querySelector('.next').disabled=i==slides.length-1;
+}
+// Tile view by default; #p<n> presents that company
+function view(){
+  var m=/^#(p\d+)$/.exec(location.hash),i=m?slides.findIndex(function(s){return s.id==m[1];}):-1,r=document.documentElement;
+  r.className=i<0?'tiles':'full';
+  if(i<0){cur=-1;fitTiles();}else show(i);
+}
+function go(d){
+  var i=cur+d;if(cur<0||i<0||i>=slides.length)return;
+  history.replaceState(null,'','#'+slides[i].id);show(i);
+}
+document.querySelector('.prev').onclick=function(){go(-1);};
+document.querySelector('.next').onclick=function(){go(1);};
+var fsb=document.querySelector('.fs');
+if(document.fullscreenEnabled)fsb.onclick=function(){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();};
+else fsb.style.display='none';
+document.addEventListener('fullscreenchange',function(){fsb.textContent=document.fullscreenElement?'Exit full screen':'Full screen';});
+addEventListener('keydown',function(e){
+  if(cur<0||e.altKey||e.ctrlKey||e.metaKey)return;
+  if(['ArrowRight','PageDown',' '].indexOf(e.key)>=0){go(1);e.preventDefault();}
+  else if(['ArrowLeft','PageUp'].indexOf(e.key)>=0){go(-1);e.preventDefault();}
+  else if(e.key=='Escape'&&!document.fullscreenElement)location.hash='';
+});
+view();addEventListener('hashchange',view);
+addEventListener('resize',function(){cur<0?fitTiles():fitSlide(slides[cur]);});
+if(document.fonts)document.fonts.ready.then(function(){cur<0?fitTiles():fitSlide(slides[cur]);});
+</script>
+</body></html>

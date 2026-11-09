@@ -1,5 +1,29 @@
 [
  {
+  "week": "wk14-changed",
+  "section": "EC30",
+  "title": "Week 14 Brainstorm: What Changed in Your Company?",
+  "when": "2026-11-09T15:20:00+07:00",
+  "board": "wk14-changed/ec30.html",
+  "wall": "834737"
+ },
+ {
+  "week": "wk14-chart",
+  "section": "EC30",
+  "title": "Week 14 Think-Pair-Share: Describe a Chart",
+  "when": "2026-11-09T15:20:00+07:00",
+  "board": "wk14-chart/ec30.html",
+  "wall": "624232"
+ },
+ {
+  "week": "wk14-chart",
+  "section": "CA48",
+  "title": "Week 14 Think-Pair-Share: Describe a Chart",
+  "when": "2026-11-09T11:30:00+07:00",
+  "board": "wk14-chart/ca48.html",
+  "wall": "285545"
+ },
+ {
   "week": "wk13-spot9",
   "section": "AC21",
   "title": "Week 13 Think-Pair-Share: Spot the Nine Mistakes",
