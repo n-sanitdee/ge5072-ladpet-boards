@@ -56,11 +56,12 @@ PRESETS = {
     "wk13-profile": ("Week 13", "Brainstorm", "Map Your Company Profile", "companies", "company"),
     "wk14-chart": ("Week 14", "Think-Pair-Share", "Describe a Chart", "pairs", "pair"),
     "wk14-company": ("Week 14", "Think-Pair-Share", "Describe a Chart", "pairs", "pair"),  # 11 Nov 2026: one company + six charts per pair
+    "wk14-company2": ("Week 14", "Think-Pair-Share", "Describe a Chart", "pairs", "pair"),  # 11 Nov 13:10: one company + TWO of its charts
     "wk14-changed": ("Week 14", "Brainstorm", "What Changed in Your Company?", "companies", "company"),
 }
 ASPECTS14 = ["Sales", "Customers", "Prices", "Costs", "Online", "Branches & staff"]  # = the app's wk14-changed boxes
 
-FOLDER = {"wk12-company": "wk12", "wk14-company": "wk14-chart"}  # both Describe a Chart versions share one board folder
+FOLDER = {"wk12-company": "wk12", "wk14-company": "wk14-chart", "wk14-company2": "wk14-chart"}  # both Describe a Chart versions share one board folder
 
 
 # ── Firebase over REST ──────────────────────────────────────────
@@ -228,11 +229,15 @@ def archive(fb, code, pub, created_ms, linked):
         row = {"n": n, "id": tid, "at": p.get("at", 0), "nick": o["nick"] if o and o.get("nick") else team,
                "company": o["company"] if o and o.get("company") else guess_company(text, team) if cfg.get("noun", "companies") == "companies" else team,
                "photo": bool(p.get("photo")), "text": text}
-        if pub["preset"] == "wk14-company":
-            # 11 Nov 2026: the company Ladpet gave the pair (index into tools/wk14_companies.json) + one sentence per chart
+        if pub["preset"] in ("wk14-company", "wk14-company2"):
+            # 11 Nov 2026: the company Ladpet gave the pair (index into tools/wk14_companies.json) + one sentence per chart;
+            # wk14-company2 shows only the company's two picked aspects ("pick")
             fields = p.get("fields") or {}
             row["co"] = p.get("choice")
-            row["aspects"] = [(fields.get(f"f{i}") or "").strip() for i in range(6)]
+            two = pub["preset"] == "wk14-company2"
+            if two:
+                row["pick"] = build.companies()["companies"][row["co"]]["pick"] if isinstance(row["co"], int) else [0, 1]
+            row["aspects"] = [(fields.get(f"f{i}") or "").strip() for i in range(2 if two else 6)]
         if row["photo"]:
             full, thumb = d / "img" / f"{lc}-{n}.jpg", d / "thumbs" / f"{lc}-{n}.jpg"
             if not o or o.get("at") != row["at"] or not full.exists():

@@ -107,16 +107,22 @@ def chart_svg(chart, accent="#d9480f"):
     return f'<svg viewBox="0 0 {W} {H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="{esc(chart["title"])}">{"".join(out)}</svg>'
 
 
+def shown_aspects(p):
+    """Indexes of the aspects a post's charts show: its "pick" (two-chart version) or all six."""
+    return p.get("pick") or list(range(len(companies()["aspects"])))
+
+
 def company_slide_body(p, c):
-    """The pair's six charts, each with its sentence under it."""
+    """The pair's charts (six, or the company's two picked ones), each with its sentence under it."""
     aspects = companies()["aspects"]
     cells = []
-    for i, a in enumerate(aspects):
+    for k, i in enumerate(shown_aspects(p)):
+        a = aspects[i]
         ch = c["charts"][i] if c else None
-        sent = (p.get("aspects") or [""] * 6)[i] if i < len(p.get("aspects") or []) else ""
-        cells.append(f'<div class="cc"><div class="ct"><b>{i + 1} · {esc(a)}</b>{" " + esc(ch["title"]) if ch else ""}</div>'
+        sent = (p.get("aspects") or [])[k] if k < len(p.get("aspects") or []) else ""
+        cells.append(f'<div class="cc"><div class="ct"><b>{k + 1} · {esc(a)}</b>{" " + esc(ch["title"]) if ch else ""}</div>'
                      f'{chart_svg(ch) if ch else ""}<p>{esc(sent) if sent else "—"}</p></div>')
-    return f'<div class="cg">{"".join(cells)}</div>'
+    return f'<div class="cg{" two" if len(cells) == 2 else ""}">{"".join(cells)}</div>'
 
 
 def esc(s):
@@ -362,6 +368,7 @@ html.full header.top,html.tiles .bar,html.tiles #slides,html.full #tiles{display
 .slide .cohd{display:flex;align-items:center;gap:.6em;margin:.35em 0 .6em}
 .slide .cohd img{width:2.6em;height:2.6em}.slide .cohd b{display:block;font-size:1.05em;line-height:1.15}.slide .cohd span{font-size:.82em;color:var(--muted);font-weight:700}
 .slide .cg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7em 1em}
+.slide .cg.two{grid-template-columns:repeat(2,minmax(0,1fr))}.slide .cg.two .cc svg{max-width:17em}
 .slide .cc{min-width:0;display:flex;flex-direction:column}
 .slide .cc .ct{font-size:.72em;font-weight:700;color:var(--muted);line-height:1.25;margin-bottom:.15em}
 .slide .cc .ct b{color:var(--acc);text-transform:uppercase;letter-spacing:.04em;margin-right:.3em}
@@ -462,7 +469,7 @@ def section_page(week, cfg, sec, data):
         if "aspects" in p:
             # Week 14 company version: the logo stands in for the photo; the slide shows the six charts + sentences
             aspects = companies()["aspects"]
-            det = "".join(f'<p><b>{esc(a)}</b> {esc(t)}</p>' for a, t in zip(aspects, p["aspects"]) if t)
+            det = "".join(f'<p><b>{esc(aspects[i])}</b> {esc(t)}</p>' for i, t in zip(shown_aspects(p), p["aspects"]) if t)
             img_t = f'<span class="ph logo"><img src="{logo_src(c)}" alt=""></span>' if c else ""
             tiles.append(
                 f'<a class="co" href="#p{p["n"]}" style="--tint:{tint}">{img_t}'

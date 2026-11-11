@@ -151,6 +151,10 @@
      "step": 5,
      "comma": false
     }
+   ],
+   "pick": [
+    1,
+    5
    ]
   },
   {
@@ -295,6 +299,10 @@
      "step": 1,
      "comma": false
     }
+   ],
+   "pick": [
+    0,
+    3
    ]
   },
   {
@@ -437,6 +445,10 @@
      "step": 5,
      "comma": false
     }
+   ],
+   "pick": [
+    4,
+    5
    ]
   },
   {
@@ -581,10 +593,45 @@
      "step": 20,
      "comma": false
     }
+   ],
+   "pick": [
+    2,
+    3
    ]
   }
  ],
  "tps_steps": [
+  [
+   "THINK",
+   "5 min",
+   "Take one chart each (three of you: two share a chart). On your own, write at least one sentence about your chart."
+  ],
+  [
+   "PAIR",
+   "3 min",
+   "Swap with your partner. Check each sentence: what changed + verb + how much + when?"
+  ],
+  [
+   "SHARE",
+   "5 min",
+   "Post both sentences on Ladpet, one box per chart. Hidden until everyone has posted."
+  ]
+ ],
+ "brainstorm_steps": [
+  [
+   "GROUP",
+   "10 min",
+   "Your own company: write your group's own sentence for each aspect — what changed, how much, when?"
+  ],
+  [
+   "POST",
+   "1 min",
+   "One phone per group posts the sentences. Add the AI-generated graph for your presentation slide if you have it. Hidden until everyone has posted."
+  ]
+ ],
+ "_note_brainstorm": "11 Nov 2026 (Mew, later): the Brainstorm has NO tap-to-build buttons any more - one free-text box per aspect (the group types its own sentences) + an optional upload of the AI-generated graph they will put on their presentation slide.",
+ "_note_pick": "11 Nov 2026 13:10 (Mew): six charts per pair was too much to review - each company now shows only 2 random aspects (\"pick\" = indexes into aspects/charts). All six charts stay here for the walls run with six (TS66 11 Nov 12:32).",
+ "tps_steps_six": [
   [
    "THINK",
    "5 min",
@@ -599,18 +646,6 @@
    "SHARE",
    "5 min",
    "Post all six sentences on Ladpet, one box per chart. Hidden until everyone has posted."
-  ]
- ],
- "brainstorm_steps": [
-  [
-   "GROUP",
-   "10 min",
-   "Your own company: for each aspect, what changed? Up, down or flat? How much? When? Build one sentence per aspect."
-  ],
-  [
-   "POST",
-   "1 min",
-   "One phone per group posts the sentences. Add a graph of one aspect or several if you have one. Hidden until everyone has posted."
   ]
  ]
 }
