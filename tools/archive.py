@@ -58,6 +58,8 @@ PRESETS = {
     "wk14-company": ("Week 14", "Think-Pair-Share", "Describe a Chart", "pairs", "pair"),  # 11 Nov 2026: one company + six charts per pair
     "wk14-changed": ("Week 14", "Brainstorm", "What Changed in Your Company?", "companies", "company"),
 }
+ASPECTS14 = ["Sales", "Customers", "Prices", "Costs", "Online", "Branches & staff"]  # = the app's wk14-changed boxes
+
 FOLDER = {"wk12-company": "wk12", "wk14-company": "wk14-chart"}  # both Describe a Chart versions share one board folder
 
 
@@ -218,6 +220,10 @@ def archive(fb, code, pub, created_ms, linked):
         else:
             n, next_n = next_n, next_n + 1
         text = post_text(p)
+        if pub["preset"] == "wk14-changed":
+            # 11 Nov 2026: one free-text box per aspect — keep each sentence under its aspect ("Sales: …")
+            fields = p.get("fields") or {}
+            text = "\n".join(f"{a}: {(fields.get(f'f{i}') or '').strip()}" for i, a in enumerate(ASPECTS14) if (fields.get(f"f{i}") or "").strip()) or text
         team = teams[tid].get("name", "")
         row = {"n": n, "id": tid, "at": p.get("at", 0), "nick": o["nick"] if o and o.get("nick") else team,
                "company": o["company"] if o and o.get("company") else guess_company(text, team) if cfg.get("noun", "companies") == "companies" else team,
