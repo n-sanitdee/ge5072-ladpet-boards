@@ -1,5 +1,13 @@
 [
  {
+  "week": "wk14-chart",
+  "section": "BS11",
+  "title": "Week 14 Think-Pair-Share: Describe a Chart",
+  "when": "2026-11-11T08:30:00+07:00",
+  "board": "wk14-chart/bs11.html",
+  "wall": "713978"
+ },
+ {
   "week": "wk14-changed",
   "section": "EC30",
   "title": "Week 14 Brainstorm: What Changed in Your Company?",
