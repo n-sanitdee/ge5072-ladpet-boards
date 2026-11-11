@@ -55,9 +55,10 @@ PRESETS = {
     "wk13-spot9": ("Week 13", "Think-Pair-Share", "Spot the Nine Mistakes", "pairs", "pair"),
     "wk13-profile": ("Week 13", "Brainstorm", "Map Your Company Profile", "companies", "company"),
     "wk14-chart": ("Week 14", "Think-Pair-Share", "Describe a Chart", "pairs", "pair"),
+    "wk14-company": ("Week 14", "Think-Pair-Share", "Describe a Chart", "pairs", "pair"),  # 11 Nov 2026: one company + six charts per pair
     "wk14-changed": ("Week 14", "Brainstorm", "What Changed in Your Company?", "companies", "company"),
 }
-FOLDER = {"wk12-company": "wk12"}
+FOLDER = {"wk12-company": "wk12", "wk14-company": "wk14-chart"}  # both Describe a Chart versions share one board folder
 
 
 # ── Firebase over REST ──────────────────────────────────────────
