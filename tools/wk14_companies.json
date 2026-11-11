@@ -1,0 +1,616 @@
+{
+ "_note": "Wk14 Think-Pair-Share (11 Nov 2026, Mew): Ladpet gives each pair ONE company (in turn, 1-4) and its six aspect charts; at least one sentence per chart = six per pair. Deck slide 15 shows the four logos only. Shared by build_wk14.py and ~/ge5072-class-wall/src/lib/presets.ts - keep them in step. Charts in ASPECTS order (= the Brainstorm branches).",
+ "aspects": [
+  "Sales",
+  "Customers",
+  "Prices",
+  "Costs",
+  "Online",
+  "Branches & staff"
+ ],
+ "companies": [
+  {
+   "name": "Doi Cloud Hotel",
+   "kind": "a hotel in Chiang Mai",
+   "colour": "#0f766e",
+   "logo": "img/wk14_companies/1_hotel.png",
+   "charts": [
+    {
+     "title": "Rooms sold per month",
+     "labels": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun"
+     ],
+     "values": [
+      1600,
+      1700,
+      1300,
+      950,
+      980,
+      1000
+     ],
+     "lo": 800,
+     "hi": 1800,
+     "step": 200,
+     "comma": true
+    },
+    {
+     "title": "Guests from abroad (%)",
+     "labels": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun"
+     ],
+     "values": [
+      40,
+      42,
+      45,
+      50,
+      55,
+      60
+     ],
+     "lo": 30,
+     "hi": 70,
+     "step": 10,
+     "comma": false
+    },
+    {
+     "title": "Room price (baht per night)",
+     "labels": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun"
+     ],
+     "values": [
+      1800,
+      1800,
+      1600,
+      1400,
+      1400,
+      1400
+     ],
+     "lo": 1000,
+     "hi": 2000,
+     "step": 200,
+     "comma": true
+    },
+    {
+     "title": "Electricity bill (thousand baht)",
+     "labels": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun"
+     ],
+     "values": [
+      120,
+      125,
+      150,
+      180,
+      185,
+      140
+     ],
+     "lo": 100,
+     "hi": 200,
+     "step": 20,
+     "comma": false
+    },
+    {
+     "title": "Instagram followers (thousand)",
+     "labels": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun"
+     ],
+     "values": [
+      12,
+      15,
+      13,
+      16,
+      14,
+      17
+     ],
+     "lo": 10,
+     "hi": 20,
+     "step": 2,
+     "comma": false
+    },
+    {
+     "title": "Hotel staff",
+     "labels": [
+      "2021",
+      "2022",
+      "2023",
+      "2024",
+      "2025"
+     ],
+     "values": [
+      25,
+      30,
+      30,
+      38,
+      45
+     ],
+     "lo": 20,
+     "hi": 50,
+     "step": 5,
+     "comma": false
+    }
+   ]
+  },
+  {
+   "name": "Moonbean Café",
+   "kind": "a café",
+   "colour": "#7c4a2d",
+   "logo": "img/wk14_companies/2_cafe.png",
+   "charts": [
+    {
+     "title": "Cups sold per month",
+     "labels": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun"
+     ],
+     "values": [
+      4000,
+      4200,
+      4100,
+      5500,
+      6800,
+      7000
+     ],
+     "lo": 3000,
+     "hi": 8000,
+     "step": 1000,
+     "comma": true
+    },
+    {
+     "title": "Regular customers",
+     "labels": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun"
+     ],
+     "values": [
+      300,
+      310,
+      305,
+      300,
+      310,
+      305
+     ],
+     "lo": 200,
+     "hi": 400,
+     "step": 50,
+     "comma": false
+    },
+    {
+     "title": "Latte price (baht)",
+     "labels": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun"
+     ],
+     "values": [
+      55,
+      55,
+      60,
+      60,
+      65,
+      65
+     ],
+     "lo": 40,
+     "hi": 70,
+     "step": 10,
+     "comma": false
+    },
+    {
+     "title": "Coffee beans (baht per kg)",
+     "labels": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun"
+     ],
+     "values": [
+      600,
+      650,
+      720,
+      700,
+      680,
+      560
+     ],
+     "lo": 500,
+     "hi": 800,
+     "step": 100,
+     "comma": false
+    },
+    {
+     "title": "TikTok followers (thousand)",
+     "labels": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun"
+     ],
+     "values": [
+      4,
+      5,
+      9,
+      15,
+      16,
+      16
+     ],
+     "lo": 0,
+     "hi": 20,
+     "step": 5,
+     "comma": false
+    },
+    {
+     "title": "Branches",
+     "labels": [
+      "2021",
+      "2022",
+      "2023",
+      "2024",
+      "2025"
+     ],
+     "values": [
+      1,
+      1,
+      2,
+      3,
+      5
+     ],
+     "lo": 0,
+     "hi": 6,
+     "step": 1,
+     "comma": false
+    }
+   ]
+  },
+  {
+   "name": "Butter Bloom Bakery",
+   "kind": "a bakery",
+   "colour": "#c2410c",
+   "logo": "img/wk14_companies/3_bakery.png",
+   "charts": [
+    {
+     "title": "Revenue (thousand baht)",
+     "labels": [
+      "2021",
+      "2022",
+      "2023",
+      "2024",
+      "2025"
+     ],
+     "values": [
+      2000,
+      2400,
+      2300,
+      3100,
+      3600
+     ],
+     "lo": 1000,
+     "hi": 4000,
+     "step": 500,
+     "comma": true
+    },
+    {
+     "title": "Customers per day",
+     "labels": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun"
+     ],
+     "values": [
+      180,
+      185,
+      240,
+      300,
+      310,
+      305
+     ],
+     "lo": 150,
+     "hi": 350,
+     "step": 50,
+     "comma": false
+    },
+    {
+     "title": "Croissant price (baht)",
+     "labels": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun"
+     ],
+     "values": [
+      45,
+      45,
+      45,
+      50,
+      50,
+      55
+     ],
+     "lo": 30,
+     "hi": 60,
+     "step": 10,
+     "comma": false
+    },
+    {
+     "title": "Butter (baht per kg)",
+     "labels": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun"
+     ],
+     "values": [
+      380,
+      400,
+      450,
+      520,
+      480,
+      470
+     ],
+     "lo": 300,
+     "hi": 600,
+     "step": 50,
+     "comma": false
+    },
+    {
+     "title": "Delivery-app orders per month",
+     "labels": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun"
+     ],
+     "values": [
+      900,
+      850,
+      700,
+      600,
+      650,
+      640
+     ],
+     "lo": 500,
+     "hi": 1000,
+     "step": 100,
+     "comma": false
+    },
+    {
+     "title": "Bakers",
+     "labels": [
+      "2021",
+      "2022",
+      "2023",
+      "2024",
+      "2025"
+     ],
+     "values": [
+      6,
+      8,
+      8,
+      12,
+      15
+     ],
+     "lo": 0,
+     "hi": 20,
+     "step": 5,
+     "comma": false
+    }
+   ]
+  },
+  {
+   "name": "Golden Field Rice",
+   "kind": "a jasmine rice company",
+   "colour": "#a16207",
+   "logo": "img/wk14_companies/4_rice.png",
+   "charts": [
+    {
+     "title": "Rice sold (tonnes per month)",
+     "labels": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun"
+     ],
+     "values": [
+      120,
+      115,
+      90,
+      85,
+      110,
+      140
+     ],
+     "lo": 50,
+     "hi": 150,
+     "step": 25,
+     "comma": false
+    },
+    {
+     "title": "Export customers",
+     "labels": [
+      "2021",
+      "2022",
+      "2023",
+      "2024",
+      "2025"
+     ],
+     "values": [
+      12,
+      15,
+      15,
+      20,
+      26
+     ],
+     "lo": 10,
+     "hi": 30,
+     "step": 5,
+     "comma": false
+    },
+    {
+     "title": "Jasmine rice price (baht per kg)",
+     "labels": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun"
+     ],
+     "values": [
+      38,
+      41,
+      45,
+      44,
+      39,
+      40
+     ],
+     "lo": 30,
+     "hi": 50,
+     "step": 5,
+     "comma": false
+    },
+    {
+     "title": "Fertiliser (baht per sack)",
+     "labels": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun"
+     ],
+     "values": [
+      900,
+      950,
+      1100,
+      1100,
+      1100,
+      1050
+     ],
+     "lo": 800,
+     "hi": 1200,
+     "step": 100,
+     "comma": true
+    },
+    {
+     "title": "Facebook followers (thousand)",
+     "labels": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun"
+     ],
+     "values": [
+      20,
+      21,
+      21,
+      22,
+      21,
+      21
+     ],
+     "lo": 10,
+     "hi": 30,
+     "step": 5,
+     "comma": false
+    },
+    {
+     "title": "Farm workers per month",
+     "labels": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun"
+     ],
+     "values": [
+      40,
+      45,
+      80,
+      85,
+      50,
+      40
+     ],
+     "lo": 20,
+     "hi": 100,
+     "step": 20,
+     "comma": false
+    }
+   ]
+  }
+ ],
+ "tps_steps": [
+  [
+   "THINK",
+   "5 min",
+   "Split the six charts: three each (three of you: two each). On your own, write at least one sentence for each of your charts."
+  ],
+  [
+   "PAIR",
+   "3 min",
+   "Swap with your partner. Check each sentence: what changed + verb + how much + when?"
+  ],
+  [
+   "SHARE",
+   "5 min",
+   "Post all six sentences on Ladpet, one box per chart. Hidden until everyone has posted."
+  ]
+ ],
+ "brainstorm_steps": [
+  [
+   "GROUP",
+   "10 min",
+   "Your own company: for each aspect, what changed? Up, down or flat? How much? When? Build one sentence per aspect."
+  ],
+  [
+   "POST",
+   "1 min",
+   "One phone per group posts the sentences. Add a graph of one aspect or several if you have one. Hidden until everyone has posted."
+  ]
+ ]
+}

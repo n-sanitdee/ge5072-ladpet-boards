@@ -222,6 +222,11 @@ def archive(fb, code, pub, created_ms, linked):
         row = {"n": n, "id": tid, "at": p.get("at", 0), "nick": o["nick"] if o and o.get("nick") else team,
                "company": o["company"] if o and o.get("company") else guess_company(text, team) if cfg.get("noun", "companies") == "companies" else team,
                "photo": bool(p.get("photo")), "text": text}
+        if pub["preset"] == "wk14-company":
+            # 11 Nov 2026: the company Ladpet gave the pair (index into tools/wk14_companies.json) + one sentence per chart
+            fields = p.get("fields") or {}
+            row["co"] = p.get("choice")
+            row["aspects"] = [(fields.get(f"f{i}") or "").strip() for i in range(6)]
         if row["photo"]:
             full, thumb = d / "img" / f"{lc}-{n}.jpg", d / "thumbs" / f"{lc}-{n}.jpg"
             if not o or o.get("at") != row["at"] or not full.exists():
@@ -246,7 +251,7 @@ def archive(fb, code, pub, created_ms, linked):
     if DRY:
         return "saved"
     data_file.parent.mkdir(parents=True, exist_ok=True)
-    data_file.write_text(json.dumps({"wall": code, "saved": f"{saved:%A}, {saved.day} {saved:%B %Y} at {saved:%H:%M}",
+    data_file.write_text(json.dumps({"wall": code, "preset": pub["preset"], "saved": f"{saved:%A}, {saved.day} {saved:%B %Y} at {saved:%H:%M}",
                                      "prompt": prompt, "posts": out}, ensure_ascii=False, indent=1), encoding="utf-8")
     for sec in cfg["sections"]:
         if sec["code"] == section:

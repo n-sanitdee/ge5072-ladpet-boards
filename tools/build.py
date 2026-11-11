@@ -54,6 +54,71 @@ footer{flex:none;text-align:center;color:var(--muted);font-size:12px;font-weight
 """
 
 
+# ---------- Week 14 · Describe a Chart, company version (11 Nov 2026) ----------
+# Ladpet gave each pair one company and its six charts (one per aspect); the posts keep "co" (the company's
+# index) and "aspects" (one sentence per chart). Data + logos are copied from the Ladpet app:
+# tools/wk14_companies.json (= Teaching/_slide_toolkit/wk14_companies.json) and assets/wk14/.
+_COMPANIES = None
+
+
+def companies():
+    global _COMPANIES
+    if _COMPANIES is None:
+        _COMPANIES = json.loads((ROOT / "tools" / "wk14_companies.json").read_text(encoding="utf-8"))
+    return _COMPANIES
+
+
+def company_of(p):
+    co = p.get("co")
+    cs = companies()["companies"]
+    return cs[co] if isinstance(co, int) and 0 <= co < len(cs) else None
+
+
+def logo_src(c):
+    return "../assets/wk14/" + c["logo"].rsplit("/", 1)[-1]
+
+
+def chart_svg(chart, accent="#d9480f"):
+    """One line chart as SVG — a port of the Ladpet app's chartSvg (compact)."""
+    W, H = 360, 190
+    fmt = (lambda v: f"{v:,}") if chart.get("comma") else (lambda v: str(v))
+    steps = list(range(chart["lo"], chart["hi"] + 1, chart["step"]))
+    left = 14 + max(len(fmt(v)) for v in steps) * 7.2
+    right, top, bottom = W - 12, 26, H - 26
+    n = len(chart["values"])
+    x = lambda i: left + (i + 0.5) * (right - left) / n
+    y = lambda v: bottom - (v - chart["lo"]) / (chart["hi"] - chart["lo"]) * (bottom - top)
+    font = 'font-family="Nunito,system-ui,sans-serif"'
+    out = []
+    for v in steps:
+        out.append(f'<line x1="{left:.1f}" x2="{right}" y1="{y(v):.1f}" y2="{y(v):.1f}" stroke="#e5e7eb" stroke-width="1"/>')
+        out.append(f'<text x="{left - 6:.1f}" y="{y(v) + 4:.1f}" text-anchor="end" font-size="11" fill="#64748b" {font}>{fmt(v)}</text>')
+    for i, lab in enumerate(chart["labels"]):
+        out.append(f'<text x="{x(i):.1f}" y="{H - 8}" text-anchor="middle" font-size="11" font-weight="700" fill="#334155" {font}>{esc(lab)}</text>')
+    vals = chart["values"]
+    pts = [(x(i), y(v)) for i, v in enumerate(vals)]
+    out.append(f'<polyline points="{" ".join(f"{a:.1f},{b:.1f}" for a, b in pts)}" fill="none" stroke="{accent}" stroke-width="3" stroke-linejoin="round"/>')
+    for i, (px, py) in enumerate(pts):
+        v = vals[i]
+        nb = [vals[j] for j in (i - 1, i + 1) if 0 <= j < n]
+        below = any(u - v > 0.08 * (chart["hi"] - chart["lo"]) for u in nb) and bottom - py > 22
+        out.append(f'<circle cx="{px:.1f}" cy="{py:.1f}" r="4.5" fill="{accent}"/>')
+        out.append(f'<text x="{px:.1f}" y="{py + 17 if below else py - 9:.1f}" text-anchor="middle" font-size="11" font-weight="800" fill="#0b3b3c" {font}>{fmt(v)}</text>')
+    return f'<svg viewBox="0 0 {W} {H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="{esc(chart["title"])}">{"".join(out)}</svg>'
+
+
+def company_slide_body(p, c):
+    """The pair's six charts, each with its sentence under it."""
+    aspects = companies()["aspects"]
+    cells = []
+    for i, a in enumerate(aspects):
+        ch = c["charts"][i] if c else None
+        sent = (p.get("aspects") or [""] * 6)[i] if i < len(p.get("aspects") or []) else ""
+        cells.append(f'<div class="cc"><div class="ct"><b>{i + 1} · {esc(a)}</b>{" " + esc(ch["title"]) if ch else ""}</div>'
+                     f'{chart_svg(ch) if ch else ""}<p>{esc(sent) if sent else "—"}</p></div>')
+    return f'<div class="cg">{"".join(cells)}</div>'
+
+
 def esc(s):
     return html.escape(s, quote=True)
 
@@ -292,12 +357,23 @@ html.full header.top,html.tiles .bar,html.tiles #slides,html.full #tiles{display
 .slide th{background:var(--tint);font-weight:800}
 .slide td.n,.slide th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 .slide .none{color:var(--muted);font-weight:700;margin-top:.8em}
+.co .ph.logo{background:var(--tint)}.co .ph.logo img{object-fit:contain;padding:8%}
+.slide.charts{grid-template-columns:minmax(0,1fr)}
+.slide .cohd{display:flex;align-items:center;gap:.6em;margin:.35em 0 .6em}
+.slide .cohd img{width:2.6em;height:2.6em}.slide .cohd b{display:block;font-size:1.05em;line-height:1.15}.slide .cohd span{font-size:.82em;color:var(--muted);font-weight:700}
+.slide .cg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7em 1em}
+.slide .cc{min-width:0;display:flex;flex-direction:column}
+.slide .cc .ct{font-size:.72em;font-weight:700;color:var(--muted);line-height:1.25;margin-bottom:.15em}
+.slide .cc .ct b{color:var(--acc);text-transform:uppercase;letter-spacing:.04em;margin-right:.3em}
+.slide .cc svg{display:block;width:100%;max-width:13em;height:auto;background:#fff;border:1.5px solid var(--ink);border-radius:.5em}
+.slide .cc p{margin:.3em 0 0}
 @media (max-width:700px) and (orientation:portrait){
   #slides{padding:10px 12px 12px}
   .slide,.slide.pic{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,38%) minmax(0,1fr);gap:12px}
   .slide.pic{grid-template-rows:minmax(0,1fr) auto}
   .slide.nopic{grid-template-rows:minmax(0,1fr)}
   .slide .photo img{inset:8px;width:calc(100% - 16px);height:calc(100% - 16px)}
+  .slide .cg{grid-template-columns:repeat(2,minmax(0,1fr))}
   .bar{padding:6px 10px;gap:6px}.bar .ttl,.bar .fs{display:none}.bar button{padding:2px 10px}
 }
 @media (prefers-reduced-motion:reduce){.slide.on{animation:none}a.co,a.card{transition:none}}
@@ -330,7 +406,7 @@ function fitSlide(s){
   var t=s.querySelector('.txt'),b=s.querySelector('.body'),best={f:0,c2:false};
   s.classList.remove('scroll');
   [false,true].forEach(function(c2){
-    if(c2&&t.clientWidth<620)return;
+    if(c2&&(t.clientWidth<620||s.classList.contains('charts')))return;
     b.classList.toggle('c2',c2);
     var lo=12,hi=34;
     while(hi-lo>0.5){var m=(lo+hi)/2;t.style.setProperty('--f',m+'px');if(t.scrollHeight>t.clientHeight+1)hi=m;else lo=m;}
@@ -382,6 +458,23 @@ def section_page(week, cfg, sec, data):
     tiles, slides = [], []
     for i, p in enumerate(posts):
         tint = TINTS[i % len(TINTS)]
+        c = company_of(p) if "aspects" in p else None
+        if "aspects" in p:
+            # Week 14 company version: the logo stands in for the photo; the slide shows the six charts + sentences
+            aspects = companies()["aspects"]
+            det = "".join(f'<p><b>{esc(a)}</b> {esc(t)}</p>' for a, t in zip(aspects, p["aspects"]) if t)
+            img_t = f'<span class="ph logo"><img src="{logo_src(c)}" alt=""></span>' if c else ""
+            tiles.append(
+                f'<a class="co" href="#p{p["n"]}" style="--tint:{tint}">{img_t}'
+                f'<span class="tx"><span class="nm">{esc(p["company"])}</span>'
+                + (f'<span class="by">{esc(c["name"])}</span>' if c else "") +
+                f'<span class="det">{det}</span><span class="more">Present ▶</span></span></a>')
+            head = (f'<div class="cohd"><img src="{logo_src(c)}" alt=""><div><b>{esc(c["name"])}</b><span>{esc(c["kind"])}</span></div></div>'
+                    if c else "")
+            slides.append(
+                f'<article class="slide nopic charts" id="p{p["n"]}" style="--tint:{tint}"><div class="txt card">'
+                f'<h2 class="dsp">{esc(p["company"])}</h2>{head}<div class="body">{company_slide_body(p, c)}</div></div></article>')
+            continue
         tagline, secs = parse(p["text"], p["company"])
         has_text = bool(secs or tagline)
         img_t = f'<span class="ph"><img src="thumbs/{lc}-{p["n"]}.jpg" alt=""></span>' if p["photo"] else ""
@@ -517,7 +610,7 @@ def index_page(week, cfg, datas):
         if data:
             cells = "\n".join(
                 f'<span class="mc" style="--tint:{TINTS[i % len(TINTS)]}"><span class="ph">'
-                + (f'<img src="thumbs/{lc}-{p["n"]}.jpg" alt="">' if p["photo"] else f'<span class="ini">{esc(p["company"][:1].upper())}</span>')
+                + (f'<img src="thumbs/{lc}-{p["n"]}.jpg" alt="">' if p["photo"] else f'<img src="{logo_src(company_of(p))}" alt="">' if company_of(p) else f'<span class="ini">{esc(p["company"][:1].upper())}</span>')
                 + f'</span><span class="nm">{esc(p["company"])}</span></span>'
                 for i, p in enumerate(data["posts"]))
             boards.append(f'<a class="card" href="{lc}.html" style="--acc:{acc}"><span class="hd">'
