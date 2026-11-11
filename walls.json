@@ -1,5 +1,29 @@
 [
  {
+  "week": "wk14-changed",
+  "section": "TS66",
+  "title": "Week 14 Brainstorm: What Changed in Your Company?",
+  "when": "2026-11-11T11:30:00+07:00",
+  "board": "wk14-changed/ts66.html",
+  "wall": "767096"
+ },
+ {
+  "week": "wk14-chart",
+  "section": "TS66",
+  "title": "Week 14 Think-Pair-Share: Describe a Chart",
+  "when": "2026-11-11T11:30:00+07:00",
+  "board": "wk14-chart/ts66.html",
+  "wall": "606352"
+ },
+ {
+  "week": "wk14-changed",
+  "section": "BS11",
+  "title": "Week 14 Brainstorm: What Changed in Your Company?",
+  "when": "2026-11-11T08:30:00+07:00",
+  "board": "wk14-changed/bs11.html",
+  "wall": "697168"
+ },
+ {
   "week": "wk14-chart",
   "section": "BS11",
   "title": "Week 14 Think-Pair-Share: Describe a Chart",

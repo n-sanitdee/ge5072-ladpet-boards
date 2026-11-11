@@ -12,7 +12,8 @@
   },
   {
    "code": "BS11",
-   "class": "Wed 11 Nov · 08:30"
+   "class": "Wed 11 Nov · 08:30",
+   "wall": "697168"
   },
   {
    "code": "CA48",
@@ -29,7 +30,8 @@
   },
   {
    "code": "TS66",
-   "class": "Wed 11 Nov · 11:30"
+   "class": "Wed 11 Nov · 11:30",
+   "wall": "767096"
   }
  ]
 }
