@@ -1,6 +1,22 @@
 [
  {
   "week": "wk14-changed",
+  "section": "AC21",
+  "title": "Week 14 Brainstorm: What Changed in Your Company?",
+  "when": "2026-11-12T15:20:00+07:00",
+  "board": "wk14-changed/ac21.html",
+  "wall": "615445"
+ },
+ {
+  "week": "wk14-chart",
+  "section": "AC21",
+  "title": "Week 14 Think-Pair-Share: Describe a Chart",
+  "when": "2026-11-12T15:20:00+07:00",
+  "board": "wk14-chart/ac21.html",
+  "wall": "740919"
+ },
+ {
+  "week": "wk14-changed",
   "section": "CA50",
   "title": "Week 14 Brainstorm: What Changed in Your Company?",
   "when": "2026-11-12T11:30:00+07:00",

@@ -1,0 +1,296 @@
+{
+ "wall": "740919",
+ "preset": "wk14-company2",
+ "saved": "Thursday, 12 November 2026 at 16:11",
+ "prompt": [],
+ "posts": [
+  {
+   "n": 1,
+   "id": "3mWAVfd5rwI99Yvu0TB2",
+   "at": 1794474411023,
+   "nick": "Somwaan & Gigi",
+   "company": "Somwaan & Gigi",
+   "photo": false,
+   "text": "The percentage of guests from abroad experienced a continuous increase throughout the first half of the year, starting at 40% in January and reaching a peak of 60% in June.\nThe number of hotel staff increased from 25 in 2021 to 30 in 2022. It remained stable in 2023, then rose to 38 in 2024 and reached 45 in 2025. Overall, the number of hotel staff showed an upward trend.",
+   "co": 0,
+   "pick": [
+    1,
+    5
+   ],
+   "aspects": [
+    "The percentage of guests from abroad experienced a continuous increase throughout the first half of the year, starting at 40% in January and reaching a peak of 60% in June.",
+    "The number of hotel staff increased from 25 in 2021 to 30 in 2022. It remained stable in 2023, then rose to 38 in 2024 and reached 45 in 2025. Overall, the number of hotel staff showed an upward trend."
+   ]
+  },
+  {
+   "n": 2,
+   "id": "SxytfYtjy2o06MDa7pYl",
+   "at": 1794474429659,
+   "nick": "Aom & Naming",
+   "company": "Aom & Naming",
+   "photo": false,
+   "text": "1.The number of cups sold increased from 4,000 in January to 7,000 in June, rising by 3,000 cups.\n2.Sales rose from 4,100 cups in March to 5,500 cups in April.\n1.The price of coffee beans increased significantly by 120 baht from January to March.\n2.Coffee bean costs rose to a peak of 720 baht in March before falling to 560 baht in June.",
+   "co": 1,
+   "pick": [
+    0,
+    3
+   ],
+   "aspects": [
+    "1.The number of cups sold increased from 4,000 in January to 7,000 in June, rising by 3,000 cups.\n2.Sales rose from 4,100 cups in March to 5,500 cups in April.",
+    "1.The price of coffee beans increased significantly by 120 baht from January to March.\n2.Coffee bean costs rose to a peak of 720 baht in March before falling to 560 baht in June."
+   ]
+  },
+  {
+   "n": 3,
+   "id": "h1DPVu2qZAPkKV5ciqtA",
+   "at": 1794474435229,
+   "nick": "Am & Tong",
+   "company": "Am & Tong",
+   "photo": false,
+   "text": "Delivery-app orders decreased from 900 in January to 600 in April, then increased slightly to 650 in May.\nThe number of bakers increased from 5 in 2021 to 15 in 2025, with a small decrease in 2023.",
+   "co": 2,
+   "pick": [
+    4,
+    5
+   ],
+   "aspects": [
+    "Delivery-app orders decreased from 900 in January to 600 in April, then increased slightly to 650 in May.",
+    "The number of bakers increased from 5 in 2021 to 15 in 2025, with a small decrease in 2023."
+   ]
+  },
+  {
+   "n": 4,
+   "id": "hojTOgc8eB2FvjjbKbuS",
+   "at": 1794474449356,
+   "nick": "Get & Few",
+   "company": "Get & Few",
+   "photo": false,
+   "text": "The price of jasmine rice increased from 38 baht in January to a peak of 45 baht in March, then decreased to 39 baht in May before rising slightly to 40 baht in June.\nThe price of fertiliser increased from 900 baht in January to 1,100 baht in March, remained stable until May, and then decreased slightly to 1,050 baht in June.",
+   "co": 3,
+   "pick": [
+    2,
+    3
+   ],
+   "aspects": [
+    "The price of jasmine rice increased from 38 baht in January to a peak of 45 baht in March, then decreased to 39 baht in May before rising slightly to 40 baht in June.",
+    "The price of fertiliser increased from 900 baht in January to 1,100 baht in March, remained stable until May, and then decreased slightly to 1,050 baht in June."
+   ]
+  },
+  {
+   "n": 5,
+   "id": "UWDtVLfbeqlsRxxDNqHJ",
+   "at": 1794474449770,
+   "nick": "มินโน่",
+   "company": "มินโน่",
+   "photo": false,
+   "text": "The line graph illustrates the percentage of foreign guests at Doi Cloud Hotel from January to June. Overall, the proportion of international guests experienced a steady upward trend over the period. To specify, it started at 40 percent in January, fluctuated slightly in February and March, and eventually reached a peak of 60 percent in June\nThe line graph displays the number of hotel staff at Doi Cloud Hotel between 2021 and 2025. Overall, there was a consistent increase in the total workforce throughout the years. Specifically, the figure began at 25 staff members in 2021, remained stable at 30 from 2022 to 2023, and finally climbed to a high of 45 employees by 2025.",
+   "co": 0,
+   "pick": [
+    1,
+    5
+   ],
+   "aspects": [
+    "The line graph illustrates the percentage of foreign guests at Doi Cloud Hotel from January to June. Overall, the proportion of international guests experienced a steady upward trend over the period. To specify, it started at 40 percent in January, fluctuated slightly in February and March, and eventually reached a peak of 60 percent in June",
+    "The line graph displays the number of hotel staff at Doi Cloud Hotel between 2021 and 2025. Overall, there was a consistent increase in the total workforce throughout the years. Specifically, the figure began at 25 staff members in 2021, remained stable at 30 from 2022 to 2023, and finally climbed to a high of 45 employees by 2025."
+   ]
+  },
+  {
+   "n": 6,
+   "id": "9Ldc4shHYwtB8JA92DAg",
+   "at": 1794474453140,
+   "nick": "Guy & Coach",
+   "company": "Guy & Coach",
+   "photo": false,
+   "text": "Sales remained relatively steady between 4,000 and 4,200 cups from January to March, before experiencing a sharp increase to 5,500 cups in April and a significant rise to 6,800 cups in May, ultimately concluding with a slight increase to reach a peak of 7,000 cups in Ju\nThe cost of coffee beans started at 600 baht in January, went up to 720 baht in March, and then went down to 560 baht in June.",
+   "co": 1,
+   "pick": [
+    0,
+    3
+   ],
+   "aspects": [
+    "Sales remained relatively steady between 4,000 and 4,200 cups from January to March, before experiencing a sharp increase to 5,500 cups in April and a significant rise to 6,800 cups in May, ultimately concluding with a slight increase to reach a peak of 7,000 cups in Ju",
+    "The cost of coffee beans started at 600 baht in January, went up to 720 baht in March, and then went down to 560 baht in June."
+   ]
+  },
+  {
+   "n": 7,
+   "id": "6uV5q1hqKSOmC9qzpDJw",
+   "at": 1794474453605,
+   "nick": "Somjeed & Gogo",
+   "company": "Somjeed & Gogo",
+   "photo": false,
+   "text": "Delivery-app orders decreased from 900 orders in January to 600 orders in April, then slightly increased to 650 in May before falling to 640 in June.\nBullet 2021 to 2022: There was a slight increase from 6 to 8 bakers.\nBullet 2022 to 2023: The number of bakers remained steady at 8.\nBullet 2023 to 2024: There was a more significant increase from 8 to 12 bakers.\nBullet 2024 to 2025: The number continued to rise, reaching 15 bakers by 2025.\nOverall, this represents an increase of 9 bakers (from 6 to 15) over the five-year period.",
+   "co": 2,
+   "pick": [
+    4,
+    5
+   ],
+   "aspects": [
+    "Delivery-app orders decreased from 900 orders in January to 600 orders in April, then slightly increased to 650 in May before falling to 640 in June.",
+    "Bullet 2021 to 2022: There was a slight increase from 6 to 8 bakers.\nBullet 2022 to 2023: The number of bakers remained steady at 8.\nBullet 2023 to 2024: There was a more significant increase from 8 to 12 bakers.\nBullet 2024 to 2025: The number continued to rise, reaching 15 bakers by 2025.\nOverall, this represents an increase of 9 bakers (from 6 to 15) over the five-year period."
+   ]
+  },
+  {
+   "n": 8,
+   "id": "biCnKi487HvCadDv8U9Q",
+   "at": 1794474457322,
+   "nick": "Bell & Korya",
+   "company": "Bell & Korya",
+   "photo": false,
+   "text": "The price of jasmine rice increased from 38 baht per kilogram in January, reached a peak of 45 baht in March, dropped to 39 baht in May, and then slightly increased to 40 baht in June.\nThe cost of fertiliser steadily rose from 900 baht per sack in January, reached a peak of 1,100 baht from March to May, and then decreased to 1,050 baht in June.",
+   "co": 3,
+   "pick": [
+    2,
+    3
+   ],
+   "aspects": [
+    "The price of jasmine rice increased from 38 baht per kilogram in January, reached a peak of 45 baht in March, dropped to 39 baht in May, and then slightly increased to 40 baht in June.",
+    "The cost of fertiliser steadily rose from 900 baht per sack in January, reached a peak of 1,100 baht from March to May, and then decreased to 1,050 baht in June."
+   ]
+  },
+  {
+   "n": 9,
+   "id": "gclXLsucVRmdXMT0yzQg",
+   "at": 1794474458430,
+   "nick": "Two people",
+   "company": "Two people",
+   "photo": false,
+   "text": "There was a steady rise in foreign guests, from 40% in January to 60% in June.\nThe number of hotel staff increased from 25 in 2021 to 45 in 2025, although it remained unchanged between 2022 and 2023",
+   "co": 0,
+   "pick": [
+    1,
+    5
+   ],
+   "aspects": [
+    "There was a steady rise in foreign guests, from 40% in January to 60% in June.",
+    "The number of hotel staff increased from 25 in 2021 to 45 in 2025, although it remained unchanged between 2022 and 2023"
+   ]
+  },
+  {
+   "n": 10,
+   "id": "4N4gYvSdEWtXEO95yKqh",
+   "at": 1794474466908,
+   "nick": "Meesai",
+   "company": "Meesai",
+   "photo": false,
+   "text": "Monthly coffee sales remained steady around 4,000–4,200 cups from January to March before surging sharply to a peak of 7,000 cups in June.\nAfter peaking at 720 baht per kg in March, the cost of coffee beans decreased gradually over the next two months and dropped sharply to 560 baht per kg in June.",
+   "co": 1,
+   "pick": [
+    0,
+    3
+   ],
+   "aspects": [
+    "Monthly coffee sales remained steady around 4,000–4,200 cups from January to March before surging sharply to a peak of 7,000 cups in June.",
+    "After peaking at 720 baht per kg in March, the cost of coffee beans decreased gradually over the next two months and dropped sharply to 560 baht per kg in June."
+   ]
+  },
+  {
+   "n": 11,
+   "id": "BO6KDTPmlJNeCBAXTXV3",
+   "at": 1794474472119,
+   "nick": "May & Bowling",
+   "company": "May & Bowling",
+   "photo": false,
+   "text": "Delivery-app orders decreased by 300 orders from January to April, falling to 600 orders. There was a decrease of 300 orders in delivery-app orders.\nThe number of bakers increased by 9 from 2021 to 2025, rising from 6 to 15. There was an increase of 9 bakers.",
+   "co": 2,
+   "pick": [
+    4,
+    5
+   ],
+   "aspects": [
+    "Delivery-app orders decreased by 300 orders from January to April, falling to 600 orders. There was a decrease of 300 orders in delivery-app orders.",
+    "The number of bakers increased by 9 from 2021 to 2025, rising from 6 to 15. There was an increase of 9 bakers."
+   ]
+  },
+  {
+   "n": 12,
+   "id": "oDE0Qsj2jtFn1KSB90Yv",
+   "at": 1794474487288,
+   "nick": "Poom & Grat",
+   "company": "Poom & Grat",
+   "photo": false,
+   "text": "The price of jasmine rice rose from 38 baht per kg in January to a peak of 45 baht in March, then fell to 39 baht in May\nThe price of fertiliser increased from 900 baht per sack in January to 1,100 baht in March, stayed at 1,100 through May, and then dropped to 1,050 baht in June.",
+   "co": 3,
+   "pick": [
+    2,
+    3
+   ],
+   "aspects": [
+    "The price of jasmine rice rose from 38 baht per kg in January to a peak of 45 baht in March, then fell to 39 baht in May",
+    "The price of fertiliser increased from 900 baht per sack in January to 1,100 baht in March, stayed at 1,100 through May, and then dropped to 1,050 baht in June."
+   ]
+  },
+  {
+   "n": 13,
+   "id": "X8hfzpR3BT2if6rjwS8n",
+   "at": 1794474490037,
+   "nick": "Fah & Kat",
+   "company": "Fah & Kat",
+   "photo": false,
+   "text": "The chart shows the percentage of guests from abroad from January to June.\n\nIn January, the percentage was 40%. It increased slightly to 42% in February. In March, it rose to 48%, and continued to increase to 50% in April. In May, it reached 55%, and finally increased to 60% in June.\n\nOverall, the percentage of foreign guests increased steadily over the six months. June had the highest percentage.\nThe chart shows the number of hotel staff from 2021 to 2025.\n\nIn 2021, the hotel had 25 staff members. The number increased to 30 in 2022 and remained the same in 2023. In 2024, it increased to 38 staff members. Finally, in 2025, the number reached 45.\n\nOverall, the number of hotel staff increased over the five years. The highest number was in 2025.",
+   "co": 0,
+   "pick": [
+    1,
+    5
+   ],
+   "aspects": [
+    "The chart shows the percentage of guests from abroad from January to June.\n\nIn January, the percentage was 40%. It increased slightly to 42% in February. In March, it rose to 48%, and continued to increase to 50% in April. In May, it reached 55%, and finally increased to 60% in June.\n\nOverall, the percentage of foreign guests increased steadily over the six months. June had the highest percentage.",
+    "The chart shows the number of hotel staff from 2021 to 2025.\n\nIn 2021, the hotel had 25 staff members. The number increased to 30 in 2022 and remained the same in 2023. In 2024, it increased to 38 staff members. Finally, in 2025, the number reached 45.\n\nOverall, the number of hotel staff increased over the five years. The highest number was in 2025."
+   ]
+  },
+  {
+   "n": 14,
+   "id": "SFYoLNpgEhqdHBEGmoOJ",
+   "at": 1794474504995,
+   "nick": "lovecat",
+   "company": "lovecat",
+   "photo": false,
+   "text": "The sales increased from 4,000 cups in January to 7,000 cups in June, with a small decrease in March.\nThe price of coffee beans increased from 600 baht per kg in January to 720 baht in March, then decreased to 560 baht in June.",
+   "co": 1,
+   "pick": [
+    0,
+    3
+   ],
+   "aspects": [
+    "The sales increased from 4,000 cups in January to 7,000 cups in June, with a small decrease in March.",
+    "The price of coffee beans increased from 600 baht per kg in January to 720 baht in March, then decreased to 560 baht in June."
+   ]
+  },
+  {
+   "n": 15,
+   "id": "eZdrfbMaR64IEKeGuF7l",
+   "at": 1794474513498,
+   "nick": "กี้รี่",
+   "company": "กี้รี่",
+   "photo": false,
+   "text": "Delivery-app orders decreased sharply by 300 from January to April, then rose slightly by 50 in May.\nThe number of bakers increased steadily by 9 from 2021 to 2025.",
+   "co": 2,
+   "pick": [
+    4,
+    5
+   ],
+   "aspects": [
+    "Delivery-app orders decreased sharply by 300 from January to April, then rose slightly by 50 in May.",
+    "The number of bakers increased steadily by 9 from 2021 to 2025."
+   ]
+  },
+  {
+   "n": 16,
+   "id": "rlMvAJbzwWmB4wHAprIF",
+   "at": 1794474718756,
+   "nick": "aom & nai",
+   "company": "aom & nai",
+   "photo": false,
+   "text": "The percentage of guests from abroad increased steadily from 40% in January to 60% in June.\nHotel staffing remained stable at 30 employees between 2022 and 2023 before rising again.",
+   "co": 0,
+   "pick": [
+    1,
+    5
+   ],
+   "aspects": [
+    "The percentage of guests from abroad increased steadily from 40% in January to 60% in June.",
+    "Hotel staffing remained stable at 30 employees between 2022 and 2023 before rising again."
+   ]
+  }
+ ]
+}
