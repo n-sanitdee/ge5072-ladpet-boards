@@ -182,7 +182,16 @@ def new_folder_cfg(pub, created):
 
 
 # ── one wall ────────────────────────────────────────────────────
+# Never published (Mew, 20 Nov 2026): Week 16 peer review holds other groups' Final Projects and Mew's marks.
+# The wall is left alone here (not saved, not deleted at 3 h); the class wall's 6-hour clean-up deletes it, after
+# ge5072-class-wall scripts/collect-reviews.ts has copied it to Mew's private OneDrive folder.
+PRIVATE = {"wk16-review"}
+
+
 def archive(fb, code, pub, created_ms, linked):
+    if pub.get("preset") in PRIVATE:
+        print(f"  {code}: {pub['preset']} is private — not published")
+        return "private"
     created = datetime.fromtimestamp(created_ms / 1000, TH)
     section = pub.get("section")
     if code in linked:
@@ -294,7 +303,10 @@ def main():
             state = ("ended" if pub.get("ended") else "joining closed" if pub.get("locked") else "open") + f", {age / 3600000:.1f} h"
             print(f"{code} {pub.get('section')} {pub.get('preset')} ({state})")
             result = "wait"
-            if due and showing:
+            if pub.get("preset") in PRIVATE:
+                print(f"  {pub['preset']} is private — not published, not deleted here")
+                result = "private"
+            elif due and showing:
                 try:
                     result = archive(fb, code, pub, created_ms, linked)
                 except Exception as e:  # noqa: BLE001 — keep the wall; try again next run
